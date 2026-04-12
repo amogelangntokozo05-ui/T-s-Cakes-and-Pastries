@@ -56,7 +56,8 @@
                 <p>
                     <!-- Semantic label linked to input using 'for' and 'id' attributes -->
                     <label for="fullName">Full Name:</label><br>
-                    <input type="text" id="fullName" name="fullName" required placeholder="Thabo Mokoena">
+                    <!-- Using Regex pattern to ensure only letters and spaces are submitted -->
+                    <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z\s]{3,50}" title="Please enter a valid name using alphabetical letters (3-50 characters)." placeholder="Thabo Mokoena">
                 </p>
                 
                 <p>
@@ -66,8 +67,8 @@
 
                 <p>
                     <label for="phoneNum">Phone Number:</label><br>
-                    <!-- Using type='tel' for better mobile keyboard support -->
-                    <input type="tel" id="phoneNum" name="phoneNum" required placeholder="072 432 9811">
+                    <!-- Using type='tel' alongside a Regex pattern to enforce strict client-side validation -->
+                    <input type="tel" id="phoneNum" name="phoneNum" required pattern="[0-9]{10}" title="Please enter exactly 10 digits without spaces (e.g. 0724329811)." placeholder="0724329811">
                 </p>
             </fieldset>
 

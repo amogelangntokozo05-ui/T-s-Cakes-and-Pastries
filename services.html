@@ -37,40 +37,143 @@
         <h2>Our Products and Services</h2>
         <p>We serve families, students, working professionals, and anyone who enjoys freshly baked goods. We cater to birthdays, celebrations, funerals, and special events within the local community.</p>
 
-        <!-- Product entries broken down into logical sections and articles -->
-        <section id="products">
-            <!-- Product: Cakes -->
-            <article>
-                <h3>Cakes</h3>
-                <p>We craft custom-designed cakes for all occasions, ensuring they not only look stunning but taste phenomenal.</p>
-                <img src="Images/Cake114.jpg" alt="Fresh Custom Cake" width="250">
+        <!-- Product Container Query Wrappers -->
+        <section id="products" class="product-grid" style="background: transparent; padding:0; box-shadow:none;">
+            <article class="product-card">
+                <img src="Images/Cake114.jpg" alt="Fresh Custom Cake">
+                <div class="card-content">
+                    <h3>Signature Cakes</h3>
+                    <p>We craft custom-designed cakes for all occasions. Our master bakers specialize in multi-tiered wedding cakes, novelty birthday designs, and elegant corporate centerpieces.</p>
+                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
+                        <li>Classic Vanilla Sponge & Chocolate Truffle</li>
+                        <li>Red Velvet with Cream Cheese Frosting</li>
+                        <li>Vegan & Gluten-Free options available</li>
+                    </ul>
+                    <p><em>Prices start from R450</em></p>
+                </div>
             </article>
 
-            <!-- Product: Bread -->
-            <article>
-                <h3>Bread</h3>
-                <p>Freshly baked bread with a crispy crust and soft center, perfect for breakfast or any family gathering.</p>
+            <article class="product-card">
+                <!-- Utilizing a high quality alternative image since Bread isn't explicitly in the image drive -->
+                <img src="Images/Scones668.jpg" alt="Freshly baked goods">
+                <div class="card-content">
+                    <h3>Baked Loaves & Scones</h3>
+                    <p>Freshly baked bread with a crispy crust and soft center. Our scones are a local community legend, baked fresh every two hours so they are always served warm.</p>
+                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
+                        <li>Traditional Buttermilk Scones</li>
+                        <li>Cheese & Chive Savory Scones</li>
+                        <li>Artisanal Sourdough Loaves</li>
+                    </ul>
+                    <p><em>Prices start from R45 / batch</em></p>
+                </div>
             </article>
 
-            <!-- Product: Pastries -->
-            <article>
-                <h3>Pastries</h3>
-                <p>From flaky croissants to sweet Danishes, our pastries are baked fresh every morning.</p>
-                <img src="Images/pastries1102.jpg" alt="Flaky Pastries" width="250">
+            <article class="product-card">
+                <img src="Images/pastries1102.jpg" alt="Flaky Pastries">
+                <div class="card-content">
+                    <h3>Premium Pastries</h3>
+                    <p>From flaky croissants to sweet Danishes, our pastries are rolled and folded completely by hand using imported European butter for that signature, golden crispness.</p>
+                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
+                        <li>Hand-folded Butter Croissants</li>
+                        <li>Fruit & Custard Danishes</li>
+                        <li>Sticky Pecan Nut Buns</li>
+                    </ul>
+                    <p><em>Prices start from R25 / pastry</em></p>
+                </div>
             </article>
             
-            <!-- Product: Muffins -->
-            <article>
-                <h3>Muffins</h3>
-                <p>Gourmet muffins in multiple flavors baked fresh daily.</p>
-                <img src="Images/muffins25.jpg" alt="Muffins" width="250">
+            <article class="product-card">
+                <img src="Images/muffins25.jpg" alt="Muffins">
+                <div class="card-content">
+                    <h3>Gourmet Muffins</h3>
+                    <p>Gourmet muffins in multiple flavors baked fresh daily. Packed with real fruit, premium chocolate chunks, and locally sourced nuts, these are perfect for students and early-morning workers.</p>
+                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
+                        <li>Double Chocolate Fudge</li>
+                        <li>Blueberry & Lemon Zest</li>
+                        <li>Bran, Apple & Cinnamon (Healthy Option)</li>
+                    </ul>
+                    <p><em>Prices start from R20 / muffin</em></p>
+                </div>
             </article>
 
-            <!-- Service: Custom Orders -->
-            <article>
-                <h3>Custom Orders</h3>
-                <p>Have a specific vision? We work with you to create custom baked treats tailored exactly to your event's theme and size requirements.</p>
+            <article class="product-card">
+                <img src="Images/Cake3.jpg" alt="Specialty Cupcakes">
+                <div class="card-content">
+                    <h3>Specialty Cupcakes</h3>
+                    <p>Bite-sized perfection. Our specialty cupcakes are baked using the same premium ingredients as our signature cakes, topped with a velvety smooth mountain of Swiss meringue buttercream. A delightful alternative to a large cake.</p>
+                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
+                        <li>Salted Caramel & Pretzel Crunch</li>
+                        <li>Classic Carrot Cake with Walnuts</li>
+                        <li>Strawberry & Real Champagne Info</li>
+                    </ul>
+                    <p><em>Prices start from R35 / cupcake</em></p>
+                </div>
             </article>
+
+            <article class="product-card">
+                <img src="Images/pastries63.jpg" alt="Savory Pies">
+                <div class="card-content">
+                    <h3>Savory Pies & Quiches</h3>
+                    <p>Not everything we bake is sweet! We offer a massive range of deeply satisfying savory pies encased in our signature flaky, buttery crust. Perfect for a quick, warm lunch or explicitly catering a daytime corporate event.</p>
+                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
+                        <li>Classic Pepper Steak Pie</li>
+                        <li>Spinach and Feta Deep Quiche</li>
+                        <li>Chicken & Mushroom Traditional Bake</li>
+                    </ul>
+                    <p><em>Prices start from R55 / pie</em></p>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="Images/Cake002.jpg" alt="Custom Cookies">
+                <div class="card-content">
+                    <h3>Custom Frosted Cookies</h3>
+                    <p>Melt-in-your-mouth shortbread and butter cookies that can be professionally air-brushed and iced to exactly match any party theme or corporate logo. These are extremely popular as individually wrapped wedding favors.</p>
+                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
+                        <li>Rich Vanilla Bean Sugar Cookies</li>
+                        <li>Double Chunk Macadamia Nut</li>
+                        <li>Custom Royal Icing Designs</li>
+                    </ul>
+                    <p><em>Prices start from R18 / cookie</em></p>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="Images/muffins69877.jpg" alt="Breakfast Trays">
+                <div class="card-content">
+                    <h3>Catering Breakfast Trays</h3>
+                    <p>Take the hassle completely out of morning arrangements. We manually build massive, beautifully arranged breakfast trays featuring a mixed assortment of our absolute best miniature baked goods, ready to serve instantly.</p>
+                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
+                        <li>Miniature Croissant & Fresh Jam Board</li>
+                        <li>Assorted Fruit Danish Platter</li>
+                        <li>Mixed Muffins & Coffee Thermos Bundle</li>
+                    </ul>
+                    <p><em>Prices start from R350 / tray</em></p>
+                </div>
+            </article>
+        </section>
+
+        <!-- New Core Services Expansion replacing the custom order card with a full feature set -->
+        <br><br>
+        <section id="core-services">
+            <h2 style="text-align: center; color: var(--accent-pink-dark); font-size: 2.2rem;">Our Core Services</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #555;">Beyond baking, we provide comprehensive logistical catering services to make your event completely stress-free.</p>
+            <br>
+            <!-- Native inline grid deployment avoiding messy CSS linking for a one-off feature -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
+                    <h3>🚚 Local Delivery</h3>
+                    <p>We provide safe, temperature-controlled delivery within a 50km radius of our branches. We physically guarantee your highly delicate custom cakes will arrive in absolutely pristine condition for your event.</p>
+                </div>
+                <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
+                    <h3>🎉 Event Catering</h3>
+                    <p>Hosting a corporate breakfast or a massive wedding? We supply huge wholesale platters of pastries, muffins, and savory treats. We also provide tiered display stands and serving equipment on rental.</p>
+                </div>
+                <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
+                    <h3>👩‍🍳 Custom Consultations</h3>
+                    <p>Sit down with our Head Baker for a 1-on-1 complimentary tasting session. We will sit with you to sketch out the perfect design for your dream cake and let you sample our signature sponge flavors.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Gallery showing pictures of the baked goods as per the brief -->

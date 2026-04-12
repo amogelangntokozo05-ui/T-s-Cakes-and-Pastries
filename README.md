@@ -2,7 +2,7 @@
 
 ## Student Information
 - **Student Name:** [Amogelang Kunene]
-- **Student ID / Number:** [ST10071157]
+- **Student Number:** [ST10071157]
 - **Course :** WEDE5020
 
 ## Project Overview (complete)

@@ -85,6 +85,29 @@
                 </p>
 
                 <p>
+                    <label for="quantity">Estimated Quantity / Number of Guests:</label><br>
+                    <input type="number" id="quantity" name="quantity" min="1" placeholder="e.g. 50">
+                </p>
+
+                <p>
+                    <label>Dietary Requirements / Allergies:</label><br>
+                    <input type="checkbox" id="dietGluten" name="diet[]" value="gluten-free">
+                    <label for="dietGluten">Gluten-Free</label><br>
+                    <input type="checkbox" id="dietVegan" name="diet[]" value="vegan">
+                    <label for="dietVegan">Vegan</label><br>
+                    <input type="checkbox" id="dietNut" name="diet[]" value="nut-allergy">
+                    <label for="dietNut">Nut Allergy Aware</label>
+                </p>
+
+                <p>
+                    <label>Order Fulfillment Preference:</label><br>
+                    <input type="radio" id="pickup" name="fulfillment" value="pickup" checked>
+                    <label for="pickup">In-Store Pickup</label><br>
+                    <input type="radio" id="delivery" name="fulfillment" value="delivery">
+                    <label for="delivery">Delivery</label>
+                </p>
+
+                <p>
                     <label for="enquiryMessage">Enquiry Message:</label><br>
                     <textarea id="enquiryMessage" name="enquiryMessage" rows="5" cols="40" required placeholder="Please provide details about your order or question..."></textarea>
                 </p>

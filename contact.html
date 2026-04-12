@@ -1,69 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <!-- Document configuration tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Contact Us - T's Cakes and Pastries</title>
 </head>
-
 <body>
-
+    <!-- Website global header -->
     <header>
-
         <h1>T's Cakes and Pastries</h1>
-
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="services.html">Products</a>
-            <a href="enquiry.html">Enquiry</a>
-            <a href="contact.html">Contact</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Products & Services</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
-
     </header>
 
+    <!-- Main specific page content -->
     <main>
-
         <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Reach out to us using the contact details below, or send us a fast message via the contact form.</p>
 
-        <h3>Phone</h3>
-        <p>081 000 0000</p>
+        <!-- Section displaying direct contact information -->
+        <section id="contact-info">
+            <h3>Contact Information</h3>
+            <ul>
+                <li><strong>Phone:</strong> 081 000 0000</li>
+                <li><strong>Email:</strong> info@tscakes.co.za</li>
+                <li><strong>Social Media:</strong> <a href="#">Facebook</a> | <a href="#">Instagram</a></li>
+            </ul>
+        </section>
 
-        <h3>Email</h3>
-        <p>info@tscakes.co.za</p>
+        <!-- Section mapping out store locations with embedded interactive maps -->
+        <section id="locations">
+            <h3>Our Locations</h3>
+            <p>Come visit us at any of our branches!</p>
 
-        <h3>Location 1</h3>
-        <p>Johannesburg, South Africa</p>
+            <!-- Location 1 Map (using Google maps iframe embed) -->
+            <article>
+                <h4>Location 1: Johannesburg</h4>
+                <p>Johannesburg, South Africa</p>
+                <!-- Using an iframe embed to display the map -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114584.73574987883!2d27.96216440611417!3d-26.2041028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac9d9b1d34041!2sJohannesburg!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" 
+                    width="400" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Map showing our Johannesburg location">
+                </iframe>
+            </article>
 
-        <h3>Location 2</h3>
-        <p>Pretoria, South Africa</p>
+            <br>
 
-        <h3>Contact Form</h3>
+            <!-- Location 2 Map (as requested by assignment needing more than 1 location) -->
+            <article>
+                <h4>Location 2: Pretoria</h4>
+                <p>Pretoria, South Africa</p>
+                <!-- Using an iframe embed to display the second map -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115132.86311099511!2d28.112267950000003!3d-25.747867599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95619cbec65033%3A0xf66262b07a847b4c!2sPretoria!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" 
+                    width="400" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Map showing our Pretoria location">
+                </iframe>
+            </article>
+        </section>
 
-        <form>
+        <hr>
 
-            <label>Name</label><br>
-            <input type="text"><br><br>
+        <!-- General contact form for website visitors -->
+        <section id="contact-form-section">
+            <h3>Send Us a Message</h3>
+            <form action="#" method="POST">
+                <p>
+                    <label for="contactName">Name:</label><br>
+                    <input type="text" id="contactName" name="contactName" required>
+                </p>
 
-            <label>Email</label><br>
-            <input type="email"><br><br>
+                <p>
+                    <label for="contactEmail">Email:</label><br>
+                    <input type="email" id="contactEmail" name="contactEmail" required>
+                </p>
 
-            <label>Message</label><br>
-            <textarea></textarea>
+                <p>
+                    <label for="contactMessage">Message:</label><br>
+                    <!-- Using textarea to allow multi-line input -->
+                    <textarea id="contactMessage" name="contactMessage" rows="4" cols="40" required></textarea>
+                </p>
 
-            <br><br>
-
-            <button>Send Message</button>
-
-        </form>
-
+                <p>
+                    <button type="submit">Send Message</button>
+                </p>
+            </form>
+        </section>
     </main>
 
+    <!-- Bottom footer element -->
     <footer>
-        <p>© 2026 T's Cakes and Pastries</p>
+        <p>&copy; 2024 T's Cakes and Pastries. All rights reserved.</p>
     </footer>
-
 </body>
-
 </html>

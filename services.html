@@ -1,52 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <!-- Character encoding and responsive viewport definitions -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Products & Services - T's Cakes and Pastries</title>
 </head>
-
 <body>
-
+    <!-- Site header with main navigation links -->
     <header>
         <h1>T's Cakes and Pastries</h1>
-
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="services.html">Products</a>
-            <a href="enquiry.html">Enquiry</a>
-            <a href="contact.html">Contact</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Products & Services</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
-
     </header>
 
+    <!-- Main content block for detailed product/service offerings -->
     <main>
+        <h2>Our Products and Services</h2>
+        <p>We serve families, students, working professionals, and anyone who enjoys freshly baked goods. We cater to birthdays, celebrations, funerals, and special events within the local community.</p>
 
-        <h2>Our Products</h2>
+        <!-- Product entries broken down into logical sections and articles -->
+        <section id="products">
+            <!-- Product: Cakes -->
+            <article>
+                <h3>Cakes</h3>
+                <p>We craft custom-designed cakes for all occasions, ensuring they not only look stunning but taste phenomenal.</p>
+            </article>
 
-        <h3>Cakes</h3>
-        <p>Custom cakes for birthdays, celebrations, funerals and special events.</p>
+            <!-- Product: Bread -->
+            <article>
+                <h3>Bread</h3>
+                <p>Freshly baked bread with a crispy crust and soft center, perfect for breakfast or any family gathering.</p>
+            </article>
 
-        <h3>Pastries</h3>
-        <p>Fresh pastries baked daily.</p>
+            <!-- Product: Pastries -->
+            <article>
+                <h3>Pastries</h3>
+                <p>From flaky croissants to sweet Danishes, our pastries are baked fresh every morning.</p>
+            </article>
 
-        <h3>Muffins</h3>
-        <p>Delicious muffins made using quality ingredients.</p>
+            <!-- Service: Custom Orders -->
+            <article>
+                <h3>Custom Orders</h3>
+                <p>Have a specific vision? We work with you to create custom baked treats tailored exactly to your event's theme and size requirements.</p>
+            </article>
+        </section>
 
-        <h3>Scones</h3>
-        <p>Fresh homemade scones.</p>
-
-        <h3>Custom Orders</h3>
-        <p>We also accept custom orders for special occasions.</p>
-
+        <!-- Gallery showing pictures of the baked goods as per the brief -->
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <p>Take a look at some of our mouth-watering creations:</p>
+            <!-- Images will load from the /images folder. Fallback alt text provided for screen readers -->
+            <img src="images/gallery-cakes.jpg" alt="A freshly decorated custom cake" width="250">
+            <img src="images/gallery-muffins.jpg" alt="Gallery image of muffins" width="250">
+            <img src="images/gallery-scones.jpg" alt="Gallery image of scones" width="250">
+            <img src="images/gallery-pastries.jpg" alt="Assorted sweet pastries on display" width="250">
+        </section>
     </main>
 
+    <!-- Standard footer area -->
     <footer>
-        <p>© 2026 T's Cakes and Pastries</p>
+        <p>&copy; 2024 T's Cakes and Pastries. All rights reserved.</p>
     </footer>
-
 </body>
-
 </html>

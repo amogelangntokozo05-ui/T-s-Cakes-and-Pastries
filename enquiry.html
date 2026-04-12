@@ -1,68 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <!-- Document setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enquiry</title>
+    <title>Enquiry - T's Cakes and Pastries</title>
 </head>
-
 <body>
-
+    <!-- Website header and navigation wrapper -->
     <header>
-
         <h1>T's Cakes and Pastries</h1>
-
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="services.html">Products</a>
-            <a href="enquiry.html">Enquiry</a>
-            <a href="contact.html">Contact</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Products & Services</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
-
     </header>
 
+    <!-- Main content containing the interactive form -->
     <main>
-
         <h2>Make an Enquiry</h2>
+        <p>Interested in our products? Please fill out the form below to place an order or ask for more details.</p>
 
-        <form>
+        <!-- Form for product/service enquiries -->
+        <form action="#" method="POST">
+            <!-- Grouping personal details for semantic meaning and accessibility -->
+            <fieldset>
+                <legend>Your Details</legend>
+                
+                <p>
+                    <!-- Semantic label linked to input using 'for' and 'id' attributes -->
+                    <label for="fullName">Full Name:</label><br>
+                    <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+                </p>
+                
+                <p>
+                    <label for="emailAddr">Email Address:</label><br>
+                    <input type="email" id="emailAddr" name="emailAddr" required placeholder="john@example.com">
+                </p>
 
-            <label>Full Name</label><br>
-            <input type="text"><br><br>
+                <p>
+                    <label for="phoneNum">Phone Number:</label><br>
+                    <!-- Using type='tel' for better mobile keyboard support -->
+                    <input type="tel" id="phoneNum" name="phoneNum" required placeholder="081 000 0000">
+                </p>
+            </fieldset>
 
-            <label>Email</label><br>
-            <input type="email"><br><br>
+            <fieldset>
+                <legend>Enquiry Details</legend>
 
-            <label>Phone Number</label><br>
-            <input type="text"><br><br>
+                <p>
+                    <label for="productChoice">Select Product Category:</label><br>
+                    <select id="productChoice" name="productChoice">
+                        <option value="cakes">Cakes</option>
+                        <option value="bread">Bread</option>
+                        <option value="pastries">Pastries</option>
+                        <option value="muffins">Muffins</option>
+                        <option value="scones">Scones</option>
+                        <option value="custom">Custom Order</option>
+                    </select>
+                </p>
 
-            <label>Product</label><br>
-            <select>
-                <option>Cakes</option>
-                <option>Pastries</option>
-                <option>Muffins</option>
-                <option>Scones</option>
-            </select>
+                <p>
+                    <label for="enquiryMessage">Enquiry Message:</label><br>
+                    <textarea id="enquiryMessage" name="enquiryMessage" rows="5" cols="40" required placeholder="Please provide details about your order or question..."></textarea>
+                </p>
 
-            <br><br>
+                <!-- Additional contextual input to show varied field types -->
+                <p>
+                    <label for="eventDate">Expected Date of Event/Delivery:</label><br>
+                    <input type="date" id="eventDate" name="eventDate">
+                </p>
+            </fieldset>
 
-            <label>Message</label><br>
-            <textarea></textarea>
-
-            <br><br>
-
-            <button type="submit">Submit</button>
-
+            <!-- Form submission button -->
+            <p>
+                <button type="submit">Submit Enquiry</button>
+            </p>
         </form>
-
     </main>
 
+    <!-- Standard footer -->
     <footer>
-        <p>© 2026 T's Cakes and Pastries</p>
+        <p>&copy; 2024 T's Cakes and Pastries. All rights reserved.</p>
     </footer>
-
 </body>
-
 </html>

@@ -37,6 +37,30 @@
         <h2>Our Products and Services</h2>
         <p>We serve families, students, working professionals, and anyone who enjoys freshly baked goods. We cater to birthdays, celebrations, funerals, and special events within the local community.</p>
 
+        <!-- New Core Services Expansion placed at the top of the routing -->
+        <br>
+        <section id="core-services">
+            <h2 style="text-align: center; color: var(--accent-pink-dark); font-size: 2.2rem;">Our Core Services</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #555;">Beyond baking, we provide comprehensive logistical catering services to make your event completely stress-free.</p>
+            <br>
+            <!-- Native inline grid deployment avoiding messy CSS linking for a one-off feature -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
+                    <h3>Local Delivery</h3>
+                    <p>We provide safe, temperature-controlled delivery within a 50km radius of our branches. We physically guarantee your highly delicate custom cakes will arrive in absolutely pristine condition for your event.</p>
+                </div>
+                <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
+                    <h3>Event Catering</h3>
+                    <p>Hosting a corporate breakfast or a massive wedding? We supply huge wholesale platters of pastries, muffins, and savory treats. We also provide tiered display stands and serving equipment on rental.</p>
+                </div>
+                <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
+                    <h3>Custom Consultations</h3>
+                    <p>Sit down with our Head Baker for a 1-on-1 complimentary tasting session. We will sit with you to sketch out the perfect design for your dream cake and let you sample our signature sponge flavors.</p>
+                </div>
+            </div>
+        </section>
+        <br><br>
+
         <!-- Product Container Query Wrappers -->
         <section id="products" class="product-grid" style="background: transparent; padding:0; box-shadow:none;">
             <article class="product-card">
@@ -153,41 +177,27 @@
             </article>
         </section>
 
-        <!-- New Core Services Expansion replacing the custom order card with a full feature set -->
+        <!-- Detailed Textual Information Replacement for the old gallery -->
         <br><br>
-        <section id="core-services">
-            <h2 style="text-align: center; color: var(--accent-pink-dark); font-size: 2.2rem;">Our Core Services</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: #555;">Beyond baking, we provide comprehensive logistical catering services to make your event completely stress-free.</p>
-            <br>
-            <!-- Native inline grid deployment avoiding messy CSS linking for a one-off feature -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
-                    <h3>🚚 Local Delivery</h3>
-                    <p>We provide safe, temperature-controlled delivery within a 50km radius of our branches. We physically guarantee your highly delicate custom cakes will arrive in absolutely pristine condition for your event.</p>
+        <section id="ordering-guidelines" style="background: var(--white); padding: 50px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); margin-top: 40px; margin-bottom: 20px;">
+            <h2 style="color: var(--brand-brown); border-bottom: 2px solid var(--primary-bg); padding-bottom: 20px; margin-bottom: 35px;">Important Ordering & Allergy Information</h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 30px;">
+                <div>
+                    <h3 style="font-size: 1.5rem; color: var(--brand-pink); margin-bottom: 10px;">Allergy Declarations</h3>
+                    <p>All of our exquisite products are baked in a shared commercial bakery. While our staff takes every strict precaution to prevent cross-contamination, please be acutely aware that our products may contain or come into contact with common allergens including <strong>wheat, peanuts, tree nuts, milk, eggs, soybeans, and sesame</strong>. Please explicitly state any severe allergies when placing a custom order so we can isolate your bake.</p>
                 </div>
-                <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
-                    <h3>🎉 Event Catering</h3>
-                    <p>Hosting a corporate breakfast or a massive wedding? We supply huge wholesale platters of pastries, muffins, and savory treats. We also provide tiered display stands and serving equipment on rental.</p>
+                
+                <div>
+                    <h3 style="font-size: 1.5rem; color: var(--brand-pink); margin-bottom: 10px;">Preparation Lead Times</h3>
+                    <p>We deeply believe in baking everything absolutely fresh, directly from scratch. Therefore, we firmly require a minimum of <strong>48 hours notice</strong> for all standard signature cake and pastry orders. Massive corporate orders, tiered wedding cakes, and catering spreads require a strict minimum of <strong>three weeks notice</strong> to secure your date and ensure we source the absolutely finest ingredients from our global suppliers.</p>
                 </div>
-                <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
-                    <h3>👩‍🍳 Custom Consultations</h3>
-                    <p>Sit down with our Head Baker for a 1-on-1 complimentary tasting session. We will sit with you to sketch out the perfect design for your dream cake and let you sample our signature sponge flavors.</p>
+                
+                <div>
+                    <h3 style="font-size: 1.5rem; color: var(--brand-pink); margin-bottom: 10px;">Deposit & Cancellation Policy</h3>
+                    <p>For custom catering orders exceeding R1,000, a 50% non-refundable deposit is explicitly required at the time of booking to safely secure your production slot. The remaining balance is due exactly 24 hours before your scheduled pickup or vehicle delivery time. If you experience an emergency and need to cancel, please notify our logistics team at least one week in advance.</p>
                 </div>
             </div>
-        </section>
-
-        <!-- Gallery showing pictures of the baked goods as per the brief -->
-        <section id="gallery">
-            <h2>Gallery</h2>
-            <p>Take a look at some of our mouth-watering creations through our photography gallery:</p>
-            
-            <!-- Using actual image files loaded from the Images directory -->
-            <img src="Images/Cake663.jpg" alt="Gallery image of cake" width="300">
-            <img src="Images/muffins69877.jpg" alt="Gallery image of muffins" width="300">
-            <img src="Images/Scones668.jpg" alt="Gallery image of scones" width="300">
-            <img src="Images/pastries63.jpg" alt="Assorted sweet pastries on display" width="300">
-            <img src="Images/Cake96.jpg" alt="A freshly decorated custom cake" width="300">
-            <img src="Images/muffins1022.jpg" alt="Muffins inside bakery display" width="300">
         </section>
         
         <!-- Internal anchor routing tag to jump back to top -->

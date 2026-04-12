@@ -1,153 +1,179 @@
 /* =========================================================================
-   T's Cakes and Pastries - Main Stylesheet
+   T's Cakes and Pastries - Ultra Modern Stylesheet (2026 UX Layout)
    Author: Amogelang Kunene
    Module: WEDE5020 Part 2
    ========================================================================= */
 
-/* --- 2.2 CSS Reset & Base Consistency --- */
+/* --- CSS Reset & Base Consistency --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* --- 2.2 Base Style Variables (Color Palette Mapped to Rubric) --- */
+/* --- Ultra-Modern Base Variables --- */
 :root {
-    --primary-cream: #FFFDD0;          /* Warm base background */
-    --secondary-brown: #8B4513;        /* Earthy grounding color for typography and footers */
-    --accent-pink: #FFC0CB;            /* Sweet pop logic for buttons/links */
-    --accent-pink-dark: #FF9EAE;       /* Darker pink for hover states */
-    --text-dark: #333333;              /* High-contrast reading text */
+    /* Muted colors to look expensive and modern instead of distinctly 1990s */
+    --primary-bg: #FCFAF6;        /* Breathable, barely-there cream background */
     --white: #FFFFFF;
     
-    /* Decorative Wow-Factor properties */
-    --shadow-soft: 0 4px 20px rgba(139, 69, 19, 0.08);
-    --border-radius: 12px;
+    /* Branding */
+    --brand-brown: #5C3A21;       /* Deeper, more sophisticated chocolate brown */
+    --brand-light-brown: #8C5831;
+    --brand-pink: #FFC0CB;        
+    --brand-pink-gradient: linear-gradient(135deg, #FFC0CB 0%, #FFA0B4 100%);
+    
+    /* Typography */
+    --text-primary: #2D251F;      /* Soft off-black for premium reading contrast */
+    --text-muted: #73675E;
+    
+    /* Glassmorphism & UI Layout Control */
+    --glass-shadow: 0 16px 40px rgba(92, 58, 33, 0.08); /* Massive diffuse shadow, abandoning crude borders */
+    --hover-shadow: 0 24px 60px rgba(92, 58, 33, 0.15); /* Deep lifting shadow */
+    --radius-lg: 24px;            /* Bubbly, friendly, expansive app-like corners */
+    --radius-pill: 50px;
+    
+    /* Global Universal Transitions */
+    --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* --- 2.2 Base Typography & Layout Styling --- */
+/* --- Global Typography --- */
 body {
-    /* Utilizing high-quality font fallbacks while awaiting Google Fonts */
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px; 
-    line-height: 1.7; /* Increased readability */
-    background-color: var(--primary-cream);
-    color: var(--text-dark);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased; /* Triggers ultra-crisp browser font rendering */
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Outfit', 'Inter', sans-serif; /* Adding Outfit for rounder, sweeter bakery titles */
-    color: var(--secondary-brown);
-    margin-bottom: 20px;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    color: var(--brand-brown);
+    letter-spacing: -0.8px; /* Modern tight tracking for editorial headers */
+    margin-bottom: 24px;
+    font-weight: 700;
 }
 
-p, ul, ol, table {
-    margin-bottom: 20px;
+/* Extreme header scaling */
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.6rem; }
+
+p, ul, table {
+    margin-bottom: 24px;
+    color: var(--text-primary);
 }
 
-ul {
-    margin-left: 25px; /* Ensures list bullets render cleanly off-edge */
-}
+ul { margin-left: 20px; }
 
 a {
-    color: var(--secondary-brown);
+    color: var(--brand-light-brown);
     text-decoration: none;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    transition: var(--transition);
 }
 
 a:hover {
-    color: var(--accent-pink-dark);
+    color: var(--brand-brown);
 }
 
-/* Cascading image logic */
 img {
     max-width: 100%;
     height: auto;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-soft);
-    display: block; /* Removes inline float gaps */
+    border-radius: 16px; /* Slightly tighter edge radius than the surrounding container */
+    display: block;
 }
 
-/* --- Layout Cascading (Desktop First Approach) --- */
-
-/* Header & Dynamic Navigation */
+/* --- Glassmorphism Navigation Sticky Header --- */
 header {
-    background-color: var(--white);
-    padding: 20px 40px;
-    box-shadow: var(--shadow-soft);
+    background: rgba(255, 255, 255, 0.85); /* Frosty translucency */
+    backdrop-filter: blur(16px); /* Pure Glassmorphism effect overlaying content as user scrolls */
+    -webkit-backdrop-filter: blur(16px);
+    padding: 20px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.03); /* Tiny crisp anchor line */
 }
 
 header h1 {
     margin-bottom: 0;
-    font-size: 1.8rem;
-    color: var(--secondary-brown);
+    font-size: 1.9rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--brand-brown), var(--brand-light-brown));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Cutting-edge CSS gradient text implementation */
 }
 
 header nav ul {
-    list-style-type: none;
-    margin: 0;
+    list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    margin: 0;
 }
 
 header nav a {
     font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 20px;
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    color: var(--text-muted);
 }
 
-/* Targetting the 'aria-current' attribute natively applied in Part 1 */
-header nav a[aria-current="page"] {
-    background-color: var(--accent-pink);
-    color: var(--secondary-brown);
-    box-shadow: 0 2px 8px rgba(255, 192, 203, 0.4);
-}
-
+/* Navigation Hover Micro-Animations */
 header nav a:hover {
-    background-color: var(--accent-pink-dark);
-    color: var(--white);
+    background-color: rgba(255, 192, 203, 0.2); 
+    color: var(--brand-brown);
+    transform: translateY(-2px);
 }
 
-/* Main Content Wrapper Constraint */
+header nav a[aria-current="page"] {
+    background: var(--brand-pink-gradient);
+    color: var(--brand-brown);
+    box-shadow: 0 8px 20px rgba(255, 192, 203, 0.4); /* Colored shadow glow */
+}
+
+/* --- Layout Mechanics --- */
 main {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
+    max-width: 1300px; /* Vastly wider "full bleed" allowance */
+    margin: 60px auto;
+    padding: 0 30px;
 }
 
-/* Standard Section Panel Design */
+/* Elevated, Floating Modern Cards instead of flat boxed rows */
 section {
     background-color: var(--white);
-    padding: 50px;
-    margin-bottom: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-soft);
+    padding: 60px;
+    margin-bottom: 60px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow); /* Massive drop soft shadows */
+    transition: var(--transition);
 }
 
-/* --- Decorative Wow-Factor Elements --- */
+/* Make EVERY section dynamically hover and lift using pure CSS cascading */
+section:not(#hero):hover {
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-4px); /* Magnetic float effect */
+}
 
-/* Modern Super-Hero Banner Overlay */
+/* --- Hero Banner System --- */
 section#hero {
     position: relative;
     background-color: transparent;
     box-shadow: none;
     padding: 0;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 #hero img {
     width: 100%;
-    height: 500px;
+    height: 600px;
     object-fit: cover;
-    border-radius: var(--border-radius);
-    filter: brightness(0.65); /* Darkens the image so text pops perfectly */
-    display: block;
+    border-radius: var(--radius-lg);
+    filter: brightness(0.7) saturate(1.2); /* Deepens image to pop white text */
+    box-shadow: var(--glass-shadow);
 }
 
 #hero .hero-text {
@@ -159,26 +185,26 @@ section#hero {
     text-align: center;
 }
 
+/* Massive Display Sizing */
 #hero .hero-text h2 {
-    font-size: 3.5rem;
+    font-size: 4.8rem; 
     color: var(--white);
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-    margin-bottom: 10px;
-    line-height: 1.2;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    line-height: 1.1;
+    margin-bottom: 20px;
 }
 
 #hero .hero-text p {
-    font-size: 1.5rem;
-    color: var(--primary-cream);
+    font-size: 1.8rem;
+    color: rgba(255,255,255,0.95);
     font-weight: 500;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-    margin-bottom: 0;
 }
 
-/* Dedicated Pill Call-to-Action Button Hover Logic */
+/* --- Custom CTA Callout --- */
 #call-to-action {
     text-align: center;
-    background-color: var(--secondary-brown);
+    background: linear-gradient(135deg, var(--brand-brown) 0%, var(--brand-light-brown) 100%);
+    color: var(--white);
 }
 
 #call-to-action h2, #call-to-action p {
@@ -187,137 +213,281 @@ section#hero {
 
 #call-to-action a:not(nav a) {
     display: inline-block;
-    background-color: var(--accent-pink);
-    color: var(--secondary-brown);
-    padding: 16px 35px;
-    border-radius: 35px;
-    font-weight: bold;
-    font-size: 1.15rem;
-    margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    background: var(--brand-pink-gradient);
+    color: var(--brand-brown);
+    padding: 20px 45px;
+    border-radius: var(--radius-pill);
+    font-weight: 800;
+    font-size: 1.25rem;
+    margin-top: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    border: 2px solid transparent; 
 }
 
+/* Extreme Micro-Animation Wow Factor */
 #call-to-action a:not(nav a):hover {
-    transform: translateY(-5px); /* Micro-animation */
-    background-color: var(--primary-cream);
+    transform: translateY(-10px) scale(1.05); /* Scales UP while jumping structurally! */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    background: transparent;
+    border-color: var(--brand-pink);
+    color: var(--brand-pink);
 }
 
-/* --- Form Architecture --- */
+/* --- Layout Grid Auto-Fitting --- */
+#gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+#gallery-grid article {
+    background: var(--primary-bg); /* Slight offset for inner cards */
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: none;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+#gallery-grid article:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--hover-shadow);
+    background: var(--white);
+}
+
+#gallery-grid article img {
+    margin-bottom: 25px;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+#gallery-grid hr { display: none; }
+
+/* --- Complex Forms --- */
 form {
     max-width: 800px;
     margin: 0 auto;
 }
 
 fieldset {
-    border: 2px solid var(--accent-pink);
-    border-radius: var(--border-radius);
-    padding: 30px;
-    margin-bottom: 30px;
-    background-color: #FAFAF7; /* Very light cream form backing */
+    border: none; /* Removing old 1990s border lines natively */
+    background: var(--primary-bg);
+    padding: 50px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 40px;
 }
 
 legend {
+    font-size: 1.6rem;
     font-weight: 700;
-    color: var(--secondary-brown);
-    background-color: var(--white);
-    padding: 8px 20px;
-    border-radius: 12px;
-    border: 2px solid var(--accent-pink);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-/* Applying form sizing broadly with a single selector class list */
-input[type="text"], input[type="email"], input[type="tel"], 
-input[type="number"], input[type="date"], select, textarea {
-    width: 100%;
-    padding: 14px;
-    margin-top: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--secondary-brown);
-}
-
-/* Checkbox and Radio fixes (preventing 100% width stretching) */
-input[type="radio"], input[type="checkbox"] {
-    width: auto;
-    margin-right: 10px;
-    transform: scale(1.2);
-}
-
-/* Submit Button */
-button[type="submit"], input[type="submit"] {
-    background-color: var(--secondary-brown);
-    color: var(--white);
-    padding: 15px 40px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover, input[type="submit"]:hover {
-    background-color: var(--accent-pink-dark);
-}
-
-/* --- Gallery & Complex Layouts --- */
-/* Utilizing CSS Grid dynamically */
-#gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-#gallery-grid article {
-    background: var(--white);
-    padding: 25px;
-    border-radius: var(--border-radius);
-    text-align: center;
-    box-shadow: var(--shadow-soft);
-}
-
-#gallery-grid article h3 {
+    color: var(--brand-brown);
     margin-bottom: 20px;
 }
 
-#gallery-grid article img {
-    margin-bottom: 15px;
+input[type="text"], input[type="email"], input[type="tel"], 
+input[type="number"], input[type="date"], select, textarea {
     width: 100%;
-    height: 250px;
-    object-fit: cover; /* Ensures all gallery images are uniform size! */
+    padding: 20px;
+    border: 2px solid transparent;
+    background-color: var(--white);
+    border-radius: 16px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    transition: var(--transition);
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
-/* Hide the hardcoded HTML separation rules now that we have CSS Grid! */
-#gallery-grid hr {
-    display: none;
+/* Ultra-modern pure focus tracking */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--brand-pink);
+    box-shadow: 0 4px 25px rgba(255, 192, 203, 0.4);
 }
 
-/* --- Footer Hierarchy --- */
+input[type="radio"], input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    margin-right: 15px;
+    accent-color: var(--brand-brown); 
+}
+
+button[type="submit"], input[type="submit"], button[type="reset"] {
+    width: 100%;
+    background: var(--brand-brown);
+    color: var(--white);
+    padding: 22px;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button[type="submit"]:hover, input[type="submit"]:hover {
+    background: var(--brand-light-brown);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(92, 58, 33, 0.2);
+}
+
+button[type="reset"] {
+    background: var(--primary-bg);
+    color: var(--text-muted);
+    margin-top: 15px;
+}
+
+button[type="reset"]:hover {
+    background: #EEEEEE;
+}
+
+
+/* --- Full Width Vertical Stacked Gallery --- */
+#stacked-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Massive separation between full-width pieces */
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+#stacked-gallery article {
+    width: 100%; /* forces full width within the 1300px max-width boundary */
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+#stacked-gallery article:hover {
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-5px);
+}
+
+#stacked-gallery img {
+    width: 100%;
+    height: 700px; /* Massive sprawling cinematic height */
+    object-fit: cover;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0; /* Curve the top, flatten the bottom */
+    margin-bottom: 0;
+}
+
+/* Native HTML5 Toggle Styling */
+#stacked-gallery details {
+    background: transparent;
+    padding: 20px 50px 40px 50px;
+}
+
+#stacked-gallery summary {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--brand-brown);
+    cursor: pointer;
+    list-style: none; /* Removes default triangle in modern browsers */
+    outline: none;
+    padding: 10px 0;
+    transition: var(--transition);
+    user-select: none;
+}
+
+#stacked-gallery summary::-webkit-details-marker {
+    display: none; /* Forces marker removal in Safari/Chrome */
+}
+
+/* Custom UI Toggle graphic */
+#stacked-gallery summary::after {
+    content: '+ Read More';
+    float: right;
+    font-size: 1.1rem;
+    color: var(--brand-pink);
+    background: rgba(255, 192, 203, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+#stacked-gallery details[open] summary::after {
+    content: '- Close';
+    background: rgba(0,0,0,0.05);
+    color: var(--text-muted);
+}
+
+#stacked-gallery details[open] summary {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    margin-bottom: 30px;
+}
+
+#stacked-gallery .details-content {
+    animation: fadeInDown 0.5s ease forwards;
+}
+
+#stacked-gallery .details-content h3 {
+    margin-top: 15px;
+    font-size: 2.4rem;
+    color: var(--brand-brown);
+}
+
+#stacked-gallery .details-content p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- HTML Sub-Tables --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 24px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+th {
+    font-weight: 800;
+    color: var(--brand-brown);
+    font-size: 1.2rem;
+}
+
+tbody tr {
+    transition: var(--transition);
+}
+
+tbody tr:hover {
+    background-color: var(--primary-bg);
+}
+
+/* --- Clean Modern Footer --- */
 footer {
-    background-color: var(--secondary-brown);
-    color: var(--primary-cream);
+    background: var(--brand-brown);
+    color: var(--primary-bg);
+    padding: 80px 40px 40px;
     text-align: center;
-    padding: 50px 20px 30px 20px;
-    margin-top: 80px;
+    border-top-left-radius: 60px; /* Modern curved footing */
+    border-top-right-radius: 60px; 
+    margin-top: 100px;
 }
 
 footer h3, footer p {
-    color: var(--primary-cream);
+    color: var(--primary-bg);
 }
 
 footer a {
-    color: var(--accent-pink);
-    font-weight: 600;
+    color: var(--brand-pink);
+    font-weight: bold;
 }
 
 footer a:hover {
@@ -325,50 +495,37 @@ footer a:hover {
 }
 
 footer hr {
-    border: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 30px;
+    border-color: rgba(255,255,255,0.08);
+    margin: 40px auto;
+    max-width: 800px;
 }
 
 
 /* =========================================================================
-   Media Queries (Responsive Mobile Design Checkpoint)
+   Media Queries (Responsive Stack Breakpoints)
    ========================================================================= */
 
-@media (max-width: 850px) {
-    /* Collapse the Header and Navigation block */
+@media (max-width: 900px) {
     header {
-        flex-direction: column;
         padding: 20px;
+        flex-direction: column;
+        gap: 20px;
     }
-
+    
     header h1 {
-        margin-bottom: 20px;
+        font-size: 2.2rem;
         text-align: center;
     }
 
-    /* Wrap the navigation cleanly on small phones */
-    header nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    header nav a {
-        font-size: 0.95rem;
-        padding: 8px 14px;
-    }
-
-    /* Shrink the core content gap on small screens */
-    section {
-        padding: 30px 20px;
-    }
-
-    main {
-        margin: 20px auto;
-    }
-
-    /* Shrink the huge hero image height constraint */
     #hero img {
-        max-height: 300px;
+        height: 400px;
+    }
+
+    #hero .hero-text h2 {
+        font-size: 3rem;
+    }
+    
+    section {
+        padding: 40px 25px; /* Collapse margins dynamically on mobile */
     }
 }

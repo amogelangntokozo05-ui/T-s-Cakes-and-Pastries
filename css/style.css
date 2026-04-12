@@ -132,19 +132,47 @@ section {
 
 /* --- Decorative Wow-Factor Elements --- */
 
-/* Transparent Hero Header override */
+/* Modern Super-Hero Banner Overlay */
 section#hero {
+    position: relative;
     background-color: transparent;
     box-shadow: none;
     padding: 0;
-    text-align: center;
+    margin-bottom: 60px;
 }
 
 #hero img {
     width: 100%;
-    max-height: 550px;
+    height: 500px;
     object-fit: cover;
-    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    filter: brightness(0.65); /* Darkens the image so text pops perfectly */
+    display: block;
+}
+
+#hero .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+}
+
+#hero .hero-text h2 {
+    font-size: 3.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+#hero .hero-text p {
+    font-size: 1.5rem;
+    color: var(--primary-cream);
+    font-weight: 500;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+    margin-bottom: 0;
 }
 
 /* Dedicated Pill Call-to-Action Button Hover Logic */

@@ -41,9 +41,12 @@
     <main>
         <!-- Hero section with an attractive image and a main slogan -->
         <section id="hero">
-            <h2>Freshly Baked Treats Made With Love</h2>
-            <!-- Showcasing an actual image from the Images folder as a "hero" banner -->
-            <img src="Images/Cake.jpg" alt="Delicious freshly baked cake" width="800">
+            <!-- Image loaded first for positioning context -->
+            <img src="Images/Cake.jpg" alt="Delicious freshly baked cake">
+            <div class="hero-text">
+                <h2>Freshly Baked Treats</h2>
+                <p>Welcome to your new favorite local bakery.</p>
+            </div>
         </section>
 
         <!-- Expanded introduction to the bakery -->
@@ -57,32 +60,35 @@
 
         <!-- Featured Products Section with corresponding images -->
         <section id="featured-products">
-            <h2>Featured Products</h2>
-            <p>Take a look at our most popular, fast-selling signature items:</p>
+            <h2 style="text-align: center; color: var(--accent-pink-dark); font-size: 2.2rem;">Featured Products</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #555;">Take a look at our most popular, fast-selling signature items:</p>
+            <br>
             
-            <article>
-                <h3>Signature Homemade Cakes</h3>
-                <p>The cakes that started it all. Rich, moist, and absolutely unforgettable.</p>
-                <img src="Images/Cake3.jpg" alt="Signature cake" width="300">
-            </article>
+            <div id="gallery-grid">
+                <article>
+                    <h3>Signature Cakes</h3>
+                    <img src="Images/Cake3.jpg" alt="Signature cake">
+                    <p>The cakes that started it all. Rich, moist, and unforgettable.</p>
+                </article>
 
-            <article>
-                <h3>Freshly Baked Muffins</h3>
-                <p>Perfect for families, students, and working professionals looking for a morning boost.</p>
-                <img src="Images/muffins2210.jpg" alt="Fresh Muffins" width="300">
-            </article>
+                <article>
+                    <h3>Fresh Muffins</h3>
+                    <img src="Images/muffins2210.jpg" alt="Fresh Muffins">
+                    <p>Perfect for families, students, and working professionals.</p>
+                </article>
 
-            <article>
-                <h3>Classic Scones</h3>
-                <p>Enjoy our classic, crumbling scones that pair perfectly with a hot cup of tea or coffee.</p>
-                <img src="Images/Scones410.jpg" alt="Classic Scones" width="300">
-            </article>
+                <article>
+                    <h3>Classic Scones</h3>
+                    <img src="Images/Scones410.jpg" alt="Classic Scones">
+                    <p>Enjoy our classic scones pairing perfectly with local tea.</p>
+                </article>
 
-            <article>
-                <h3>Assorted Pastries</h3>
-                <p>A mix of sweet, flaky joy designed to bring people together at local events.</p>
-                <img src="Images/pastries44.jpg" alt="Assorted Pastries" width="300">
-            </article>
+                <article>
+                    <h3>Assorted Pastries</h3>
+                    <img src="Images/pastries44.jpg" alt="Assorted Pastries">
+                    <p>A mix of sweet, flaky joy designed to bring people together.</p>
+                </article>
+            </div>
         </section>
 
         <hr>

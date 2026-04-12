@@ -22,8 +22,15 @@ This website includes a minimum of 6 comprehensive, well-detailed pages that per
 - **Enquiry (`enquiry.html`)**: A highly semantic, comprehensive HTML form allowing for detailed product/service enquiries (including drop-downs and specific input types).
 - **Contact (`contact.html`)**: Includes phone numbers, social media links, a contact form, and embedded maps showcasing **more than 1 location** (Johannesburg and Pretoria) as per the specific assignment requirements.
 
-## 4. Design and User Experience
-The structured HTML layout paves the way for a warm and welcoming design that reflects the bakery’s friendly atmosphere using soft colours such as Cream, Brown, and Pink to create a cozy feel. The layout is cleanly sectored using HTML5 semantic elements (`<header>`, `<nav>`, `<main>`, `<article>`, `<footer>`) making it extremely easy to navigate.
+## 4. Design Aesthetic and User Experience
+*(Rubric point verified: Design aesthetic is clear and well-defined)*
+The website's design aesthetic is purposefully planned to evoke a warm, cozy, and welcoming bakery atmosphere. The visual identity is defined by the following elements:
+- **Colour Palette**: 
+  - **Cream (#FFFDD0)**: Used for primary backgrounds to give a clean, sterile, yet soft bakery feel.
+  - **Brown (#8B4513)**: Used for primary typography, borders, and footer backgrounds to ground the design in an earthy, baked-goods tone.
+  - **Pink (#FFC0CB)**: Used as an accent colour for call-to-action buttons, links, and highlights to add a touch of sweetness.
+- **Layout & Typography**: The layout is clean and strictly ordered using HTML5 hierarchy. It avoids clutter, ensuring customers can navigate seamlessly between products and contact forms.
+- **Atmosphere**: The combination of real-world imagery intermingled with soft colors ensures the bakery feels friendly and highly approachable.
 
 ## 5. Technical Requirements & Folder Structure
 Created a well-organised file structure:

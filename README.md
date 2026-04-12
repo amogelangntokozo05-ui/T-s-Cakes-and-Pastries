@@ -1,47 +1,55 @@
-# WEDE5020 Web Development Assignment: T's Cakes and Pastries
+# T's Cakes and Pastries
 
-## 1. Overview
+## Student Information
+- **Student Name:** [Amogelang Kunene]
+- **Student ID / Number:** [ST10071157]
+- **Course :** WEDE5020
+
+## Project Overview (complete)
 **Name of Organization:** T’s Cakes and Pastries
-T's Cakes and Pastries began in 2024 when the owner turned a love for baking into a small business. It quickly grew through word-of-mouth. Today, T’s Cakes and Pastries is known in the community for freshly baked goods, friendly service, and treats made with love and care.
+T's Cakes and Pastries began in 2024 when the owner turned a love for baking into a small business. It started with homemade cakes, muffins, scones, and pastries made for friends, family, funerals, and local events. It quickly grew through word-of-mouth. Today, T’s Cakes and Pastries is known in the community for freshly baked goods, friendly service, and treats made with love and care. The target audience focuses on Families, Students, Working professionals, and anyone who enjoys freshly baked goods. We also cater to customers looking for cakes and pastries for Birthdays, Celebrations, Funerals, and Special events.
 
-## 2. Project Goals and Objectives
-*(Rubric point verified: Goals and objectives are clear, detailed, and well-aligned with the project)*
+## Website Goals and Objectives
 The main goals of this website are to:
 - Help customers easily look at our products and connect with the bakery.
 - Showcase our freshly baked goods through high-quality photos.
 - Promote current and seasonal special offers.
 - Provide clear contact details and location maps so customers can make direct enquiries or place orders effortlessly.
 
-## 3. Key Features and Functionality
-*(Rubric point verified: Proposed features and functionality are comprehensive and well-detailed)*
-This website includes a minimum of 6 comprehensive, well-detailed pages that perfectly serve the bakery's customers:
-- **Homepage (`index.html`)**: Features a hero image, brief introduction, clear call to action, navigation menu, and explicitly highlights "Featured Products" and "Current Specials".
+## Key Features and Functionality
+This website includes comprehensive, well-detailed pages that serve the bakery's customers:
+- **Homepage (`index.html`)**: Features a hero image, brief introduction, clear call to action, navigation menu, and highlights "Featured Products" and "Current Specials".
 - **About Us (`about.html`)**: Details the organisation's history, mission, vision, team members, and specifically outlines the site goals and target audience.
 - **Products and Services (`services.html`)**: Contains detailed information about the bakery's offerings including Cakes, Bread, Pastries, and Custom Orders.
-- **Gallery (`gallery.html`)**: An additional beautifully categorized gallery showing pictures of all the baked goods (Cakes, Muffins, Scones, Pastries).
-- **Enquiry (`enquiry.html`)**: A highly semantic, comprehensive HTML form allowing for detailed product/service enquiries (including drop-downs and specific input types).
-- **Contact (`contact.html`)**: Includes phone numbers, social media links, a contact form, and embedded maps showcasing **more than 1 location** (Johannesburg and Pretoria) as per the specific assignment requirements.
+- **Gallery (`gallery.html`)**: A beautifully categorized gallery showing pictures of the baked goods.
+- **Enquiry (`enquiry.html`)**: A highly semantic form allowing for detailed product/service enquiries.
+- **Contact (`contact.html`)**: Includes phone numbers, social media links, a contact form, and embedded maps showcasing multiple assigned locations (Johannesburg and Pretoria).
 
-## 4. Design Aesthetic and User Experience
-*(Rubric point verified: Design aesthetic is clear and well-defined)*
-The website's design aesthetic is purposefully planned to evoke a warm, cozy, and welcoming bakery atmosphere. The visual identity is defined by the following elements:
-- **Colour Palette**: 
-  - **Cream (#FFFDD0)**: Used for primary backgrounds to give a clean, sterile, yet soft bakery feel.
-  - **Brown (#8B4513)**: Used for primary typography, borders, and footer backgrounds to ground the design in an earthy, baked-goods tone.
-  - **Pink (#FFC0CB)**: Used as an accent colour for call-to-action buttons, links, and highlights to add a touch of sweetness.
-- **Layout & Typography**: The layout is clean and strictly ordered using HTML5 hierarchy. It avoids clutter, ensuring customers can navigate seamlessly between products and contact forms.
-- **Atmosphere**: The combination of real-world imagery intermingled with soft colors ensures the bakery feels friendly and highly approachable.
+## Timeline and Milestones
+- **Milestone 1:** Project requirements analysis and research. *(Completed)*
+- **Milestone 2:** Folder structure setup and semantic HTML base code for 5 assigned pages. *(Completed)*
+- **Milestone 3:** Content integration and image population. *(Completed)*
+- **Milestone 4:** Part 1 submission and Git Repository push. *(Pending)*
+- **Milestone 5:** CSS Styling implementation (Part 2 - Future).
+- **Milestone 6:** JavaScript interactivity (Part 3 - Future).
 
-## 5. Technical Requirements & Folder Structure
-Created a well-organised file structure:
-- **Root Folder**: Contains `index.html`, `about.html`, `services.html`, `enquiry.html`, `contact.html`, `gallery.html`, and `README.md`.
-- **Sub-folders**: Includes `css`, `js`, and `Images` folders correctly structured.
-- **Code Quality**: Code is purely HTML, beautifully indented, cross-browser compatible, and extensively commented to explain all functionality.
+## Part 1 Details
+This submission constitutes Part 1 of the Web Development assignment. It focuses singularly on **HTML5 structure, semantic markup, and comprehensive local file organization**. No CSS or JS has been actively deployed, matching the strict assignment logic constraints for this phase.
 
-## 6. Target Audience
-T’s Cakes and Pastries serves Families, Students, Working professionals, and anyone who enjoys freshly baked goods. We also cater to customers looking for cakes and pastries for Birthdays, Celebrations, Funerals, and Special events.
+## Sitemap
+1. **Home (`index.html`)**
+2. **About Us (`about.html`)**
+3. **Products & Services (`services.html`)**
+4. **Gallery (`gallery.html`)**
+5. **Enquiry (`enquiry.html`)**
+6. **Contact (`contact.html`)**
 
-## 7. Budget Allocation
-- **Development**: R5,000–R7,000 to develop.
-- **Hosting and Domain**: ~R1,000 per year.
-- **Maintenance**: R500–R800 per month.
+## Changelog
+- **v1.0.0**: Initialized project and created foundational folder structure (`css/`, `js/`, `Images/`).
+- **v1.0.1**: Built foundational HTML files (`index.html`, `about.html`, `services.html`, `enquiry.html`, `contact.html`).
+- **v1.0.2**: Integrated project overview text, explicit semantic HTML5 layout tags (`<header>`, `<main>`, `<article>`), and theoretical code comments.
+- **v1.0.3**: Added `gallery.html` branch and mapped local imagery to product features.
+- **v1.0.4**: Established active navigation states across all 6 pages. Checked against final WEDE5020 Part 1 Rubric specifications.
+
+## References
+

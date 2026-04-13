@@ -40,12 +40,48 @@
     -->
     <main>
         <!-- Hero section with an attractive image and a main slogan -->
-        <section id="hero">
-            <!-- Image loaded first for positioning context -->
-            <img src="Images/Cake.jpg" alt="Delicious freshly baked cake">
-            <div class="hero-text">
-                <h2>Freshly Baked Treats</h2>
-                <p>Welcome to your new favorite local bakery.</p>
+        <!-- Pure CSS Slideshow Hero Section -->
+        <section id="hero" style="position: relative; height: 85vh; min-height: 750px; overflow: hidden; margin-bottom: 80px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); padding: 0;">
+            <!-- CSS Animations inline for the slideshow -->
+            <style>
+                .css-slideshow {
+                    position: absolute;
+                    top: 0; left: 0;
+                    width: 100%; height: 100%;
+                }
+                .css-slideshow img {
+                    position: absolute;
+                    top: 0; left: 0;
+                    width: 100%; height: 100%;
+                    object-fit: cover !important;
+                    border-radius: 0 !important;
+                    opacity: 0;
+                    margin: 0 !important;
+                    animation: pureCssSlide 15s infinite linear;
+                    filter: brightness(0.6) saturate(1.2) !important;
+                }
+                .css-slideshow img:nth-child(1) { animation-delay: 0s; }
+                .css-slideshow img:nth-child(2) { animation-delay: 5s; }
+                .css-slideshow img:nth-child(3) { animation-delay: 10s; }
+
+                @keyframes pureCssSlide {
+                    0%   { opacity: 0; transform: scale(1.05); }
+                    8%   { opacity: 1; transform: scale(1.03); }
+                    33%  { opacity: 1; transform: scale(1); }
+                    41%  { opacity: 0; transform: scale(1.05); }
+                    100% { opacity: 0; }
+                }
+            </style>
+            
+            <div class="css-slideshow">
+                <img src="Images/Cake.jpg" alt="Delicious freshly baked cake">
+                <img src="Images/Scones665.jpg" alt="Butter scones fresh from oven">
+                <img src="Images/pastries666.jpg" alt="A variety of fresh pastries">
+            </div>
+
+            <div class="hero-text" style="position: absolute; z-index: 2; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; text-align: center;">
+                <h2 style="font-size: 5rem; color: var(--white); text-shadow: 0 8px 30px rgba(0,0,0,0.7); line-height: 1.1; margin-bottom: 20px;">Freshly Baked Treats</h2>
+                <p style="font-size: 1.8rem; color: rgba(255,255,255,0.95); font-weight: 500; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Welcome to your new favorite local bakery.</p>
             </div>
         </section>
 

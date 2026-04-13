@@ -18,6 +18,7 @@
         rel="stylesheet">
 
     <!-- External CSS link fulfilling Part 2 rubric -->
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -61,95 +62,90 @@
 
         <hr>
 
-        <!-- Form for product/service enquiries. We use POST method for secure data submission -->
-        <form action="#" method="POST">
+        <!-- Form for product/service enquiries replaced with modern grid architecture -->
+        <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 40px; margin-top: 40px;">
+            
+            <fieldset style="position: relative;">
+                <legend style="font-size: 1.6rem; color: var(--brand-brown); font-weight: 700; margin-bottom: 20px; padding: 0 10px;">1. Personal Information</legend>
 
-            <!-- 
-                The <fieldset> tag is used below to logically group related elements inside the form. 
-                Coupled with the <legend> tag, it provides critical context to assistive technologies 
-                and keeps the form visually organized.
-            -->
-            <fieldset>
-                <legend>Your Details</legend>
-
-                <p>
-                    <!-- Semantic label linked to input using 'for' and 'id' attributes -->
-                    <label for="fullName">Full Name:</label><br>
-                    <!-- Using Regex pattern to ensure only letters and spaces are submitted -->
-                    <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z\s]{3,50}"
-                        title="Please enter a valid name using alphabetical letters (3-50 characters)."
-                        placeholder="Thabo Mokoena">
-                </p>
-
-                <p>
-                    <label for="emailAddr">Email Address:</label><br>
-                    <input type="email" id="emailAddr" name="emailAddr" required placeholder="thabo.mokoena@gmail.com">
-                </p>
-
-                <p>
-                    <label for="phoneNum">Phone Number:</label><br>
-                    <!-- Using type='tel' alongside a Regex pattern to enforce strict client-side validation -->
-                    <input type="tel" id="phoneNum" name="phoneNum" required pattern="[0-9]{10}"
-                        title="Please enter exactly 10 digits without spaces (e.g. 0724329811)."
-                        placeholder="0724329811">
-                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+                    <div>
+                        <label for="fullName" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Full Name <span style="color:red;">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z\s]{3,50}" title="Please enter a valid name using alphabetical letters (3-50 characters)." placeholder="e.g. Thabo Mokoena">
+                    </div>
+                    <div>
+                        <label for="emailAddr" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Email Address <span style="color:red;">*</span></label>
+                        <input type="email" id="emailAddr" name="emailAddr" required placeholder="e.g. thabo@example.com">
+                    </div>
+                    <div>
+                        <label for="phoneNum" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Phone Number <span style="color:red;">*</span></label>
+                        <input type="tel" id="phoneNum" name="phoneNum" required pattern="[0-9]{10}" title="Please enter exactly 10 digits without spaces." placeholder="e.g. 072 432 9811">
+                    </div>
+                </div>
             </fieldset>
 
-            <fieldset>
-                <legend>Enquiry Details</legend>
+            <fieldset style="position: relative;">
+                <legend style="font-size: 1.6rem; color: var(--brand-brown); font-weight: 700; margin-bottom: 20px; padding: 0 10px;">2. Order Specifications</legend>
 
-                <p>
-                    <label for="productChoice">Select Product Category:</label><br>
-                    <select id="productChoice" name="productChoice">
-                        <option value="cakes">Cakes</option>
-                        <option value="bread">Bread</option>
-                        <option value="pastries">Pastries</option>
-                        <option value="muffins">Muffins</option>
-                        <option value="scones">Scones</option>
-                        <option value="custom">Custom Order</option>
-                    </select>
-                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; align-items: start;">
+                    <div>
+                        <label for="productChoice" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Select Category <span style="color:red;">*</span></label>
+                        <select id="productChoice" name="productChoice" required>
+                            <option value="" disabled selected>-- Select an option --</option>
+                            <option value="cakes">Signature Cakes</option>
+                            <option value="bread">Baked Bread & Loaves</option>
+                            <option value="pastries">Premium Pastries</option>
+                            <option value="muffins">Gourmet Muffins</option>
+                            <option value="scones">Buttermilk Scones</option>
+                            <option value="custom">Fully Custom Order</option>
+                        </select>
+                    </div>
 
-                <p>
-                    <label for="quantity">Estimated Quantity / Number of Guests:</label><br>
-                    <input type="number" id="quantity" name="quantity" min="1" placeholder="e.g. 50">
-                </p>
+                    <div>
+                        <label for="quantity" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Estimated Quantity/Guests</label>
+                        <input type="number" id="quantity" name="quantity" min="1" placeholder="e.g. 50">
+                    </div>
 
-                <p>
-                    <label>Dietary Requirements / Allergies:</label><br>
-                    <input type="checkbox" id="dietGluten" name="diet[]" value="gluten-free">
-                    <label for="dietGluten">Gluten-Free</label><br>
-                    <input type="checkbox" id="dietVegan" name="diet[]" value="vegan">
-                    <label for="dietVegan">Vegan</label><br>
-                    <input type="checkbox" id="dietNut" name="diet[]" value="nut-allergy">
-                    <label for="dietNut">Nut Allergy Aware</label>
-                </p>
+                    <div>
+                        <label for="eventDate" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Expected Date <span style="color:red;">*</span></label>
+                        <input type="date" id="eventDate" name="eventDate" required>
+                    </div>
+                </div>
 
-                <p>
-                    <label>Order Fulfillment Preference:</label><br>
-                    <input type="radio" id="pickup" name="fulfillment" value="pickup" checked>
-                    <label for="pickup">In-Store Pickup</label><br>
-                    <input type="radio" id="delivery" name="fulfillment" value="delivery">
-                    <label for="delivery">Delivery</label>
-                </p>
+                <hr style="margin: 30px 0; border: 1px solid rgba(0,0,0,0.05);">
 
-                <p>
-                    <label for="enquiryMessage">Enquiry Message:</label><br>
-                    <textarea id="enquiryMessage" name="enquiryMessage" rows="5" cols="40" required
-                        placeholder="Please provide details about your order or question..."></textarea>
-                </p>
+                <!-- Flexible Grid for the Radio and Checkboxes -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                    <div>
+                        <label style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 12px;">Dietary Restrictions?</label>
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <label for="dietGluten" style="display: flex; align-items: center; cursor: pointer; color: #555;"><input type="checkbox" id="dietGluten" name="diet[]" value="gluten-free"> Gluten-Free</label>
+                            <label for="dietVegan" style="display: flex; align-items: center; cursor: pointer; color: #555;"><input type="checkbox" id="dietVegan" name="diet[]" value="vegan"> Vegan</label>
+                            <label for="dietNut" style="display: flex; align-items: center; cursor: pointer; color: #555;"><input type="checkbox" id="dietNut" name="diet[]" value="nut-allergy"> Nut Allergy</label>
+                        </div>
+                    </div>
 
-                <!-- Additional contextual input to show varied field types -->
-                <p>
-                    <label for="eventDate">Expected Date of Event/Delivery:</label><br>
-                    <input type="date" id="eventDate" name="eventDate">
-                </p>
+                    <div>
+                        <label style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 12px;">Fulfillment Preference <span style="color:red;">*</span></label>
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <label for="pickup" style="display: flex; align-items: center; cursor: pointer; color: #555;"><input type="radio" id="pickup" name="fulfillment" value="pickup" checked> In-Store Pickup</label>
+                            <label for="delivery" style="display: flex; align-items: center; cursor: pointer; color: #555;"><input type="radio" id="delivery" name="fulfillment" value="delivery"> Local Delivery</label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="margin: 30px 0; border: 1px solid rgba(0,0,0,0.05);">
+
+                <div>
+                    <label for="enquiryMessage" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Additional Information <span style="color:red;">*</span></label>
+                    <textarea id="enquiryMessage" name="enquiryMessage" rows="5" required placeholder="Please provide specific details about your theme, colors, or custom requirements..."></textarea>
+                </div>
+
             </fieldset>
 
-            <!-- Form submission button -->
-            <p>
-                <button type="submit">Submit Enquiry</button>
-            </p>
+            <div style="text-align: center; margin-top: 10px;">
+                <button type="submit" style="padding: 20px 60px; font-size: 1.3rem; border-radius: var(--radius-pill); cursor: pointer; border: none; font-weight: 700;">Submit Final Enquiry</button>
+            </div>
         </form>
     </main>
 

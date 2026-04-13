@@ -44,123 +44,100 @@
         <p>We'd love to hear from you! Reach out to us using the contact details below, or send us a fast message via
             the contact form.</p>
 
-        <!-- Section displaying direct contact information -->
-        <section id="contact-info">
-            <h3>Contact Information</h3>
-            <p>Our friendly staff are always ready to take your call or respond to your emails to help you plan your
-                next sweet event.</p>
-            <ul>
-                <li><strong>Cell:</strong> 072 432 9811</li>
-                <li><strong>Tel:</strong> 011 555 3210</li>
-                <li><strong>Email:</strong> info@tscakes.co.za</li>
-                <li><strong>Social Media:</strong> <a href="#">Facebook</a> | <a href="#">Instagram</a></li>
-            </ul>
+        <!-- Modernized Grid for Direct Contact Information -->
+        <section id="contact-info" style="background: transparent; box-shadow: none; padding: 0; margin-bottom: 60px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="background: var(--white); padding: 40px 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; transition: var(--transition);" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--brand-pink); font-size: 1.2rem; margin-bottom: 10px;">Phone Support</h4>
+                    <p style="font-size: 1.5rem; color: var(--brand-brown); font-weight: 700; margin: 0;">011 555 3210</p>
+                </div>
+                <div style="background: var(--white); padding: 40px 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; transition: var(--transition);" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--brand-pink); font-size: 1.2rem; margin-bottom: 10px;">WhatsApp Orders</h4>
+                    <p style="font-size: 1.5rem; color: var(--brand-brown); font-weight: 700; margin: 0;">072 432 9811</p>
+                </div>
+                <div style="background: var(--white); padding: 40px 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; transition: var(--transition);" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--brand-pink); font-size: 1.2rem; margin-bottom: 10px;">Direct Email</h4>
+                    <p style="font-size: 1.2rem; color: var(--brand-brown); font-weight: 700; margin: 0;">info@tscakes.co.za</p>
+                </div>
+                <div style="background: var(--white); padding: 40px 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; transition: var(--transition);" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--brand-pink); font-size: 1.2rem; margin-bottom: 10px;">Social Media</h4>
+                    <p style="font-size: 1.2rem; font-weight: 700; margin: 0;"><a href="#" style="color: var(--brand-brown); text-decoration: none;">Instagram</a> &nbsp;|&nbsp; <a href="#" style="color: var(--brand-brown); text-decoration: none;">Facebook</a></p>
+                </div>
+            </div>
         </section>
 
-        <section id="operating-hours">
-            <h3>Operating Hours</h3>
-            <p>We bake fresh every single day! Feel free to pop into either of our locations during the following hours:
-            </p>
-
-            <!-- Showcasing the use of an HTML Table to display tabular scheduling data -->
-            <table border="1" cellpadding="10" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th align="left">Day of the Week</th>
-                        <th align="left">Opening Time</th>
-                        <th align="left">Closing Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Monday - Friday</td>
-                        <td>07:00 AM</td>
-                        <td>17:30 PM</td>
-                    </tr>
-                    <tr>
-                        <td>Saturday</td>
-                        <td>08:00 AM</td>
-                        <td>14:00 PM</td>
-                    </tr>
-                    <tr>
-                        <td>Sunday & Public Holidays</td>
-                        <td colspan="2"><em>Closed (Except for pre-arranged event deliveries)</em></td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Modernized Operating Hours substituting the legacy table -->
+        <section id="operating-hours" style="max-width: 800px; margin: 0 auto 60px auto;">
+            <h3 style="text-align: center; color: var(--brand-brown); font-size: 2rem; margin-bottom: 30px;">Store Operating Hours</h3>
+            <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); overflow: hidden;">
+                <div style="display: flex; justify-content: space-between; padding: 25px 40px; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                    <span style="font-weight: 600; font-size: 1.1rem;">Monday - Friday</span>
+                    <span style="color: var(--brand-pink); font-weight: 700; font-size: 1.1rem;">07:00 AM - 17:30 PM</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 25px 40px; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                    <span style="font-weight: 600; font-size: 1.1rem;">Saturday</span>
+                    <span style="color: var(--brand-pink); font-weight: 700; font-size: 1.1rem;">08:00 AM - 14:00 PM</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 25px 40px; background: rgba(0,0,0,0.01);">
+                    <span style="font-weight: 600; font-size: 1.1rem; color: #888;">Sunday & Public Holidays</span>
+                    <span style="color: #888; font-style: italic; font-size: 1.1rem;">Closed (Event deliveries only)</span>
+                </div>
+            </div>
         </section>
 
-        <!-- Section mapping out store locations with embedded interactive maps -->
-        <section id="locations">
-            <h3>Our Locations</h3>
-            <p>Come visit us at any of our branches!</p>
+        <!-- Section mapping out store locations with embedded interactive maps using CSS Grid -->
+        <section id="locations" style="background: transparent; box-shadow: none; padding: 0;">
+            <h3 style="text-align: center; color: var(--brand-brown); font-size: 2.2rem; margin-bottom: 10px;">Visit Our Flagships</h3>
+            <p style="text-align: center; font-size: 1.1rem; color: #555; margin-bottom: 40px;">Walk-ins are always welcome. Find your nearest bakery below.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+                <!-- Flagship Bakery Map: Sandton -->
+                <article style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); display: flex; flex-direction: column;">
+                    <h4 style="font-size: 1.4rem; color: var(--brand-pink); margin-bottom: 5px;">Sandton Flagship</h4>
+                    <p style="font-size: 0.95rem; color: #666; margin-bottom: 20px;">42 Nelson Mandela Square, Sandton, 2196</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114584.73574987883!2d27.96216440611417!3d-26.2041028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac9d9b1d34041!2sJohannesburg!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" width="100%" height="250" style="border:0; border-radius: 16px; flex-grow: 1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing our Sandton Flagship location"></iframe>
+                </article>
 
-            <!-- Flagship Bakery Map: Sandton -->
-            <article>
-                <h4>Flagship Bakery: Sandton</h4>
-                <p>42 Nelson Mandela Square, Sandton, 2196, South Africa</p>
-                <!-- Using an iframe embed to display the map -->
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114584.73574987883!2d27.96216440611417!3d-26.2041028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac9d9b1d34041!2sJohannesburg!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza"
-                    width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade" title="Map showing our Sandton Flagship location">
-                </iframe>
-            </article>
+                <!-- Rosebank Branch Map -->
+                <article style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); display: flex; flex-direction: column;">
+                    <h4 style="font-size: 1.4rem; color: var(--brand-pink); margin-bottom: 5px;">Rosebank Branch</h4>
+                    <p style="font-size: 0.95rem; color: #666; margin-bottom: 20px;">14 Jellicoe Avenue, Rosebank, 2196</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.3639534927236!2d28.037803615029194!3d-26.152345983460677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950ceab41faacd%3A0x868cbe660a5251db!2sRosebank%2C%20Johannesburg%2C%202196!5e0!3m2!1sen!2sza!4v1700000000001!5m2!1sen!2sza" width="100%" height="250" style="border:0; border-radius: 16px; flex-grow: 1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing our Rosebank Branch"></iframe>
+                </article>
 
-            <br>
-
-            <!-- Rosebank Branch Map -->
-            <article>
-                <h4>Rosebank Branch</h4>
-                <p>14 Jellicoe Avenue, Rosebank, Johannesburg, 2196, South Africa</p>
-                <!-- Using an iframe embed to display the second map -->
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.3639534927236!2d28.037803615029194!3d-26.152345983460677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950ceab41faacd%3A0x868cbe660a5251db!2sRosebank%2C%20Johannesburg%2C%202196!5e0!3m2!1sen!2sza!4v1700000000001!5m2!1sen!2sza"
-                    width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade" title="Map showing our Rosebank Branch">
-                </iframe>
-            </article>
-
-            <br>
-
-            <!-- Menlyn Branch Map: Pretoria -->
-            <article>
-                <h4>Menlyn Branch</h4>
-                <p>Shop 45, Menlyn Maine, Aramist Ave, Waterkloof Glen, Pretoria, 0081, South Africa</p>
-                <!-- Using an iframe embed to display the third map -->
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115132.86311099511!2d28.112267950000003!3d-25.747867599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95619cbec65033%3A0xf66262b07a847b4c!2sPretoria!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza"
-                    width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade" title="Map showing our Pretoria location">
-                </iframe>
-            </article>
+                <!-- Menlyn Branch Map: Pretoria -->
+                <article style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); display: flex; flex-direction: column;">
+                    <h4 style="font-size: 1.4rem; color: var(--brand-pink); margin-bottom: 5px;">Menlyn Branch</h4>
+                    <p style="font-size: 0.95rem; color: #666; margin-bottom: 20px;">Shop 45, Menlyn Maine, Pretoria, 0081</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115132.86311099511!2d28.112267950000003!3d-25.747867599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95619cbec65033%3A0xf66262b07a847b4c!2sPretoria!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" width="100%" height="250" style="border:0; border-radius: 16px; flex-grow: 1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing our Pretoria location"></iframe>
+                </article>
+            </div>
         </section>
 
-        <hr>
+        <!-- General contact form for website visitors redesigned to fluid Grid -->
+        <br><br>
+        <section id="contact-form-section" style="max-width: 800px; margin: 0 auto;">
+            <h3 style="text-align: center; color: var(--brand-brown); font-size: 2.2rem; margin-bottom: 30px;">Send Us a Message</h3>
+            <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div>
+                        <label for="contactName" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Name <span style="color:red;">*</span></label>
+                        <input type="text" id="contactName" name="contactName" required placeholder="e.g. Sarah">
+                    </div>
+                    <div>
+                        <label for="contactEmail" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Email Address <span style="color:red;">*</span></label>
+                        <input type="email" id="contactEmail" name="contactEmail" required placeholder="name@domain.com">
+                    </div>
+                </div>
 
-        <!-- General contact form for website visitors -->
-        <section id="contact-form-section">
-            <h3>Send Us a Message</h3>
-            <form action="#" method="POST">
-                <p>
-                    <label for="contactName">Name:</label><br>
-                    <input type="text" id="contactName" name="contactName" required>
-                </p>
+                <div>
+                    <label for="contactMessage" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Message <span style="color:red;">*</span></label>
+                    <textarea id="contactMessage" name="contactMessage" rows="5" required placeholder="How can we help you today?"></textarea>
+                </div>
 
-                <p>
-                    <label for="contactEmail">Email:</label><br>
-                    <input type="email" id="contactEmail" name="contactEmail" required>
-                </p>
-
-                <p>
-                    <label for="contactMessage">Message:</label><br>
-                    <!-- Using textarea to allow multi-line input -->
-                    <textarea id="contactMessage" name="contactMessage" rows="4" cols="40" required></textarea>
-                </p>
-
-                <p>
-                    <button type="submit">Send Message</button>
-                </p>
+                <div style="text-align: center; margin-top: 10px;">
+                    <button type="submit" style="padding: 15px 50px; font-size: 1.2rem; border-radius: var(--radius-pill); cursor: pointer; border: none; font-weight: 700;">Send Message</button>
+                </div>
             </form>
         </section>
     </main>

@@ -71,36 +71,56 @@
             </div>
         </section>
 
-        <!-- Featured Products Section with corresponding images -->
+        <!-- Featured Products Section redesigned with cinematic poster-style layout -->
         <br><br>
-        <section id="featured-products">
-            <h2 style="text-align: center; color: var(--accent-pink-dark); font-size: 2.2rem;">Featured Products</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: #555;">Take a look at our most popular, fast-selling signature items:</p>
-            <br>
+        <section id="featured-products" style="background: transparent; box-shadow: none;">
+            <h2 style="text-align: center; color: var(--brand-brown); font-size: 2.8rem; margin-bottom: 10px;">Featured Collections</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #555; margin-bottom: 50px;">Explore the four pillars of our world-class bakery.</p>
             
-            <div id="gallery-grid">
-                <article>
-                    <h3>Signature Cakes</h3>
-                    <img src="Images/Cake3.jpg" alt="Signature cake">
-                    <p>The cakes that started it all. Rich, moist, and unforgettable.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                
+                <!-- Cinematic Card 1 -->
+                <article style="position: relative; height: 500px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--glass-shadow); transition: var(--transition); cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='var(--hover-shadow)'; this.querySelector('img').style.transform='scale(1.1)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='var(--glass-shadow)'; this.querySelector('img').style.transform='scale(1)';">
+                    <img src="Images/Cake3.jpg" alt="Signature cake" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; z-index: 1; transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 0;">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 70%; background: linear-gradient(to top, rgba(45, 37, 31, 0.95) 0%, rgba(45, 37, 31, 0.4) 50%, transparent 100%); z-index: 2;"></div>
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 30px; z-index: 3; box-sizing: border-box;">
+                        <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; font-weight: 800; color: var(--brand-pink); margin-bottom: 8px;">Flagship Series</p>
+                        <h3 style="color: var(--white); font-size: 2.2rem; margin-bottom: 15px; line-height: 1.1;">Signature Cakes</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-bottom: 0;">Massive, deeply moist, and unforgettable centerpieces built to stop the show.</p>
+                    </div>
                 </article>
 
-                <article>
-                    <h3>Fresh Muffins</h3>
-                    <img src="Images/muffins2210.jpg" alt="Fresh Muffins">
-                    <p>Perfect for families, students, and working professionals.</p>
+                <!-- Cinematic Card 2 -->
+                <article style="position: relative; height: 500px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--glass-shadow); transition: var(--transition); cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='var(--hover-shadow)'; this.querySelector('img').style.transform='scale(1.1)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='var(--glass-shadow)'; this.querySelector('img').style.transform='scale(1)';">
+                    <img src="Images/muffins2210.jpg" alt="Fresh Muffins" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; z-index: 1; transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 0;">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 70%; background: linear-gradient(to top, rgba(45, 37, 31, 0.95) 0%, rgba(45, 37, 31, 0.4) 50%, transparent 100%); z-index: 2;"></div>
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 30px; z-index: 3; box-sizing: border-box;">
+                        <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; font-weight: 800; color: var(--brand-pink); margin-bottom: 8px;">Morning Fuel</p>
+                        <h3 style="color: var(--white); font-size: 2.2rem; margin-bottom: 15px; line-height: 1.1;">Gourmet Muffins</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-bottom: 0;">Perfectly domed and packed with molten chocolate blocks and fresh fruit.</p>
+                    </div>
                 </article>
 
-                <article>
-                    <h3>Classic Scones</h3>
-                    <img src="Images/Scones410.jpg" alt="Classic Scones">
-                    <p>Enjoy our classic scones pairing perfectly with local tea.</p>
+                <!-- Cinematic Card 3 -->
+                <article style="position: relative; height: 500px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--glass-shadow); transition: var(--transition); cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='var(--hover-shadow)'; this.querySelector('img').style.transform='scale(1.1)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='var(--glass-shadow)'; this.querySelector('img').style.transform='scale(1)';">
+                    <img src="Images/Scones410.jpg" alt="Classic Scones" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; z-index: 1; transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 0;">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 70%; background: linear-gradient(to top, rgba(45, 37, 31, 0.95) 0%, rgba(45, 37, 31, 0.4) 50%, transparent 100%); z-index: 2;"></div>
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 30px; z-index: 3; box-sizing: border-box;">
+                        <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; font-weight: 800; color: var(--brand-pink); margin-bottom: 8px;">Local Legends</p>
+                        <h3 style="color: var(--white); font-size: 2.2rem; margin-bottom: 15px; line-height: 1.1;">Buttermilk Scones</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-bottom: 0;">Served hot every two hours. A staple for corporate boards and high tea.</p>
+                    </div>
                 </article>
 
-                <article>
-                    <h3>Assorted Pastries</h3>
-                    <img src="Images/pastries44.jpg" alt="Assorted Pastries">
-                    <p>A mix of sweet, flaky joy designed to bring people together.</p>
+                <!-- Cinematic Card 4 -->
+                <article style="position: relative; height: 500px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--glass-shadow); transition: var(--transition); cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='var(--hover-shadow)'; this.querySelector('img').style.transform='scale(1.1)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='var(--glass-shadow)'; this.querySelector('img').style.transform='scale(1)';">
+                    <img src="Images/pastries44.jpg" alt="Assorted Pastries" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; z-index: 1; transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 0;">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 70%; background: linear-gradient(to top, rgba(45, 37, 31, 0.95) 0%, rgba(45, 37, 31, 0.4) 50%, transparent 100%); z-index: 2;"></div>
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 30px; z-index: 3; box-sizing: border-box;">
+                        <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; font-weight: 800; color: var(--brand-pink); margin-bottom: 8px;">Hand Folded</p>
+                        <h3 style="color: var(--white); font-size: 2.2rem; margin-bottom: 15px; line-height: 1.1;">Premium Pastries</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-bottom: 0;">Layers of delicate, flaky butter crust wrapped around real fruit compotes.</p>
+                    </div>
                 </article>
             </div>
         </section>

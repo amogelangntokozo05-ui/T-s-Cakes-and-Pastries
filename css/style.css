@@ -14,25 +14,31 @@
 /* --- Ultra-Modern Base Variables --- */
 :root {
     /* Muted colors to look expensive and modern instead of distinctly 1990s */
-    --primary-bg: #FCFAF6;        /* Breathable, barely-there cream background */
+    --primary-bg: #FCFAF6;
+    /* Breathable, barely-there cream background */
     --white: #FFFFFF;
-    
+
     /* Branding */
-    --brand-brown: #5C3A21;       /* Deeper, more sophisticated chocolate brown */
+    --brand-brown: #5C3A21;
+    /* Deeper, more sophisticated chocolate brown */
     --brand-light-brown: #8C5831;
-    --brand-pink: #FFC0CB;        
+    --brand-pink: #FFC0CB;
     --brand-pink-gradient: linear-gradient(135deg, #FFC0CB 0%, #FFA0B4 100%);
-    
+
     /* Typography */
-    --text-primary: #2D251F;      /* Soft off-black for premium reading contrast */
+    --text-primary: #2D251F;
+    /* Soft off-black for premium reading contrast */
     --text-muted: #73675E;
-    
+
     /* Glassmorphism & UI Layout Control */
-    --glass-shadow: 0 16px 40px rgba(92, 58, 33, 0.08); /* Massive diffuse shadow, abandoning crude borders */
-    --hover-shadow: 0 24px 60px rgba(92, 58, 33, 0.15); /* Deep lifting shadow */
-    --radius-lg: 24px;            /* Bubbly, friendly, expansive app-like corners */
+    --glass-shadow: 0 16px 40px rgba(92, 58, 33, 0.08);
+    /* Massive diffuse shadow, abandoning crude borders */
+    --hover-shadow: 0 24px 60px rgba(92, 58, 33, 0.15);
+    /* Deep lifting shadow */
+    --radius-lg: 24px;
+    /* Bubbly, friendly, expansive app-like corners */
     --radius-pill: 50px;
-    
+
     /* Global Universal Transitions */
     --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -44,28 +50,45 @@ body {
     line-height: 1.8;
     background-color: var(--primary-bg);
     color: var(--text-primary);
-    -webkit-font-smoothing: antialiased; /* Triggers ultra-crisp browser font rendering */
+    -webkit-font-smoothing: antialiased;
+    /* Triggers ultra-crisp browser font rendering */
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Outfit', 'Inter', sans-serif;
     color: var(--brand-brown);
-    letter-spacing: -0.8px; /* Modern tight tracking for editorial headers */
+    letter-spacing: -0.8px;
+    /* Modern tight tracking for editorial headers */
     margin-bottom: 24px;
     font-weight: 700;
 }
 
 /* Extreme header scaling */
-h1 { font-size: 2.8rem; }
-h2 { font-size: 2.4rem; }
-h3 { font-size: 1.6rem; }
+h1 {
+    font-size: 2.8rem;
+}
 
-p, ul, table {
+h2 {
+    font-size: 2.4rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+p,
+ul,
+table {
     margin-bottom: 24px;
     color: var(--text-primary);
 }
 
-ul { margin-left: 20px; }
+ul {
+    margin-left: 20px;
+}
 
 a {
     color: var(--brand-light-brown);
@@ -80,14 +103,17 @@ a:hover {
 img {
     max-width: 100%;
     height: auto;
-    border-radius: 16px; /* Slightly tighter edge radius than the surrounding container */
+    border-radius: 16px;
+    /* Slightly tighter edge radius than the surrounding container */
     display: block;
 }
 
 /* --- Glassmorphism Navigation Sticky Header --- */
 header {
-    background: rgba(255, 255, 255, 0.85); /* Frosty translucency */
-    backdrop-filter: blur(16px); /* Pure Glassmorphism effect overlaying content as user scrolls */
+    background: rgba(255, 255, 255, 0.85);
+    /* Frosty translucency */
+    backdrop-filter: blur(16px);
+    /* Pure Glassmorphism effect overlaying content as user scrolls */
     -webkit-backdrop-filter: blur(16px);
     padding: 20px 60px;
     display: flex;
@@ -96,7 +122,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0,0,0,0.03); /* Tiny crisp anchor line */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    /* Tiny crisp anchor line */
 }
 
 header h1 {
@@ -105,7 +132,8 @@ header h1 {
     font-weight: 800;
     background: linear-gradient(135deg, var(--brand-brown), var(--brand-light-brown));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Cutting-edge CSS gradient text implementation */
+    -webkit-text-fill-color: transparent;
+    /* Cutting-edge CSS gradient text implementation */
 }
 
 header nav ul {
@@ -124,7 +152,7 @@ header nav a {
 
 /* Navigation Hover Micro-Animations */
 header nav a:hover {
-    background-color: rgba(255, 192, 203, 0.2); 
+    background-color: rgba(255, 192, 203, 0.2);
     color: var(--brand-brown);
     transform: translateY(-2px);
 }
@@ -132,12 +160,14 @@ header nav a:hover {
 header nav a[aria-current="page"] {
     background: var(--brand-pink-gradient);
     color: var(--brand-brown);
-    box-shadow: 0 8px 20px rgba(255, 192, 203, 0.4); /* Colored shadow glow */
+    box-shadow: 0 8px 20px rgba(255, 192, 203, 0.4);
+    /* Colored shadow glow */
 }
 
 /* --- Layout Mechanics --- */
 main {
-    max-width: 1300px; /* Vastly wider "full bleed" allowance */
+    max-width: 1300px;
+    /* Vastly wider "full bleed" allowance */
     margin: 60px auto;
     padding: 0 30px;
 }
@@ -148,14 +178,16 @@ section {
     padding: 60px;
     margin-bottom: 60px;
     border-radius: var(--radius-lg);
-    box-shadow: var(--glass-shadow); /* Massive drop soft shadows */
+    box-shadow: var(--glass-shadow);
+    /* Massive drop soft shadows */
     transition: var(--transition);
 }
 
 /* Make EVERY section dynamically hover and lift using pure CSS cascading */
 section:not(#hero):hover {
     box-shadow: var(--hover-shadow);
-    transform: translateY(-4px); /* Magnetic float effect */
+    transform: translateY(-4px);
+    /* Magnetic float effect */
 }
 
 /* --- Hero Banner System --- */
@@ -172,7 +204,8 @@ section#hero {
     height: 600px;
     object-fit: cover;
     border-radius: var(--radius-lg);
-    filter: brightness(0.7) saturate(1.2); /* Deepens image to pop white text */
+    filter: brightness(0.7) saturate(1.2);
+    /* Deepens image to pop white text */
     box-shadow: var(--glass-shadow);
 }
 
@@ -187,16 +220,16 @@ section#hero {
 
 /* Massive Display Sizing */
 #hero .hero-text h2 {
-    font-size: 4.8rem; 
+    font-size: 4.8rem;
     color: var(--white);
-    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     line-height: 1.1;
     margin-bottom: 20px;
 }
 
 #hero .hero-text p {
     font-size: 1.8rem;
-    color: rgba(255,255,255,0.95);
+    color: rgba(255, 255, 255, 0.95);
     font-weight: 500;
 }
 
@@ -207,7 +240,8 @@ section#hero {
     color: var(--white);
 }
 
-#call-to-action h2, #call-to-action p {
+#call-to-action h2,
+#call-to-action p {
     color: var(--white);
 }
 
@@ -220,14 +254,15 @@ section#hero {
     font-weight: 800;
     font-size: 1.25rem;
     margin-top: 30px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    border: 2px solid transparent; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
 }
 
 /* Extreme Micro-Animation Wow Factor */
 #call-to-action a:not(nav a):hover {
-    transform: translateY(-10px) scale(1.05); /* Scales UP while jumping structurally! */
-    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    transform: translateY(-10px) scale(1.05);
+    /* Scales UP while jumping structurally! */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
     background: transparent;
     border-color: var(--brand-pink);
     color: var(--brand-pink);
@@ -241,12 +276,13 @@ section#hero {
 }
 
 #gallery-grid article {
-    background: var(--primary-bg); /* Slight offset for inner cards */
+    background: var(--primary-bg);
+    /* Slight offset for inner cards */
     padding: 30px;
     border-radius: var(--radius-lg);
     box-shadow: none;
     transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.03);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 #gallery-grid article:hover {
@@ -263,7 +299,9 @@ section#hero {
     border-radius: 14px;
 }
 
-#gallery-grid hr { display: none; }
+#gallery-grid hr {
+    display: none;
+}
 
 /* --- Complex Forms --- */
 form {
@@ -272,7 +310,8 @@ form {
 }
 
 fieldset {
-    border: none; /* Removing old 1990s border lines natively */
+    border: none;
+    /* Removing old 1990s border lines natively */
     background: var(--primary-bg);
     padding: 50px;
     border-radius: var(--radius-lg);
@@ -286,8 +325,13 @@ legend {
     margin-bottom: 20px;
 }
 
-input[type="text"], input[type="email"], input[type="tel"], 
-input[type="number"], input[type="date"], select, textarea {
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
     width: 100%;
     padding: 20px;
     border: 2px solid transparent;
@@ -296,27 +340,32 @@ input[type="number"], input[type="date"], select, textarea {
     font-family: inherit;
     font-size: 1.1rem;
     color: var(--text-primary);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
     transition: var(--transition);
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
 /* Ultra-modern pure focus tracking */
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
     outline: none;
     border-color: var(--brand-pink);
     box-shadow: 0 4px 25px rgba(255, 192, 203, 0.4);
 }
 
-input[type="radio"], input[type="checkbox"] {
+input[type="radio"],
+input[type="checkbox"] {
     width: 22px;
     height: 22px;
     margin-right: 15px;
-    accent-color: var(--brand-brown); 
+    accent-color: var(--brand-brown);
 }
 
-button[type="submit"], input[type="submit"], button[type="reset"] {
+button[type="submit"],
+input[type="submit"],
+button[type="reset"] {
     width: 100%;
     background: var(--brand-brown);
     color: var(--white);
@@ -329,7 +378,8 @@ button[type="submit"], input[type="submit"], button[type="reset"] {
     transition: var(--transition);
 }
 
-button[type="submit"]:hover, input[type="submit"]:hover {
+button[type="submit"]:hover,
+input[type="submit"]:hover {
     background: var(--brand-light-brown);
     transform: translateY(-4px);
     box-shadow: 0 15px 30px rgba(92, 58, 33, 0.2);
@@ -357,11 +407,12 @@ button[type="reset"]:hover {
     /* Initialize CSS Container Constraints */
     container-type: inline-size;
     container-name: pCard;
-    
+
     background: var(--white);
     border-radius: var(--radius-lg);
     box-shadow: var(--glass-shadow);
-    overflow: hidden; /* Clips the image straight to the border radius curve */
+    overflow: hidden;
+    /* Clips the image straight to the border radius curve */
     transition: var(--transition);
     display: flex;
     flex-direction: column;
@@ -377,8 +428,10 @@ button[type="reset"]:hover {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border-radius: 0; /* Prevents double-curving */
-    margin-bottom: 0; /* Resets default image margin */
+    border-radius: 0;
+    /* Prevents double-curving */
+    margin-bottom: 0;
+    /* Resets default image margin */
 }
 
 .product-card .card-content {
@@ -397,13 +450,13 @@ shift the inner layout completely from Vertical to Horizontal!
     .product-card {
         flex-direction: row;
     }
-    
+
     .product-card img {
         width: 45%;
         height: 100%;
         min-height: 250px;
     }
-    
+
     .product-card .card-content {
         width: 55%;
         padding: 40px;
@@ -415,19 +468,21 @@ shift the inner layout completely from Vertical to Horizontal!
 #stacked-gallery {
     display: flex;
     flex-direction: column;
-    gap: 80px; /* Massive separation between full-width pieces */
+    gap: 80px;
+    /* Massive separation between full-width pieces */
     padding: 0;
     box-shadow: none;
     background: transparent;
 }
 
 #stacked-gallery article {
-    width: 100%; /* forces full width within the 1300px max-width boundary */
+    width: 100%;
+    /* forces full width within the 1300px max-width boundary */
     background: var(--white);
     border-radius: var(--radius-lg);
     box-shadow: var(--glass-shadow);
     transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.02);
+    border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 #stacked-gallery article:hover {
@@ -437,9 +492,11 @@ shift the inner layout completely from Vertical to Horizontal!
 
 #stacked-gallery img {
     width: 100%;
-    height: 700px; /* Massive sprawling cinematic height */
+    height: 700px;
+    /* Massive sprawling cinematic height */
     object-fit: cover;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0; /* Curve the top, flatten the bottom */
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    /* Curve the top, flatten the bottom */
     margin-bottom: 0;
 }
 
@@ -454,7 +511,8 @@ shift the inner layout completely from Vertical to Horizontal!
     font-weight: 800;
     color: var(--brand-brown);
     cursor: pointer;
-    list-style: none; /* Removes default triangle in modern browsers */
+    list-style: none;
+    /* Removes default triangle in modern browsers */
     outline: none;
     padding: 10px 0;
     transition: var(--transition);
@@ -462,7 +520,8 @@ shift the inner layout completely from Vertical to Horizontal!
 }
 
 #stacked-gallery summary::-webkit-details-marker {
-    display: none; /* Forces marker removal in Safari/Chrome */
+    display: none;
+    /* Forces marker removal in Safari/Chrome */
 }
 
 /* Custom UI Toggle graphic */
@@ -479,12 +538,12 @@ shift the inner layout completely from Vertical to Horizontal!
 
 #stacked-gallery details[open] summary::after {
     content: '- Close';
-    background: rgba(0,0,0,0.05);
+    background: rgba(0, 0, 0, 0.05);
     color: var(--text-muted);
 }
 
 #stacked-gallery details[open] summary {
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     margin-bottom: 30px;
 }
 
@@ -504,8 +563,15 @@ shift the inner layout completely from Vertical to Horizontal!
 }
 
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- HTML Sub-Tables --- */
@@ -515,10 +581,11 @@ table {
     margin-top: 20px;
 }
 
-th, td {
+th,
+td {
     padding: 24px;
     text-align: left;
-    border-bottom: 1px solid rgba(0,0,0,0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 th {
@@ -541,12 +608,14 @@ footer {
     color: var(--primary-bg);
     padding: 80px 40px 40px;
     text-align: center;
-    border-top-left-radius: 60px; /* Modern curved footing */
-    border-top-right-radius: 60px; 
+    border-top-left-radius: 60px;
+    /* Modern curved footing */
+    border-top-right-radius: 60px;
     margin-top: 100px;
 }
 
-footer h3, footer p {
+footer h3,
+footer p {
     color: var(--primary-bg);
 }
 
@@ -560,7 +629,7 @@ footer a:hover {
 }
 
 footer hr {
-    border-color: rgba(255,255,255,0.08);
+    border-color: rgba(255, 255, 255, 0.08);
     margin: 40px auto;
     max-width: 800px;
 }
@@ -576,7 +645,7 @@ footer hr {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     header h1 {
         font-size: 2.2rem;
         text-align: center;
@@ -589,8 +658,8 @@ footer hr {
     #hero .hero-text h2 {
         font-size: 3rem;
     }
-    
+
     section {
-        padding: 40px 25px; /* Collapse margins dynamically on mobile */
+        padding: 40px 25px;
     }
 }

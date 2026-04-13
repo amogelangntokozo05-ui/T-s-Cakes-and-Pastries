@@ -49,16 +49,30 @@
             </div>
         </section>
 
-        <!-- Expanded introduction to the bakery -->
-        <section id="introduction">
-            <h2>Welcome to T's Cakes and Pastries!</h2>
-            <p>T's Cakes and Pastries is known in the community for freshly baked goods, friendly service, and treats made with love and care.</p>
-            <p>We believe that every single day is worth celebrating with something sweet. Whether you are grabbing a quick Muffin on the way to work, sourcing treats for a beautiful funeral or selecting a stunning custom Cake for a memorable birthday, we dedicate our time and effort to baking perfection. Our ingredients are locally sourced, mixed by hands that genuinely love baking, and served with our signature warm smile.</p>
+        <!-- Expanded introduction to the bakery with interactive hovering stats -->
+        <section id="introduction" style="background: transparent; box-shadow: none;">
+            <h2 style="text-align: center; color: var(--brand-brown); font-size: 2.8rem; margin-bottom: 20px;">Welcome to T's Cakes and Pastries!</h2>
+            <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; color: #555;">We believe that every single day is worth celebrating with something sweet. Whether you are grabbing a quick fresh Muffin on the way to work, sourcing treats for a beautiful funeral, or designing a stunning custom Cake for a memorable 21st birthday, we dedicate our time and effort to baking absolute perfection.</p>
+            
+            <!-- Highly interactive statistical flexbox using inline JS for advanced hover popping -->
+            <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px;">
+                <div style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; width: 250px; transition: var(--transition);" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='var(--hover-shadow)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)';">
+                    <h3 style="font-size: 3rem; color: var(--brand-pink); margin-bottom: 5px;">10k+</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; margin: 0;">Custom Cakes Baked</p>
+                </div>
+                <div style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; width: 250px; transition: var(--transition);" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='var(--hover-shadow)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)';">
+                    <h3 style="font-size: 3rem; color: var(--brand-pink); margin-bottom: 5px;">3</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; margin: 0;">Prime Flagship Locations</p>
+                </div>
+                <div style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; width: 250px; transition: var(--transition);" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='var(--hover-shadow)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)';">
+                    <h3 style="font-size: 3rem; color: var(--brand-pink); margin-bottom: 5px;">100%</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; margin: 0;">Locally Sourced Butter</p>
+                </div>
+            </div>
         </section>
 
-        <hr>
-
         <!-- Featured Products Section with corresponding images -->
+        <br><br>
         <section id="featured-products">
             <h2 style="text-align: center; color: var(--accent-pink-dark); font-size: 2.2rem;">Featured Products</h2>
             <p style="text-align: center; font-size: 1.1rem; color: #555;">Take a look at our most popular, fast-selling signature items:</p>
@@ -91,16 +105,53 @@
             </div>
         </section>
 
-        <hr>
+        <br><br>
 
-        <!-- Current Specials Section featuring more images -->
-        <section id="current-specials">
-            <h2>Current Specials</h2>
-            <p>We run monthly discounts to give back to our supportive local community! <strong>Ask us about our current special:</strong></p>
-            <p><em>Buy any large celebration cake, and receive a FREE complimentary box of our freshly baked scones!</em></p>
-            <br>
-            <img src="Images/Cake887.jpg" alt="Weekend Cake Special" width="350">
-            <img src="Images/Scones895.jpg" alt="Free Scones as part of special" width="350">
+        <!-- Eye-Catching Interactive Specials Banner -->
+        <section id="current-specials" style="background: var(--brand-pink-gradient); padding: 60px; border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(255, 192, 203, 0.4); display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2 style="color: var(--brand-brown); font-size: 3rem; margin-bottom: 15px; line-height: 1.1;">Massive Weekend Special</h2>
+                <p style="font-size: 1.2rem; color: var(--brand-brown); font-weight: 500; margin-bottom: 30px;">We run monthly discounts to give back to our amazing local community! For this weekend only:</p>
+                <div style="background: rgba(255,255,255,0.9); padding: 25px; border-radius: 16px; border-left: 6px solid var(--brand-brown); box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    <h3 style="margin-bottom: 10px; color: var(--brand-brown);">Buy 1 Large Cake, Get Free Scones!</h3>
+                    <p style="margin: 0;">Purchase any large signature celebration cake, and literally walk out of the store with a complimentary hot box of our legendary freshly baked buttermilk scones.</p>
+                </div>
+            </div>
+            
+            <!-- Dual Rotational Image Display with hover interactions -->
+            <div style="flex: 1; min-width: 300px; display: flex; gap: 20px;">
+                <img src="Images/Cake887.jpg" alt="Weekend Cake Special" style="width: 50%; height: 280px; object-fit: cover; border-radius: 16px; box-shadow: var(--hover-shadow); transform: rotate(-4deg); transition: var(--transition); cursor: pointer;" onmouseover="this.style.transform='rotate(0deg) scale(1.08)'; this.style.zIndex='10';" onmouseout="this.style.transform='rotate(-4deg)'; this.style.zIndex='1';">
+                <img src="Images/Scones895.jpg" alt="Free Scones" style="width: 50%; height: 280px; object-fit: cover; border-radius: 16px; box-shadow: var(--hover-shadow); transform: rotate(4deg); transition: var(--transition); margin-top: 50px; cursor: pointer;" onmouseover="this.style.transform='rotate(0deg) scale(1.08)'; this.style.zIndex='10';" onmouseout="this.style.transform='rotate(4deg)'; this.style.zIndex='1';">
+            </div>
+        </section>
+
+        <!-- Brand New Interactive Testimonials Section -->
+        <br><br>
+        <section id="testimonials" style="background: transparent; box-shadow: none;">
+            <h2 style="text-align: center; color: var(--brand-brown); font-size: 2.8rem; margin-bottom: 40px;">What Our Community Says</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                
+                <div style="background: var(--white); padding: 40px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); position: relative; transition: var(--transition);" onmouseover="this.style.transform='translateY(-10px)';" onmouseout="this.style.transform='translateY(0)';">
+                    <span style="font-size: 5rem; color: rgba(255, 192, 203, 0.4); position: absolute; top: -10px; left: 20px; font-family: Georgia, serif; line-height: 1;">"</span>
+                    <p style="position: relative; z-index: 1; font-style: italic; color: #555; margin-bottom: 20px; font-size: 1.1rem; margin-top: 15px;">"T's Cakes absolutely saved my daughter's wedding! The 3-tier cake was beautiful and tasted even better than it looked. Incredible service from start to finish."</p>
+                    <h4 style="margin: 0; color: var(--brand-brown); font-size: 1.2rem;">Sarah Mkhize</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--brand-pink); font-weight: bold;">Sandton Customer</p>
+                </div>
+
+                <div style="background: var(--white); padding: 40px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); position: relative; transition: var(--transition);" onmouseover="this.style.transform='translateY(-10px)';" onmouseout="this.style.transform='translateY(0)';">
+                    <span style="font-size: 5rem; color: rgba(255, 192, 203, 0.4); position: absolute; top: -10px; left: 20px; font-family: Georgia, serif; line-height: 1;">"</span>
+                    <p style="position: relative; z-index: 1; font-style: italic; color: #555; margin-bottom: 20px; font-size: 1.1rem; margin-top: 15px;">"I stop by the Rosebank branch every single morning for their double chocolate muffins. You literally cannot start the workday without one. Phenomenal."</p>
+                    <h4 style="margin: 0; color: var(--brand-brown); font-size: 1.2rem;">David Levin</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--brand-pink); font-weight: bold;">Rosebank Customer</p>
+                </div>
+
+                <div style="background: var(--white); padding: 40px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); position: relative; transition: var(--transition);" onmouseover="this.style.transform='translateY(-10px)';" onmouseout="this.style.transform='translateY(0)';">
+                    <span style="font-size: 5rem; color: rgba(255, 192, 203, 0.4); position: absolute; top: -10px; left: 20px; font-family: Georgia, serif; line-height: 1;">"</span>
+                    <p style="position: relative; z-index: 1; font-style: italic; color: #555; margin-bottom: 20px; font-size: 1.1rem; margin-top: 15px;">"The high tea scone boards were the absolute highlight of our corporate event. Flaky, perfectly buttery, and delivered exactly on time by the logistics team."</p>
+                    <h4 style="margin: 0; color: var(--brand-brown); font-size: 1.2rem;">Sizwe IT Group</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--brand-pink); font-weight: bold;">Menlyn Branch Catering</p>
+                </div>
+            </div>
         </section>
 
         <hr>

@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Document setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Description to improve search engine rankings -->
-    <meta name="description" content="Make an enquiry or place a custom bakery order with T's Cakes and Pastries. Fast turnaround for birthdays and local events.">
+    <meta name="description"
+        content="Make an enquiry or place a custom bakery order with T's Cakes and Pastries. Fast turnaround for birthdays and local events.">
     <title>Enquiry - T's Cakes and Pastries</title>
 </head>
+
 <body>
     <!-- Website header and navigation wrapper -->
     <header>
         <h1>T's Cakes and Pastries</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Products & Services</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><strong><a href="enquiry.html" aria-current="page">Enquiry</a></strong></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <a href="index.html">Home</a> &nbsp;|&nbsp;
+            <a href="about.html">About Us</a> &nbsp;|&nbsp;
+            <a href="services.html">Products & Services</a> &nbsp;|&nbsp;
+            <a href="gallery.html">Gallery</a> &nbsp;|&nbsp;
+            <strong><a href="enquiry.html" aria-current="page">Enquiry</a></strong> &nbsp;|&nbsp;
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
     <!-- Main content containing the interactive form -->
     <main>
         <h2>Make an Enquiry or Place an Order</h2>
-        <p>Whether you need a dozen muffins for the office tomorrow, or a sophisticated custom 3-tier cake for a birthday celebration next month, we are here to bake your vision into reality!</p>
-        
+        <p>Whether you need a dozen muffins for the office tomorrow, or a sophisticated custom 3-tier cake for a
+            birthday celebration next month, we are here to bake your vision into reality!</p>
+
         <section id="order-process">
             <h3>How Our Ordering Process Works</h3>
-            <p>To ensure maximum freshness and quality, please keep the following timeframes in mind when making an enquiry:</p>
+            <p>To ensure maximum freshness and quality, please keep the following timeframes in mind when making an
+                enquiry:</p>
             <ul>
-                <li><strong>General Pastries and Breads:</strong> Please enquire at least 24 hours in advance for bulk orders.</li>
-                <li><strong>Custom Celebration Cakes:</strong> We require a minimum of 4 to 7 days notice depending on the complexity of the custom design.</li>
-                <li><strong>Funerals and Large Events:</strong> Please contact us as soon as possible so we can immediately prioritize your community catering needs.</li>
+                <li><strong>General Pastries and Breads:</strong> Please enquire at least 24 hours in advance for bulk
+                    orders.</li>
+                <li><strong>Custom Celebration Cakes:</strong> We require a minimum of 4 to 7 days notice depending on
+                    the complexity of the custom design.</li>
+                <li><strong>Funerals and Large Events:</strong> Please contact us as soon as possible so we can
+                    immediately prioritize your community catering needs.</li>
             </ul>
-            <p>Once you submit the enquiry form below, our customer service team will review your order and contact you directly within a few hours to confirm all details, dates, and pricing.</p>
+            <p>Once you submit the enquiry form below, our customer service team will review your order and contact you
+                directly within a few hours to confirm all details, dates, and pricing.</p>
         </section>
-        
+
         <hr>
 
         <!-- Form for product/service enquiries. We use POST method for secure data submission -->
         <form action="#" method="POST">
-            
+
             <!-- 
                 The <fieldset> tag is used below to logically group related elements inside the form. 
                 Coupled with the <legend> tag, it provides critical context to assistive technologies 
@@ -52,14 +59,16 @@
             -->
             <fieldset>
                 <legend>Your Details</legend>
-                
+
                 <p>
                     <!-- Semantic label linked to input using 'for' and 'id' attributes -->
                     <label for="fullName">Full Name:</label><br>
                     <!-- Using Regex pattern to ensure only letters and spaces are submitted -->
-                    <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z\s]{3,50}" title="Please enter a valid name using alphabetical letters (3-50 characters)." placeholder="Thabo Mokoena">
+                    <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z\s]{3,50}"
+                        title="Please enter a valid name using alphabetical letters (3-50 characters)."
+                        placeholder="Thabo Mokoena">
                 </p>
-                
+
                 <p>
                     <label for="emailAddr">Email Address:</label><br>
                     <input type="email" id="emailAddr" name="emailAddr" required placeholder="thabo.mokoena@gmail.com">
@@ -68,7 +77,9 @@
                 <p>
                     <label for="phoneNum">Phone Number:</label><br>
                     <!-- Using type='tel' alongside a Regex pattern to enforce strict client-side validation -->
-                    <input type="tel" id="phoneNum" name="phoneNum" required pattern="[0-9]{10}" title="Please enter exactly 10 digits without spaces (e.g. 0724329811)." placeholder="0724329811">
+                    <input type="tel" id="phoneNum" name="phoneNum" required pattern="[0-9]{10}"
+                        title="Please enter exactly 10 digits without spaces (e.g. 0724329811)."
+                        placeholder="0724329811">
                 </p>
             </fieldset>
 
@@ -112,7 +123,8 @@
 
                 <p>
                     <label for="enquiryMessage">Enquiry Message:</label><br>
-                    <textarea id="enquiryMessage" name="enquiryMessage" rows="5" cols="40" required placeholder="Please provide details about your order or question..."></textarea>
+                    <textarea id="enquiryMessage" name="enquiryMessage" rows="5" cols="40" required
+                        placeholder="Please provide details about your order or question..."></textarea>
                 </p>
 
                 <!-- Additional contextual input to show varied field types -->
@@ -134,12 +146,15 @@
         <hr>
         <div id="footer-details">
             <h3>T's Cakes and Pastries</h3>
-            <p><strong>Locations:</strong> Sandton Flagship &nbsp;|&nbsp; Rosebank Branch &nbsp;|&nbsp; Menlyn Pretoria</p>
-            <p><strong>Contact:</strong> Cell: 072 432 9811 &nbsp;|&nbsp; Tel: 011 555 3210 &nbsp;|&nbsp; Email: <a href="mailto:info@tscakes.co.za">info@tscakes.co.za</a></p>
+            <p><strong>Locations:</strong> Sandton Flagship &nbsp;|&nbsp; Rosebank Branch &nbsp;|&nbsp; Menlyn Pretoria
+            </p>
+            <p><strong>Contact:</strong> Cell: 072 432 9811 &nbsp;|&nbsp; Tel: 011 555 3210 &nbsp;|&nbsp; Email: <a
+                    href="mailto:info@tscakes.co.za">info@tscakes.co.za</a></p>
             <p><strong>Socials:</strong> <a href="#">Facebook</a> &nbsp;|&nbsp; <a href="#">Instagram</a></p>
         </div>
         <br>
         <p><small>&copy; 2024 T's Cakes and Pastries. All rights reserved. Baked with love and care.</small></p>
     </footer>
 </body>
+
 </html>

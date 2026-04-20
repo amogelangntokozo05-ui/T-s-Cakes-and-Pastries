@@ -52,4 +52,7 @@ This submission constitutes Part 1 of the Web Development assignment. It focuses
 - **v1.0.4**: Established active navigation states across all 6 pages. Checked against final WEDE5020 Part 1 Rubric specifications.
 
 ## References
-
+- https://unsplash.com/s/photos/Scones?license=free
+- https://unsplash.com/s/photos/muffins?license=free
+- https://unsplash.com/s/photos/pastries?license=free
+- https://unsplash.com/s/photos/cakes?license=free

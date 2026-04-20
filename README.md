@@ -52,7 +52,13 @@ This submission constitutes Part 1 of the Web Development assignment. It focuses
 - **v1.0.4**: Established active navigation states across all 6 pages. Checked against final WEDE5020 Part 1 Rubric specifications.
 
 ## References
-- https://unsplash.com/s/photos/Scones?license=free
-- https://unsplash.com/s/photos/muffins?license=free
-- https://unsplash.com/s/photos/pastries?license=free
-- https://unsplash.com/s/photos/cakes?license=free
+- Kirsten Drew. 2018. Cakes and Pastries. Available at: https://unsplash.com/photos/baked-pastry-on-bowl-n49BjsFf5dI
+- Eiliv Aceron. 2022. Cakes and Pastries. Available at: https://unsplash.com/photos/a-plate-with-a-strawberry-on-it-cGNX3GpRlDs
+- Karina Kungla. 2023. Cakes and Pastries. Available at: https://unsplash.com/photos/a-table-topped-with-two-cakes-covered-in-frosting-knVYO9dW8_Y
+- Nguyen Dang Hoang Nhu. 2023. Cakes and Pastries. Available at:https://unsplash.com/photos/white-and-brown-pastry-on-display-counter-lp9wGFOZTz8
+- Arvid Skywalker. 2021. Cakes and Pastries. Available at: https://unsplash.com/photos/brown-and-white-cupcakes-on-white-ceramic-plate-haNuj-t6VYE
+- Sheri Silver. 2025. Cakes and Pastries. Available at: https://unsplash.com/photos/brown-and-white-cupcakes-on-white-ceramic-plate-haNuj-t6VYE
+- Haberdoedas. 2026. Cakes and Pastries. Available at: https://unsplash.com/photos/desserts-and-pastries-displayed-in-a-cafe-display-case-hYPLjAXQeVM
+- Curated Lifestyle. 2024. Cakes and Pastries. Available at: https://unsplash.com/photos/homemade-berry-cake-food-photography-recipe-idea-Wh0uqwtsHLg
+- Camila Quintero Franco. 2019. Cakes and Pastries. Available at:https://unsplash.com/photos/a-table-topped-with-lots-of-brownies-covered-in-frosting-e5eA7D9X6Xs
+

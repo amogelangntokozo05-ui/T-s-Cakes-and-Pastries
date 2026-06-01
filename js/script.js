@@ -13,7 +13,7 @@ const PRODUCT_CATALOG = [
         priceText: "Prices start from R450",
         desc: "We craft custom-designed cakes for all occasions. Our master bakers specialize in multi-tiered wedding cakes, novelty birthday designs, and elegant corporate centerpieces.",
         category: "cakes",
-        img: "Images/Cake114.jpg",
+        img: "images/Cake114.jpg",
         alt: "Custom designed tiered wedding and birthday celebration cakes with pink icing by T's Cakes Sandton",
         bullets: [
             "Classic Vanilla Sponge & Chocolate Truffle",
@@ -28,7 +28,7 @@ const PRODUCT_CATALOG = [
         priceText: "Prices start from R45 / batch",
         desc: "Freshly baked bread with a crispy crust and soft center. Our scones are a local community legend, baked fresh every two hours so they are always served warm.",
         category: "breads",
-        img: "Images/Scones668.jpg",
+        img: "images/Scones668.jpg",
         alt: "Golden brown traditional buttermilk scones served fresh with fruit jam at T's Cakes Rosebank",
         bullets: [
             "Traditional Buttermilk Scones",
@@ -43,7 +43,7 @@ const PRODUCT_CATALOG = [
         priceText: "Prices start from R25 / pastry",
         desc: "From flaky croissants to sweet Danishes, our pastries are rolled and folded completely by hand using imported European butter for that signature, golden crispness.",
         category: "pastries",
-        img: "Images/pastries1102.jpg",
+        img: "images/pastries1102.jpg",
         alt: "Golden hand-rolled buttery danish pastries and croissants in display tray at T's Cakes and Pastries",
         bullets: [
             "Hand-folded Butter Croissants",
@@ -58,7 +58,7 @@ const PRODUCT_CATALOG = [
         priceText: "Prices start from R20 / muffin",
         desc: "Gourmet muffins in multiple flavors baked fresh daily. Packed with real fruit, premium chocolate chunks, and locally sourced nuts, these are perfect for students and early-morning workers.",
         category: "pastries",
-        img: "Images/muffins25.jpg",
+        img: "images/muffins25.jpg",
         alt: "Premium blueberry and double chocolate fudge gourmet muffins baked fresh daily at Sandton kitchen",
         bullets: [
             "Double Chocolate Fudge",
@@ -73,7 +73,7 @@ const PRODUCT_CATALOG = [
         priceText: "Prices start from R35 / cupcake",
         desc: "Bite-sized perfection. Our specialty cupcakes are baked using the same premium ingredients as our signature cakes, topped with a velvety smooth mountain of Swiss meringue buttercream. A delightful alternative to a large cake.",
         category: "cakes",
-        img: "Images/Cake3.jpg",
+        img: "images/Cake3.jpg",
         alt: "Decadent carrot and strawberry cream cupcakes piped with Swiss meringue frosting at Pretoria Menlyn",
         bullets: [
             "Salted Caramel & Pretzel Crunch",
@@ -88,7 +88,7 @@ const PRODUCT_CATALOG = [
         priceText: "Prices start from R55 / pie",
         desc: "Not everything we bake is sweet! We offer a massive range of deeply satisfying savory pies encased in our signature flaky, buttery crust. Perfect for a quick, warm lunch or explicitly catering a daytime corporate event.",
         category: "savory",
-        img: "Images/pastries63.jpg",
+        img: "images/pastries63.jpg",
         alt: "Golden baked chicken and mushroom and steak savory pies fresh out of the oven at T's Cakes",
         bullets: [
             "Classic Pepper Steak Pie",
@@ -103,7 +103,7 @@ const PRODUCT_CATALOG = [
         priceText: "Prices start from R18 / cookie",
         desc: "Melt-in-your-mouth shortbread and butter cookies that can be professionally air-brushed and iced to exactly match any party theme or corporate logo. These are extremely popular as individually wrapped wedding favors.",
         category: "cakes",
-        img: "Images/Cake002.jpg",
+        img: "images/Cake002.jpg",
         alt: "Intricately frosted shortbread cookies air-brushed with royal icing for celebration party favors",
         bullets: [
             "Rich Vanilla Bean Sugar Cookies",
@@ -118,7 +118,7 @@ const PRODUCT_CATALOG = [
         priceText: "Prices start from R350 / tray",
         desc: "Take the hassle completely out of morning arrangements. We manually build massive, beautifully arranged breakfast trays featuring a mixed assortment of our absolute best miniature baked goods, ready to serve instantly.",
         category: "savory",
-        img: "Images/muffins69877.jpg",
+        img: "images/muffins69877.jpg",
         alt: "Huge morning catering platter of miniature butter croissants, Danishes, and fresh berry muffins",
         bullets: [
             "Miniature Croissant & Fresh Jam Board",

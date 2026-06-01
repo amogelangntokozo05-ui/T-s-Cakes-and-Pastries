@@ -22,6 +22,36 @@ const PRODUCT_CATALOG = [
         ]
     },
     {
+        id: "cake-belgian",
+        title: "Belgian Chocolate Ganache",
+        price: 480,
+        priceText: "Prices start from R480",
+        desc: "Indulge in pure chocolate bliss. This premium cake features three layers of rich chocolate sponge filled with luxurious Belgian truffle ganache and glazed to absolute perfection.",
+        category: "cakes",
+        img: "images/Cake7.jpg",
+        alt: "Rich dark Belgian chocolate ganache custom celebration cake by T's Cakes",
+        bullets: [
+            "70% Dark Imported Belgian Cocoa",
+            "Silky chocolate truffle icing",
+            "Topped with handmade chocolate curls"
+        ]
+    },
+    {
+        id: "cake-redvelvet",
+        title: "Red Velvet Grandeur",
+        price: 460,
+        priceText: "Prices start from R460",
+        desc: "A classic red velvet cake, meticulously baked to be incredibly moist and light. Frosted with our signature sweet cream cheese icing and decorated with golden crumbs.",
+        category: "cakes",
+        img: "images/Cake887.jpg",
+        alt: "Gourmet red velvet custom birthday cake with cream cheese frosting",
+        bullets: [
+            "Moist crimson cocoa layers",
+            "Whipped cream cheese frosting",
+            "Perfect for birthdays and romantic events"
+        ]
+    },
+    {
         id: "breads-scones",
         title: "Baked Loaves & Scones",
         price: 45,
@@ -34,6 +64,36 @@ const PRODUCT_CATALOG = [
             "Traditional Buttermilk Scones",
             "Cheese & Chive Savory Scones",
             "Artisanal Sourdough Loaves"
+        ]
+    },
+    {
+        id: "breads-sconepack",
+        title: "Artisanal Scones Pack",
+        price: 90,
+        priceText: "Prices start from R90 / pack of 6",
+        desc: "Our legendary buttermilk scones, freshly baked in-store. This pack of six golden rounds is perfect for high tea, morning meetings, or a cozy Sunday brunch.",
+        category: "breads",
+        img: "images/Scones665.jpg",
+        alt: "Freshly baked buttermilk scones served on a wooden board with jam",
+        bullets: [
+            "Extremely light and buttery centers",
+            "Includes individual strawberry jams",
+            "Served warm in custom bakery boxes"
+        ]
+    },
+    {
+        id: "breads-sourdough",
+        title: "Farmhouse Sourdough",
+        price: 50,
+        priceText: "Prices start from R50 / loaf",
+        desc: "Classic country farmhouse sourdough bread, slowly fermented and stone-baked daily. Incredible when sliced thick, toasted, and spread with farm butter.",
+        category: "breads",
+        img: "images/Scones458.jpg",
+        alt: "Artisanal country sourdough loaf with a crispy rustic crust",
+        bullets: [
+            "36-hour slow fermentation",
+            "Crunchy rustic caramelized crust",
+            "100% natural wild yeast culture"
         ]
     },
     {
@@ -52,6 +112,36 @@ const PRODUCT_CATALOG = [
         ]
     },
     {
+        id: "pastries-strawberry",
+        title: "Strawberry Danish Crown",
+        price: 30,
+        priceText: "Prices start from R30 / pastry",
+        desc: "A crown-shaped flaky pastry baked with premium butter, centered with a delicious local strawberry compote and sweet vanilla baking custard.",
+        category: "pastries",
+        img: "images/pastries114.jpg",
+        alt: "Fresh strawberry and custard flaky Danish pastry crown",
+        bullets: [
+            "Imported puff pastry dough layers",
+            "Real wild strawberry compote",
+            "Lightly dusted with powdered sugar"
+        ]
+    },
+    {
+        id: "pastries-pecanroll",
+        title: "Pecan Cinnamon Roll",
+        price: 28,
+        priceText: "Prices start from R28 / pastry",
+        desc: "Hand-rolled yeasted sweet dough filled with high-grade cinnamon and brown sugar, baked golden, and drizzled with a decadent cream glaze and fresh pecans.",
+        category: "pastries",
+        img: "images/pastries55.jpg",
+        alt: "Gourmet cinnamon rolls topped with sweet glaze and pecan nuts",
+        bullets: [
+            "Warm sweet Saigon cinnamon filling",
+            "Crisp toasted caramelized pecans",
+            "Double-glazed with cream cheese icing"
+        ]
+    },
+    {
         id: "muffins-gourmet",
         title: "Gourmet Muffins",
         price: 20,
@@ -64,6 +154,21 @@ const PRODUCT_CATALOG = [
             "Double Chocolate Fudge",
             "Blueberry & Lemon Zest",
             "Bran, Apple & Cinnamon (Healthy Option)"
+        ]
+    },
+    {
+        id: "muffins-box",
+        title: "Early Morning Muffin Box",
+        price: 120,
+        priceText: "Prices start from R120 / box of 6",
+        desc: "Get a mixed box of our freshly baked gourmet muffins. Includes double chocolate, wild blueberry, and apple-bran options to delight everyone.",
+        category: "pastries",
+        img: "images/muffins2210.jpg",
+        alt: "Freshly baked assortment of six muffins in a presentation box",
+        bullets: [
+            "Warm and fresh out of the ovens at 5 AM",
+            "Excellent morning team meeting sharing pack",
+            "Includes double chocolate and berry options"
         ]
     },
     {
@@ -94,6 +199,21 @@ const PRODUCT_CATALOG = [
             "Classic Pepper Steak Pie",
             "Spinach and Feta Deep Quiche",
             "Chicken & Mushroom Traditional Bake"
+        ]
+    },
+    {
+        id: "savory-pietray",
+        title: "Artisanal Savory Pie Tray",
+        price: 330,
+        priceText: "Prices start from R330 / tray of 6",
+        desc: "Host in style with a mixed sharing tray of our signature savory pies. Stuffed with slow-cooked premium meats and fresh vegetables, baked to a perfect golden crisp.",
+        category: "savory",
+        img: "images/pastries666.jpg",
+        alt: "Assortment of freshly baked golden savory pies in catering tray",
+        bullets: [
+            "Gourmet slow-cooked beef and chicken fillings",
+            "Perfect warm finger-food catering platters",
+            "Double-baked flaky buttery puff pastry casings"
         ]
     },
     {

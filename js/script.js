@@ -782,23 +782,85 @@ function initFormInteractions() {
             customBlock.className = 'conditional-fieldset';
             customBlock.innerHTML = `
                 <legend style="font-size: 1.5rem; color: var(--brand-brown); font-weight: 700; margin-bottom: 20px; padding: 0 10px;">🎨 Custom Order Assistant</legend>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                    <div>
-                        <label for="cakeLayers" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Cake Layers</label>
-                        <select id="cakeLayers" name="cakeLayers">
-                            <option value="1">Single Tier (Standard)</option>
-                            <option value="2">2-Tier Showpiece</option>
-                            <option value="3">3-Tier Wedding Grandeur</option>
-                        </select>
+                <div class="cake-assistant-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; align-items: start;">
+                    <!-- Left Column: Selection Controls -->
+                    <div class="cake-controls-col" style="display: flex; flex-direction: column; gap: 20px;">
+                        <div>
+                            <label for="cakeLayers" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Cake Layers</label>
+                            <select id="cakeLayers" name="cakeLayers">
+                                <option value="1">Single Tier (Standard)</option>
+                                <option value="2">2-Tier Showpiece</option>
+                                <option value="3">3-Tier Wedding Grandeur</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="cakeShape" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Cake Shape</label>
+                            <select id="cakeShape" name="cakeShape">
+                                <option value="round">Classic Round</option>
+                                <option value="square">Modern Square</option>
+                                <option value="heart">Romantic Heart</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="cakeFrosting" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Frosting Flavor & Color</label>
+                            <select id="cakeFrosting" name="cakeFrosting">
+                                <option value="vanilla">Vanilla Cream (Cream-White)</option>
+                                <option value="strawberry">Strawberry Blush (Pastel Pink)</option>
+                                <option value="chocolate">Chocolate Ganache (Deep Brown)</option>
+                                <option value="cinnamon">Cinnamon Caramel (Warm Gold)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 12px;">Specialty Toppings</label>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-primary); font-weight: 500;">
+                                    <input type="checkbox" id="topSprinkles" name="toppings[]" value="sprinkles" style="width:18px; height:18px; accent-color:var(--brand-brown);">
+                                    🌈 Rainbow Sprinkles
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-primary); font-weight: 500;">
+                                    <input type="checkbox" id="topCherries" name="toppings[]" value="cherries" style="width:18px; height:18px; accent-color:var(--brand-brown);">
+                                    🍒 Sweet Glacé Cherries
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-primary); font-weight: 500;">
+                                    <input type="checkbox" id="topDrizzle" name="toppings[]" value="drizzle" style="width:18px; height:18px; accent-color:var(--brand-brown);">
+                                    🍫 Rich Cocoa Drizzle
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label for="cakeShape" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Cake Shape</label>
-                        <select id="cakeShape" name="cakeShape">
-                            <option value="round">Classic Round</option>
-                            <option value="square">Modern Square</option>
-                            <option value="heart">Romantic Heart</option>
-                            <option value="novelty">Sculpted Novelty</option>
-                        </select>
+
+                    <!-- Right Column: Interactive Visual Preview -->
+                    <div class="cake-preview-col" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--primary-bg); border: 2px dashed rgba(92,58,33,0.15); border-radius: 20px; padding: 30px; min-height: 360px;">
+                        <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand-light-brown); font-weight: 800; margin-bottom: 25px;">🎂 Live Visual Bake Preview</span>
+                        <div class="cake-preview-wrapper" style="position: relative; width: 100%; height: 240px; display: flex; flex-direction: column-reverse; align-items: center; justify-content: flex-start; padding-bottom: 20px;">
+                            <!-- Silver Cake Base/Plate -->
+                            <div class="cake-plate" style="width: 220px; height: 16px; background: linear-gradient(180deg, #e0e0e0 0%, #b3b3b3 100%); border-radius: 50%; box-shadow: 0 6px 15px rgba(0,0,0,0.1); margin-top: -8px; z-index: 1;"></div>
+                            
+                            <!-- Bottom Tier (Tier 1) -->
+                            <div class="visual-tier bottom-tier" style="width: 170px; height: 60px; background: #faf8f5; border: 1px solid rgba(0,0,0,0.06); position: relative; transition: all 0.4s ease; z-index: 2; margin-bottom: -4px;">
+                                <div class="drizzle-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 12px; background: #4e2f1d; border-radius: 10px 10px 0 0; clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 90% 90%, 80% 50%, 70% 80%, 60% 40%, 50% 90%, 40% 50%, 30% 80%, 20% 40%, 10% 70%, 0% 50%);"></div>
+                                <div class="sprinkles-overlay" style="display: none; position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; background-image: radial-gradient(circle, #f06292 1.5px, transparent 1.5px), radial-gradient(circle, #4db6ac 1.5px, transparent 1.5px), radial-gradient(circle, #ffb74d 1.5px, transparent 1.5px); background-size: 20px 20px; background-position: 0 0, 6px 10px, 12px 3px;"></div>
+                                <div class="cherry-top left-shoulder" style="display: none; position: absolute; top: -14px; left: 15px; width: 16px; height: 16px; background: #d32f2f; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"><div style="position: absolute; top: -6px; left: 8px; width: 2px; height: 8px; background: #2e7d32; transform: rotate(20deg); border-radius: 1px;"></div></div>
+                                <div class="cherry-top right-shoulder" style="display: none; position: absolute; top: -14px; right: 15px; width: 16px; height: 16px; background: #d32f2f; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"><div style="position: absolute; top: -6px; left: 8px; width: 2px; height: 8px; background: #2e7d32; transform: rotate(20deg); border-radius: 1px;"></div></div>
+                                <div class="cherry-top cherry-crown" style="display: none; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 18px; height: 18px; background: #d32f2f; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 5;"><div style="position: absolute; top: -8px; left: 9px; width: 2px; height: 10px; background: #2e7d32; transform: rotate(15deg); border-radius: 1px;"></div></div>
+                            </div>
+                            
+                            <!-- Middle Tier (Tier 2) -->
+                            <div class="visual-tier middle-tier" style="display: none; width: 125px; height: 50px; background: #faf8f5; border: 1px solid rgba(0,0,0,0.06); position: relative; transition: all 0.4s ease; z-index: 3; margin-bottom: -4px;">
+                                <div class="drizzle-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 12px; background: #4e2f1d; border-radius: 8px 8px 0 0; clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 90% 90%, 80% 50%, 70% 80%, 60% 40%, 50% 90%, 40% 50%, 30% 80%, 20% 40%, 10% 70%, 0% 50%);"></div>
+                                <div class="sprinkles-overlay" style="display: none; position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; background-image: radial-gradient(circle, #f06292 1.5px, transparent 1.5px), radial-gradient(circle, #4db6ac 1.5px, transparent 1.5px), radial-gradient(circle, #ffb74d 1.5px, transparent 1.5px); background-size: 18px 18px; background-position: 0 0, 5px 8px, 10px 3px;"></div>
+                                <div class="cherry-top left-shoulder" style="display: none; position: absolute; top: -14px; left: 12px; width: 16px; height: 16px; background: #d32f2f; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"><div style="position: absolute; top: -6px; left: 8px; width: 2px; height: 8px; background: #2e7d32; transform: rotate(20deg); border-radius: 1px;"></div></div>
+                                <div class="cherry-top right-shoulder" style="display: none; position: absolute; top: -14px; right: 12px; width: 16px; height: 16px; background: #d32f2f; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"><div style="position: absolute; top: -6px; left: 8px; width: 2px; height: 8px; background: #2e7d32; transform: rotate(20deg); border-radius: 1px;"></div></div>
+                                <div class="cherry-top cherry-crown" style="display: none; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 18px; height: 18px; background: #d32f2f; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 5;"><div style="position: absolute; top: -8px; left: 9px; width: 2px; height: 10px; background: #2e7d32; transform: rotate(15deg); border-radius: 1px;"></div></div>
+                            </div>
+                            
+                            <!-- Top Tier (Tier 3) -->
+                            <div class="visual-tier top-tier" style="display: none; width: 85px; height: 42px; background: #faf8f5; border: 1px solid rgba(0,0,0,0.06); position: relative; transition: all 0.4s ease; z-index: 4; margin-bottom: -4px;">
+                                <div class="drizzle-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 12px; background: #4e2f1d; border-radius: 6px 6px 0 0; clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 90% 90%, 80% 50%, 70% 80%, 60% 40%, 50% 90%, 40% 50%, 30% 80%, 20% 40%, 10% 70%, 0% 50%);"></div>
+                                <div class="sprinkles-overlay" style="display: none; position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; background-image: radial-gradient(circle, #f06292 1.5px, transparent 1.5px), radial-gradient(circle, #4db6ac 1.5px, transparent 1.5px), radial-gradient(circle, #ffb74d 1.5px, transparent 1.5px); background-size: 15px 15px; background-position: 0 0, 4px 6px, 8px 2px;"></div>
+                                <div class="cherry-top cherry-crown" style="display: none; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 18px; height: 18px; background: #d32f2f; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 5;"><div style="position: absolute; top: -8px; left: 9px; width: 2px; height: 10px; background: #2e7d32; transform: rotate(15deg); border-radius: 1px;"></div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
@@ -806,6 +868,9 @@ function initFormInteractions() {
             if (fieldsets.length > 0) {
                 orderForm.insertBefore(customBlock, fieldsets[1].nextSibling);
             }
+
+            // Immediately hook up Visual Builder interactive event handlers
+            setupCakeBuilder(customBlock);
         }
 
         const toggleCustomOptions = () => {
@@ -818,6 +883,138 @@ function initFormInteractions() {
 
         categorySelect.addEventListener('change', toggleCustomOptions);
         toggleCustomOptions();
+    }
+
+    // Helper to control and animate the live stacked visual cake preview (Milestone 2 Visual Configurator)
+    function setupCakeBuilder(customBlock) {
+        const layersSelect = document.getElementById('cakeLayers');
+        const shapeSelect = document.getElementById('cakeShape');
+        const frostingSelect = document.getElementById('cakeFrosting');
+        const sprinklesCheck = document.getElementById('topSprinkles');
+        const cherriesCheck = document.getElementById('topCherries');
+        const drizzleCheck = document.getElementById('topDrizzle');
+
+        // Preview Tiers
+        const bottomTier = customBlock.querySelector('.bottom-tier');
+        const middleTier = customBlock.querySelector('.middle-tier');
+        const topTier = customBlock.querySelector('.top-tier');
+
+        if (!layersSelect || !shapeSelect || !frostingSelect || !sprinklesCheck || !cherriesCheck || !drizzleCheck) return;
+
+        // Topping elements
+        const bottomDrizzle = bottomTier.querySelector('.drizzle-overlay');
+        const middleDrizzle = middleTier.querySelector('.drizzle-overlay');
+        const topDrizzle = topTier.querySelector('.drizzle-overlay');
+
+        const bottomSprinkles = bottomTier.querySelector('.sprinkles-overlay');
+        const middleSprinkles = middleTier.querySelector('.sprinkles-overlay');
+        const topSprinkles = topTier.querySelector('.sprinkles-overlay');
+
+        const bottomCherries = bottomTier.querySelectorAll('.cherry-top');
+        const middleCherries = middleTier.querySelectorAll('.cherry-top');
+        const topCherries = topTier.querySelectorAll('.cherry-top');
+
+        const updateCakePreview = () => {
+            const layers = parseInt(layersSelect.value) || 1;
+            const shape = shapeSelect.value;
+            const frosting = frostingSelect.value;
+            const hasSprinkles = sprinklesCheck.checked;
+            const hasCherries = cherriesCheck.checked;
+            const hasDrizzle = drizzleCheck.checked;
+
+            // 1. Frosting Color mapping
+            let frostingColor = '#faf8f5'; // vanilla default
+            if (frosting === 'strawberry') frostingColor = '#ffb0c4'; // pastel pink
+            if (frosting === 'chocolate') frostingColor = '#5c3a21'; // deep brown
+            if (frosting === 'cinnamon') frostingColor = '#df9b72'; // warm gold cinnamon
+
+            // Apply frosting color to all tiers
+            [bottomTier, middleTier, topTier].forEach(tier => {
+                tier.style.backgroundColor = frostingColor;
+            });
+
+            // 2. Shape mapping (border-radius)
+            let borderRadiusBottom = '10px 10px 4px 4px';
+            let borderRadiusMiddle = '8px 8px 4px 4px';
+            let borderRadiusTop = '6px 6px 4px 4px';
+
+            if (shape === 'square') {
+                borderRadiusBottom = '4px';
+                borderRadiusMiddle = '4px';
+                borderRadiusTop = '4px';
+            } else if (shape === 'heart') {
+                borderRadiusBottom = '50% 50% 4px 4px / 20% 20% 4px 4px';
+                borderRadiusMiddle = '50% 50% 4px 4px / 20% 20% 4px 4px';
+                borderRadiusTop = '50% 50% 4px 4px / 20% 20% 4px 4px';
+            }
+
+            bottomTier.style.borderRadius = borderRadiusBottom;
+            middleTier.style.borderRadius = borderRadiusMiddle;
+            topTier.style.borderRadius = borderRadiusTop;
+
+            // 3. Layers count (visibility check)
+            if (layers === 1) {
+                middleTier.style.display = 'none';
+                topTier.style.display = 'none';
+            } else if (layers === 2) {
+                middleTier.style.display = 'block';
+                topTier.style.display = 'none';
+            } else {
+                middleTier.style.display = 'block';
+                topTier.style.display = 'block';
+            }
+
+            // 4. Sprinkles display
+            [bottomSprinkles, middleSprinkles, topSprinkles].forEach(s => {
+                s.style.display = hasSprinkles ? 'block' : 'none';
+            });
+
+            // 5. Drizzle display
+            [bottomDrizzle, middleDrizzle, topDrizzle].forEach(d => {
+                d.style.display = hasDrizzle ? 'block' : 'none';
+                if (frosting === 'chocolate') {
+                    d.style.backgroundColor = '#faf8f5'; // white chocolate drizzle
+                } else {
+                    d.style.backgroundColor = '#4e2f1d'; // dark chocolate drizzle
+                }
+            });
+
+            // 6. Cherries display
+            // Reset all cherries first
+            bottomCherries.forEach(c => c.style.display = 'none');
+            middleCherries.forEach(c => c.style.display = 'none');
+            topCherries.forEach(c => c.style.display = 'none');
+
+            if (hasCherries) {
+                if (layers === 1) {
+                    bottomTier.querySelector('.cherry-crown').style.display = 'block';
+                } else if (layers === 2) {
+                    middleTier.querySelector('.cherry-crown').style.display = 'block';
+                    bottomCherries.forEach(c => {
+                        if (!c.classList.contains('cherry-crown')) c.style.display = 'block';
+                    });
+                } else {
+                    topTier.querySelector('.cherry-crown').style.display = 'block';
+                    middleCherries.forEach(c => {
+                        if (!c.classList.contains('cherry-crown')) c.style.display = 'block';
+                    });
+                    bottomCherries.forEach(c => {
+                        if (!c.classList.contains('cherry-crown')) c.style.display = 'block';
+                    });
+                }
+            }
+        };
+
+        // Bind events
+        [layersSelect, shapeSelect, frostingSelect].forEach(select => {
+            select.addEventListener('change', updateCakePreview);
+        });
+        [sprinklesCheck, cherriesCheck, drizzleCheck].forEach(check => {
+            check.addEventListener('change', updateCakePreview);
+        });
+
+        // Initial preview render
+        updateCakePreview();
     }
 
     // --- Textareas Maxlength and Character counters ---

@@ -1,8 +1,124 @@
 /* =========================================================================
    T's Cakes and Pastries - Core Interaction Script
    Author: Antigravity
-   Module: WEDE5020 Part 2.1 Rubric Enhancements
+   Module: WEDE5020 Part 2.1 & 2.2 Rubric Enhancements
    ========================================================================= */
+
+// --- Centralized Product Database (Part 2.2 Dynamic Content) ---
+const PRODUCT_CATALOG = [
+    {
+        id: "cake-signature",
+        title: "Signature Cakes",
+        price: 450,
+        priceText: "Prices start from R450",
+        desc: "We craft custom-designed cakes for all occasions. Our master bakers specialize in multi-tiered wedding cakes, novelty birthday designs, and elegant corporate centerpieces.",
+        category: "cakes",
+        img: "Images/Cake114.jpg",
+        bullets: [
+            "Classic Vanilla Sponge & Chocolate Truffle",
+            "Red Velvet with Cream Cheese Frosting",
+            "Vegan & Gluten-Free options available"
+        ]
+    },
+    {
+        id: "breads-scones",
+        title: "Baked Loaves & Scones",
+        price: 45,
+        priceText: "Prices start from R45 / batch",
+        desc: "Freshly baked bread with a crispy crust and soft center. Our scones are a local community legend, baked fresh every two hours so they are always served warm.",
+        category: "breads",
+        img: "Images/Scones668.jpg",
+        bullets: [
+            "Traditional Buttermilk Scones",
+            "Cheese & Chive Savory Scones",
+            "Artisanal Sourdough Loaves"
+        ]
+    },
+    {
+        id: "pastries-premium",
+        title: "Premium Pastries",
+        price: 25,
+        priceText: "Prices start from R25 / pastry",
+        desc: "From flaky croissants to sweet Danishes, our pastries are rolled and folded completely by hand using imported European butter for that signature, golden crispness.",
+        category: "pastries",
+        img: "Images/pastries1102.jpg",
+        bullets: [
+            "Hand-folded Butter Croissants",
+            "Fruit & Custard Danishes",
+            "Sticky Pecan Nut Buns"
+        ]
+    },
+    {
+        id: "muffins-gourmet",
+        title: "Gourmet Muffins",
+        price: 20,
+        priceText: "Prices start from R20 / muffin",
+        desc: "Gourmet muffins in multiple flavors baked fresh daily. Packed with real fruit, premium chocolate chunks, and locally sourced nuts, these are perfect for students and early-morning workers.",
+        category: "pastries",
+        img: "Images/muffins25.jpg",
+        bullets: [
+            "Double Chocolate Fudge",
+            "Blueberry & Lemon Zest",
+            "Bran, Apple & Cinnamon (Healthy Option)"
+        ]
+    },
+    {
+        id: "cupcakes-specialty",
+        title: "Specialty Cupcakes",
+        price: 35,
+        priceText: "Prices start from R35 / cupcake",
+        desc: "Bite-sized perfection. Our specialty cupcakes are baked using the same premium ingredients as our signature cakes, topped with a velvety smooth mountain of Swiss meringue buttercream. A delightful alternative to a large cake.",
+        category: "cakes",
+        img: "Images/Cake3.jpg",
+        bullets: [
+            "Salted Caramel & Pretzel Crunch",
+            "Classic Carrot Cake with Walnuts",
+            "Strawberry & Real Champagne Info"
+        ]
+    },
+    {
+        id: "savory-pies",
+        title: "Savory Pies & Quiches",
+        price: 55,
+        priceText: "Prices start from R55 / pie",
+        desc: "Not everything we bake is sweet! We offer a massive range of deeply satisfying savory pies encased in our signature flaky, buttery crust. Perfect for a quick, warm lunch or explicitly catering a daytime corporate event.",
+        category: "savory",
+        img: "Images/pastries63.jpg",
+        bullets: [
+            "Classic Pepper Steak Pie",
+            "Spinach and Feta Deep Quiche",
+            "Chicken & Mushroom Traditional Bake"
+        ]
+    },
+    {
+        id: "cookies-frosted",
+        title: "Custom Frosted Cookies",
+        price: 18,
+        priceText: "Prices start from R18 / cookie",
+        desc: "Melt-in-your-mouth shortbread and butter cookies that can be professionally air-brushed and iced to exactly match any party theme or corporate logo. These are extremely popular as individually wrapped wedding favors.",
+        category: "cakes",
+        img: "Images/Cake002.jpg",
+        bullets: [
+            "Rich Vanilla Bean Sugar Cookies",
+            "Double Chunk Macadamia Nut",
+            "Custom Royal Icing Designs"
+        ]
+    },
+    {
+        id: "trays-breakfast",
+        title: "Catering Breakfast Trays",
+        price: 350,
+        priceText: "Prices start from R350 / tray",
+        desc: "Take the hassle completely out of morning arrangements. We manually build massive, beautifully arranged breakfast trays featuring a mixed assortment of our absolute best miniature baked goods, ready to serve instantly.",
+        category: "savory",
+        img: "Images/muffins69877.jpg",
+        bullets: [
+            "Miniature Croissant & Fresh Jam Board",
+            "Assorted Fruit Danish Platter",
+            "Mixed Muffins & Coffee Thermos Bundle"
+        ]
+    }
+];
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -15,10 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3. Image Gallery Lightbox Modal ---
     initGalleryLightbox();
 
-    // --- 4. Product Category Filters & Live Search ---
-    initProductFilters();
+    // --- 4. Dynamic Content Rendering, Search & Sorting Engine ---
+    initProductEngine();
 
-    // --- 5. Featured/Product Quick View Modal ---
+    // --- 5. Specialty Modal setup ---
     initQuickViewModal();
 
     // --- 6. FAQ Accordion System ---
@@ -60,7 +176,6 @@ function initScrollReveal() {
  * Replaces static iFrames with live Leaflet coordinates, markers, and popups
  */
 function initStoreMaps() {
-    // Coordinate definitions for locations
     const locations = {
         sandton: {
             id: 'map-sandton',
@@ -85,7 +200,6 @@ function initStoreMaps() {
         }
     };
 
-    // Check if map containers exist on this page
     let mapsExist = false;
     for (const key in locations) {
         if (document.getElementById(locations[key].id)) {
@@ -94,27 +208,23 @@ function initStoreMaps() {
         }
     }
 
-    // Initialize Leaflet maps if map containers are present
     if (mapsExist && typeof L !== 'undefined') {
         for (const key in locations) {
             const loc = locations[key];
             const container = document.getElementById(loc.id);
             if (!container) continue;
 
-            // Initialize map instance and turn off mouse scroll hijacking
             const map = L.map(loc.id, {
                 scrollWheelZoom: false,
-                dragging: !L.Browser.mobile, // Disable drag on mobile to improve scrolling
+                dragging: !L.Browser.mobile,
                 tap: !L.Browser.mobile
             }).setView(loc.coords, 15);
 
-            // Add clean OpenStreetMap tiles
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
-            // Create beautiful customized popup content
             const popupContent = `
                 <div style="font-family: 'Inter', sans-serif; padding: 5px; color: #2D251F;">
                     <h4 style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #5C3A21; margin: 0 0 5px; font-size: 1.15rem;">${loc.title}</h4>
@@ -123,11 +233,9 @@ function initStoreMaps() {
                 </div>
             `;
 
-            // Place marker with popup
             const marker = L.marker(loc.coords).addTo(map);
             marker.bindPopup(popupContent);
             
-            // Auto open the popup on desktop screens for high fidelity look
             if (window.innerWidth > 900) {
                 marker.openPopup();
             }
@@ -137,7 +245,6 @@ function initStoreMaps() {
 
 /**
  * 3. Image Gallery Lightbox Modal
- * Direct DOM manipulation to display interactive overlay with navigation controls
  */
 function initGalleryLightbox() {
     const lightbox = document.getElementById('lightbox');
@@ -147,12 +254,10 @@ function initGalleryLightbox() {
 
     if (!lightbox || !galleryContainer) return;
 
-    // Collect all gallery articles containing images
     const articles = Array.from(galleryContainer.querySelectorAll('article'));
     const imagesData = [];
     let currentIndex = 0;
 
-    // Parse image assets and captions directly from the DOM structure
     articles.forEach((article, index) => {
         const img = article.querySelector('img');
         const summary = article.querySelector('summary');
@@ -167,7 +272,6 @@ function initGalleryLightbox() {
                 desc: detailsP ? detailsP.textContent.trim() : ''
             });
 
-            // Bind click handler to open the lightbox
             img.style.cursor = 'pointer';
             img.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -176,65 +280,53 @@ function initGalleryLightbox() {
         }
     });
 
-    // Lightbox Control Elements
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const prevBtn = lightbox.querySelector('.lightbox-prev');
     const nextBtn = lightbox.querySelector('.lightbox-next');
 
-    // Event Bindings
     if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
     if (prevBtn) prevBtn.addEventListener('click', showPrevImage);
     if (nextBtn) nextBtn.addEventListener('click', showNextImage);
 
-    // Close when clicking empty black backdrop
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) {
             closeLightbox();
         }
     });
 
-    // Keyboard bindings for high fidelity browsing
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('show')) return;
-        
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') showPrevImage();
         if (e.key === 'ArrowRight') showNextImage();
     });
 
-    // Open lightbox function
     function openLightbox(index) {
         currentIndex = index;
         lightbox.classList.add('show');
-        document.body.style.overflow = 'hidden'; // Stop page scrolling
+        document.body.style.overflow = 'hidden';
         updateLightboxContent();
     }
 
-    // Close lightbox function
     function closeLightbox() {
         lightbox.classList.remove('show');
-        document.body.style.overflow = ''; // Restore page scrolling
+        document.body.style.overflow = '';
     }
 
-    // Cycle transitions
     function updateLightboxContent() {
         const data = imagesData[currentIndex];
         if (!data) return;
 
-        // Apply scale transition logic
         lightboxImg.style.opacity = '0';
         lightboxImg.style.transform = 'scale(0.95)';
         
         setTimeout(() => {
             lightboxImg.src = data.src;
             lightboxImg.alt = data.alt;
-            
-            // Build modern text layout inside modal
             lightboxCaption.innerHTML = `
                 <h3>${data.title}</h3>
                 ${data.desc ? `<p>${data.desc}</p>` : ''}
             `;
-            
             lightboxImg.style.opacity = '1';
             lightboxImg.style.transform = 'scale(1)';
         }, 150);
@@ -254,19 +346,23 @@ function initGalleryLightbox() {
 }
 
 /**
- * 4. Product Category Filters & Live Search
- * Dynamic product catalog filtering using advanced DOM Manipulation and CSS transitions
+ * 4. Dynamic Content Rendering, Search & Sorting Engine
+ * Incorporates dynamic loading (2.2), filters, real-time query matching, and price/alphabetic sorting.
  */
-function initProductFilters() {
+function initProductEngine() {
+    const dynamicContainer = document.getElementById('products-dynamic-container');
+    if (!dynamicContainer) return; // Only execute on pages containing the dynamic list container
+
     const searchInput = document.getElementById('product-search');
+    const sortSelect = document.getElementById('product-sort');
     const tabs = document.querySelectorAll('.category-tab');
-    const productGrid = document.getElementById('products');
 
-    if (!productGrid) return;
-
-    const cards = Array.from(productGrid.querySelectorAll('.product-card'));
     let currentCategory = 'all';
     let searchQuery = '';
+    let currentSort = 'featured'; // default sort
+
+    // Render initial product cards catalog
+    renderProducts();
 
     // Bind Category Tab Clicks
     tabs.forEach(tab => {
@@ -279,140 +375,99 @@ function initProductFilters() {
             tab.setAttribute('aria-selected', 'true');
             
             currentCategory = tab.getAttribute('data-category');
-            filterProducts();
+            renderProducts();
         });
     });
 
-    // Bind Search Input Checks
+    // Bind Search Input Clicks
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             searchQuery = e.target.value.toLowerCase().trim();
-            filterProducts();
+            renderProducts();
         });
     }
 
-    // Core Filtering logic with multi-stage CSS Transitions
-    function filterProducts() {
-        cards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            const desc = card.querySelector('p').textContent.toLowerCase();
-            const cardCategory = card.getAttribute('data-category');
-
-            const matchesCategory = currentCategory === 'all' || cardCategory === currentCategory;
-            const matchesSearch = title.includes(searchQuery) || desc.includes(searchQuery);
-
-            if (matchesCategory && matchesSearch) {
-                // If it was hidden, show it in the DOM first, then slide/fade in
-                if (card.classList.contains('hidden')) {
-                    card.classList.remove('hidden');
-                    card.setAttribute('aria-hidden', 'false');
-                    // Force a layout reflow before removing fade-out for animation to trigger
-                    void card.offsetWidth; 
-                }
-                card.classList.remove('fade-out');
-            } else {
-                // Fade and scale down first
-                card.classList.add('fade-out');
-                card.setAttribute('aria-hidden', 'true');
-                
-                // Hide completely from layout after animation transitions finish (500ms)
-                setTimeout(() => {
-                    if (card.classList.contains('fade-out')) {
-                        card.classList.add('hidden');
-                    }
-                }, 500);
-            }
+    // Bind Sorting Selection Choices
+    if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            renderProducts();
         });
+    }
+
+    // Primary Logic Loop combining Dynamic Load, Filters, Search, and Sort algorithms
+    function renderProducts() {
+        // Step A: Apply dynamic filtering and query searches
+        let processedProducts = PRODUCT_CATALOG.filter(p => {
+            const matchesCategory = currentCategory === 'all' || p.category === currentCategory;
+            const matchesSearch = p.title.toLowerCase().includes(searchQuery) || p.desc.toLowerCase().includes(searchQuery);
+            return matchesCategory && matchesSearch;
+        });
+
+        // Step B: Apply dynamic sorting specifications
+        if (currentSort === 'price-asc') {
+            processedProducts.sort((a, b) => a.price - b.price);
+        } else if (currentSort === 'price-desc') {
+            processedProducts.sort((a, b) => b.price - a.price);
+        } else if (currentSort === 'name-asc') {
+            processedProducts.sort((a, b) => a.title.localeCompare(b.title));
+        }
+        // If 'featured', maintains default schema declaration indices
+
+        // Step C: Render HTML dynamic elements template
+        if (processedProducts.length === 0) {
+            dynamicContainer.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
+                    <span style="font-size: 3.5rem; display: block; margin-bottom: 20px;">🍪</span>
+                    <h3 style="font-size: 1.6rem; color: var(--brand-brown); margin-bottom: 10px;">No Matching Treats Found</h3>
+                    <p style="font-size: 1.1rem; margin: 0;">Try typing another sweet keyword or adjusting your filter categories.</p>
+                </div>
+            `;
+            return;
+        }
+
+        // Programmatic string templating mapping catalog to dynamic DOM nodes
+        dynamicContainer.innerHTML = processedProducts.map(p => `
+            <article class="product-card" data-category="${p.category}" style="opacity: 0; transform: scale(0.94); transition: opacity 0.5s ease, transform 0.5s ease;">
+                <img src="${p.img}" alt="${p.title}">
+                <div class="card-content">
+                    <h3>${p.title}</h3>
+                    <p>${p.desc}</p>
+                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
+                        ${p.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
+                    </ul>
+                    <p><em>${p.priceText}</em></p>
+                    <button class="quick-view-btn" type="button" data-id="${p.id}">✨ Quick View Specs</button>
+                </div>
+            </article>
+        `).join('');
+
+        // Step D: Trigger sequential premium hardware-accelerated entrance transitions
+        const newCards = Array.from(dynamicContainer.querySelectorAll('.product-card'));
+        requestAnimationFrame(() => {
+            newCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, index * 40); // 40ms stagger offset
+            });
+        });
+
+        // Step E: Bind modal selectors to dynamic buttons
+        bindQuickViewButtons();
     }
 }
 
 /**
- * 5. Featured/Product Quick View Modal
- * Pulls attributes directly from clicked card and populates interactive modal overlay
+ * 5. Specialty Modal setup
+ * Binds dynamically created Quick View trigger buttons directly to database entries
  */
 function initQuickViewModal() {
     const modal = document.getElementById('quick-view-modal');
     if (!modal) return;
 
     const modalClose = modal.querySelector('.modal-close');
-    const modalImg = document.getElementById('modal-product-img');
-    const modalBadge = document.getElementById('modal-product-badge');
-    const modalTitle = document.getElementById('modal-product-title');
-    const modalPrice = document.getElementById('modal-product-price');
-    const modalDesc = document.getElementById('modal-product-desc');
-    const modalBullets = document.getElementById('modal-product-bullets');
 
-    // Bind Quick View Buttons dynamically across all product cards
-    const productGrid = document.getElementById('products');
-    const cards = productGrid ? productGrid.querySelectorAll('.product-card') : [];
-
-    cards.forEach(card => {
-        // Create Quick View Button programmatically if it doesn't exist
-        if (!card.querySelector('.quick-view-btn')) {
-            const contentDiv = card.querySelector('.card-content');
-            if (contentDiv) {
-                const btn = document.createElement('button');
-                btn.className = 'quick-view-btn';
-                btn.type = 'button';
-                btn.textContent = '✨ Quick View Specs';
-                
-                // Position button nicely inside layout
-                const priceElement = contentDiv.querySelector('p em') || contentDiv.lastElementChild;
-                if (priceElement) {
-                    contentDiv.insertBefore(btn, priceElement.nextSibling);
-                } else {
-                    contentDiv.appendChild(btn);
-                }
-            }
-        }
-
-        // Click handler logic
-        const qvBtn = card.querySelector('.quick-view-btn');
-        if (qvBtn) {
-            qvBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                const title = card.querySelector('h3').textContent;
-                const img = card.querySelector('img').src;
-                const priceElement = card.querySelector('p em');
-                const price = priceElement ? priceElement.textContent : 'Custom Price';
-                const desc = card.querySelector('p').textContent;
-                
-                // Pull bullet points
-                const bullets = Array.from(card.querySelectorAll('ul li')).map(li => li.textContent);
-                
-                // Determine Category Badge text
-                const catCode = card.getAttribute('data-category') || 'bakery';
-                let badgeText = 'Signature Selection';
-                if (catCode === 'cakes') badgeText = 'Premium Cakes';
-                if (catCode === 'breads') badgeText = 'Artisanal Breads';
-                if (catCode === 'pastries') badgeText = 'Morning Pastries';
-                if (catCode === 'savory') badgeText = 'Gourmet Savory';
-
-                // Populate modal
-                modalImg.src = img;
-                modalImg.alt = title;
-                modalBadge.textContent = badgeText;
-                modalTitle.textContent = title;
-                modalPrice.textContent = price;
-                modalDesc.textContent = desc;
-
-                // Load bullet items nicely
-                modalBullets.innerHTML = '';
-                bullets.forEach(bullet => {
-                    const li = document.createElement('li');
-                    li.textContent = bullet;
-                    modalBullets.appendChild(li);
-                });
-
-                // Display modal with scale/fade animations
-                modal.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            });
-        }
-    });
-
-    // Close bindings
     if (modalClose) {
         modalClose.addEventListener('click', closeQuickView);
     }
@@ -436,6 +491,55 @@ function initQuickViewModal() {
 }
 
 /**
+ * Helper to bind buttons dynamically generated on catalog sorting updates
+ */
+function bindQuickViewButtons() {
+    const modal = document.getElementById('quick-view-modal');
+    if (!modal) return;
+
+    const modalImg = document.getElementById('modal-product-img');
+    const modalBadge = document.getElementById('modal-product-badge');
+    const modalTitle = document.getElementById('modal-product-title');
+    const modalPrice = document.getElementById('modal-product-price');
+    const modalDesc = document.getElementById('modal-product-desc');
+    const modalBullets = document.getElementById('modal-product-bullets');
+
+    const triggerButtons = document.querySelectorAll('.quick-view-btn');
+
+    triggerButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const productId = btn.getAttribute('data-id');
+            const product = PRODUCT_CATALOG.find(p => p.id === productId);
+
+            if (!product) return;
+
+            // Compute descriptive category badge
+            let badgeText = 'Signature Selection';
+            if (product.category === 'cakes') badgeText = 'Premium Cakes';
+            if (product.category === 'breads') badgeText = 'Artisanal Breads';
+            if (product.category === 'pastries') badgeText = 'Morning Pastries';
+            if (product.category === 'savory') badgeText = 'Gourmet Savory';
+
+            // Populate Modal Content directly from local script database
+            modalImg.src = product.img;
+            modalImg.alt = product.title;
+            modalBadge.textContent = badgeText;
+            modalTitle.textContent = product.title;
+            modalPrice.textContent = product.priceText;
+            modalDesc.textContent = product.desc;
+
+            // Dynamic Bullet Injection
+            modalBullets.innerHTML = product.bullets.map(b => `<li>${b}</li>`).join('');
+
+            // Scale-up modal view
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+}
+
+/**
  * 6. FAQ Accordion System
  * Smooth slide up/down animation based on ScrollHeight computations
  */
@@ -448,7 +552,6 @@ function initFAQAccordion() {
             const panel = header.nextElementSibling;
             const isActive = item.classList.contains('active');
 
-            // Collapse other open panels for clean editorial accordion behaviour
             const siblingItems = item.parentElement.querySelectorAll('.accordion-item');
             siblingItems.forEach(sib => {
                 if (sib !== item) {
@@ -457,10 +560,8 @@ function initFAQAccordion() {
                 }
             });
 
-            // Toggle active state on current item
             if (!isActive) {
                 item.classList.add('active');
-                // Calculate precise scrollHeight and set it on max-height style rules
                 panel.style.maxHeight = panel.scrollHeight + 'px';
             } else {
                 item.classList.remove('active');
@@ -475,12 +576,10 @@ function initFAQAccordion() {
  * Dynamically slides open relevant form subsections based on selection parameters
  */
 function initFormInteractions() {
-    // 7.1. Conditional Delivery Fieldset
     const fulfillmentRadios = document.getElementsByName('fulfillment');
     const orderForm = document.querySelector('form');
     
     if (fulfillmentRadios.length > 0 && orderForm) {
-        // Create delivery details block programmatically in DOM if missing
         let deliveryBlock = document.getElementById('delivery-details-fieldset');
         if (!deliveryBlock) {
             deliveryBlock = document.createElement('fieldset');
@@ -508,14 +607,12 @@ function initFormInteractions() {
                 </div>
             `;
 
-            // Insert before the last message box
             const messageBox = orderForm.querySelector('textarea').closest('div').parentElement;
             if (messageBox) {
                 orderForm.insertBefore(deliveryBlock, messageBox);
             }
         }
 
-        // Change listener
         const toggleDelivery = () => {
             const deliverySelected = document.getElementById('delivery').checked;
             const addressInput = document.getElementById('deliveryAddr');
@@ -523,22 +620,19 @@ function initFormInteractions() {
 
             if (deliverySelected) {
                 deliveryBlock.classList.add('show');
-                // Set requirements
                 if (addressInput) addressInput.setAttribute('required', 'required');
                 if (contactInput) contactInput.setAttribute('required', 'required');
             } else {
                 deliveryBlock.classList.remove('show');
-                // Remove requirements
                 if (addressInput) addressInput.removeAttribute('required');
                 if (contactInput) contactInput.removeAttribute('required');
             }
         };
 
         fulfillmentRadios.forEach(radio => radio.addEventListener('change', toggleDelivery));
-        toggleDelivery(); // run once on start
+        toggleDelivery();
     }
 
-    // 7.2. Conditional Custom Order helper
     const categorySelect = document.getElementById('productChoice');
     if (categorySelect && orderForm) {
         let customBlock = document.getElementById('custom-order-fieldset');
@@ -568,7 +662,6 @@ function initFormInteractions() {
                     </div>
                 </div>
             `;
-            // Insert after Personal Info
             const fieldsets = orderForm.querySelectorAll('fieldset');
             if (fieldsets.length > 0) {
                 orderForm.insertBefore(customBlock, fieldsets[1].nextSibling);
@@ -587,10 +680,8 @@ function initFormInteractions() {
         toggleCustomOptions();
     }
 
-    // 7.3. Character Counters on Textareas
     const textareas = document.querySelectorAll('textarea');
     textareas.forEach(textarea => {
-        // Create counter element programmatically
         const maxLen = 500;
         textarea.setAttribute('maxlength', maxLen);
 
@@ -610,7 +701,6 @@ function initFormInteractions() {
         });
     });
 
-    // 7.4. Real-time Visual Field Validation
     const nameInput = document.getElementById('fullName') || document.getElementById('contactName');
     const phoneInput = document.getElementById('phoneNum') || document.getElementById('deliveryContact');
     const emailInput = document.getElementById('emailAddr') || document.getElementById('contactEmail');

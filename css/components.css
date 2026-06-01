@@ -738,3 +738,55 @@
     background-color: rgba(198, 40, 40, 0.01) !important;
 }
 
+/* --- Dynamic Product Sorting Controls --- */
+.sort-bar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.sort-label {
+    font-weight: 700;
+    color: var(--brand-brown);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+}
+
+#product-sort {
+    padding: 12px 24px;
+    border: 2px solid transparent;
+    background-color: var(--primary-bg);
+    border-radius: var(--radius-pill);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: var(--transition);
+}
+
+#product-sort:focus {
+    outline: none;
+    border-color: var(--brand-pink);
+    box-shadow: 0 4px 20px rgba(255, 192, 203, 0.4);
+    background-color: var(--white);
+}
+
+@media (max-width: 600px) {
+    .services-controls {
+        padding: 25px 20px;
+    }
+    .sort-bar-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+    #product-sort {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+

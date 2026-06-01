@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Character encoding and responsive viewport definitions -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Description to improve search engine rankings -->
-    <meta name="description" content="Explore our delicious bakery offerings including custom celebration cakes, freshly baked breads, Danish pastries, and gourmet muffins.">
+    <meta name="description"
+        content="Explore our delicious bakery offerings including custom celebration cakes, freshly baked breads, Danish pastries, and gourmet muffins.">
     <title>Products & Services - T's Cakes and Pastries</title>
 
     <!-- Import Google Fonts (Outfit for Headers, Inter for Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- External CSS link fulfilling Part 2 rubric -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
 </head>
+
 <body>
     <!-- Site header with main navigation links -->
     <header id="top">
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        
+
         <h1>T's Cakes and Pastries</h1>
-        
+
         <label for="nav-toggle" class="nav-toggle-label">
             <span></span><span></span><span></span>
         </label>
-        
+
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -44,27 +49,35 @@
     <!-- Main content block for detailed product/service offerings -->
     <main>
         <h2>Our Products and Services</h2>
-        <p>We serve families, students, working professionals, and anyone who enjoys freshly baked goods. We cater to birthdays, celebrations, funerals, and special events within the local community.</p>
+        <p>We serve families, students, working professionals, and anyone who enjoys freshly baked goods. We cater to
+            birthdays, celebrations, funerals, and special events within the local community.</p>
 
         <!-- New Core Services Expansion placed at the top of the routing -->
         <br>
         <section id="core-services" class="reveal-on-scroll">
             <h2 style="text-align: center; color: var(--brand-brown); font-size: 2.2rem;">Our Core Services</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: #555;">Beyond baking, we provide comprehensive logistical catering services to make your event completely stress-free.</p>
+            <p style="text-align: center; font-size: 1.1rem; color: #555;">Beyond baking, we provide comprehensive
+                logistical catering services to make your event completely stress-free.</p>
             <br>
             <!-- Native inline grid deployment avoiding messy CSS linking for a one-off feature -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
                     <h3>Local Delivery</h3>
-                    <p>We provide safe, temperature-controlled delivery within a 50km radius of our branches. We physically guarantee your highly delicate custom cakes will arrive in absolutely pristine condition for your event.</p>
+                    <p>We provide safe, temperature-controlled delivery within a 50km radius of our branches. We
+                        physically guarantee your highly delicate custom cakes will arrive in absolutely pristine
+                        condition for your event.</p>
                 </div>
                 <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
                     <h3>Event Catering</h3>
-                    <p>Hosting a corporate breakfast or a massive wedding? We supply huge wholesale platters of pastries, muffins, and savory treats. We also provide tiered display stands and serving equipment on rental.</p>
+                    <p>Hosting a corporate breakfast or a massive wedding? We supply huge wholesale platters of
+                        pastries, muffins, and savory treats. We also provide tiered display stands and serving
+                        equipment on rental.</p>
                 </div>
                 <div style="background: var(--primary-bg); padding: 30px; border-radius: 16px;">
                     <h3>Custom Consultations</h3>
-                    <p>Sit down with our Head Baker for a 1-on-1 complimentary tasting session. We will sit with you to sketch out the perfect design for your dream cake and let you sample our signature sponge flavors.</p>
+                    <p>Sit down with our Head Baker for a 1-on-1 complimentary tasting session. We will sit with you to
+                        sketch out the perfect design for your dream cake and let you sample our signature sponge
+                        flavors.</p>
                 </div>
             </div>
         </section>
@@ -72,158 +85,83 @@
 
         <!-- Search and Category Filters controls -->
         <div class="services-controls reveal-on-scroll">
-            <div class="search-bar-wrapper">
-                <span class="search-icon">&#128269;</span>
-                <input type="text" id="product-search" placeholder="Search delicious treats... (e.g. chocolate, scone, croissant)" aria-label="Search bakery catalog">
+            <div
+                style="display: flex; width: 100%; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: center; max-width: 900px;">
+                <div class="search-bar-wrapper">
+                    <span class="search-icon">&#128269;</span>
+                    <input type="text" id="product-search"
+                        placeholder="Search delicious treats... (e.g. chocolate, scone, croissant)"
+                        aria-label="Search bakery catalog">
+                </div>
+                <div class="sort-bar-wrapper">
+                    <label for="product-sort" class="sort-label">Sort By:</label>
+                    <select id="product-sort" aria-label="Sort products">
+                        <option value="featured"> Featured Selection</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc"> Price: High to Low</option>
+                        <option value="name-asc"> Name: A - Z</option>
+                    </select>
+                </div>
             </div>
             <div class="category-tabs" role="tablist">
-                <button class="category-tab active" data-category="all" role="tab" aria-selected="true">✨ All Treats</button>
-                <button class="category-tab" data-category="cakes" role="tab" aria-selected="false">🎂 Cakes & Cupcakes</button>
-                <button class="category-tab" data-category="pastries" role="tab" aria-selected="false">🧁 Muffins & Pastries</button>
-                <button class="category-tab" data-category="breads" role="tab" aria-selected="false">🥖 Breads & Scones</button>
-                <button class="category-tab" data-category="savory" role="tab" aria-selected="false">🥧 Savory & Platters</button>
+                <button class="category-tab active" data-category="all" role="tab" aria-selected="true">✨ All
+                    Treats</button>
+                <button class="category-tab" data-category="cakes" role="tab" aria-selected="false">🎂 Cakes &
+                    Cupcakes</button>
+                <button class="category-tab" data-category="pastries" role="tab" aria-selected="false">🧁 Muffins &
+                    Pastries</button>
+                <button class="category-tab" data-category="breads" role="tab" aria-selected="false">🥖 Breads &
+                    Scones</button>
+                <button class="category-tab" data-category="savory" role="tab" aria-selected="false">🥧 Savory &
+                    Platters</button>
             </div>
         </div>
 
-        <!-- Product Container Query Wrappers -->
-        <section id="products" class="product-grid reveal-on-scroll" style="background: transparent; padding:0; box-shadow:none;">
-            <article class="product-card" data-category="cakes">
-                <img src="Images/Cake114.jpg" alt="Fresh Custom Cake">
-                <div class="card-content">
-                    <h3>Signature Cakes</h3>
-                    <p>We craft custom-designed cakes for all occasions. Our master bakers specialize in multi-tiered wedding cakes, novelty birthday designs, and elegant corporate centerpieces.</p>
-                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
-                        <li>Classic Vanilla Sponge & Chocolate Truffle</li>
-                        <li>Red Velvet with Cream Cheese Frosting</li>
-                        <li>Vegan & Gluten-Free options available</li>
-                    </ul>
-                    <p><em>Prices start from R450</em></p>
-                </div>
-            </article>
-
-            <article class="product-card" data-category="breads">
-                <!-- Utilizing a high quality alternative image since Bread isn't explicitly in the image drive -->
-                <img src="Images/Scones668.jpg" alt="Freshly baked goods">
-                <div class="card-content">
-                    <h3>Baked Loaves & Scones</h3>
-                    <p>Freshly baked bread with a crispy crust and soft center. Our scones are a local community legend, baked fresh every two hours so they are always served warm.</p>
-                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
-                        <li>Traditional Buttermilk Scones</li>
-                        <li>Cheese & Chive Savory Scones</li>
-                        <li>Artisanal Sourdough Loaves</li>
-                    </ul>
-                    <p><em>Prices start from R45 / batch</em></p>
-                </div>
-            </article>
-
-            <article class="product-card" data-category="pastries">
-                <img src="Images/pastries1102.jpg" alt="Flaky Pastries">
-                <div class="card-content">
-                    <h3>Premium Pastries</h3>
-                    <p>From flaky croissants to sweet Danishes, our pastries are rolled and folded completely by hand using imported European butter for that signature, golden crispness.</p>
-                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
-                        <li>Hand-folded Butter Croissants</li>
-                        <li>Fruit & Custard Danishes</li>
-                        <li>Sticky Pecan Nut Buns</li>
-                    </ul>
-                    <p><em>Prices start from R25 / pastry</em></p>
-                </div>
-            </article>
-            
-            <article class="product-card" data-category="pastries">
-                <img src="Images/muffins25.jpg" alt="Muffins">
-                <div class="card-content">
-                    <h3>Gourmet Muffins</h3>
-                    <p>Gourmet muffins in multiple flavors baked fresh daily. Packed with real fruit, premium chocolate chunks, and locally sourced nuts, these are perfect for students and early-morning workers.</p>
-                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
-                        <li>Double Chocolate Fudge</li>
-                        <li>Blueberry & Lemon Zest</li>
-                        <li>Bran, Apple & Cinnamon (Healthy Option)</li>
-                    </ul>
-                    <p><em>Prices start from R20 / muffin</em></p>
-                </div>
-            </article>
-
-            <article class="product-card" data-category="cakes">
-                <img src="Images/Cake3.jpg" alt="Specialty Cupcakes">
-                <div class="card-content">
-                    <h3>Specialty Cupcakes</h3>
-                    <p>Bite-sized perfection. Our specialty cupcakes are baked using the same premium ingredients as our signature cakes, topped with a velvety smooth mountain of Swiss meringue buttercream. A delightful alternative to a large cake.</p>
-                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
-                        <li>Salted Caramel & Pretzel Crunch</li>
-                        <li>Classic Carrot Cake with Walnuts</li>
-                        <li>Strawberry & Real Champagne Info</li>
-                    </ul>
-                    <p><em>Prices start from R35 / cupcake</em></p>
-                </div>
-            </article>
-
-            <article class="product-card" data-category="savory">
-                <img src="Images/pastries63.jpg" alt="Savory Pies">
-                <div class="card-content">
-                    <h3>Savory Pies & Quiches</h3>
-                    <p>Not everything we bake is sweet! We offer a massive range of deeply satisfying savory pies encased in our signature flaky, buttery crust. Perfect for a quick, warm lunch or explicitly catering a daytime corporate event.</p>
-                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
-                        <li>Classic Pepper Steak Pie</li>
-                        <li>Spinach and Feta Deep Quiche</li>
-                        <li>Chicken & Mushroom Traditional Bake</li>
-                    </ul>
-                    <p><em>Prices start from R55 / pie</em></p>
-                </div>
-            </article>
-
-            <article class="product-card" data-category="cakes">
-                <img src="Images/Cake002.jpg" alt="Custom Cookies">
-                <div class="card-content">
-                    <h3>Custom Frosted Cookies</h3>
-                    <p>Melt-in-your-mouth shortbread and butter cookies that can be professionally air-brushed and iced to exactly match any party theme or corporate logo. These are extremely popular as individually wrapped wedding favors.</p>
-                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
-                        <li>Rich Vanilla Bean Sugar Cookies</li>
-                        <li>Double Chunk Macadamia Nut</li>
-                        <li>Custom Royal Icing Designs</li>
-                    </ul>
-                    <p><em>Prices start from R18 / cookie</em></p>
-                </div>
-            </article>
-
-            <article class="product-card" data-category="savory">
-                <img src="Images/muffins69877.jpg" alt="Breakfast Trays">
-                <div class="card-content">
-                    <h3>Catering Breakfast Trays</h3>
-                    <p>Take the hassle completely out of morning arrangements. We manually build massive, beautifully arranged breakfast trays featuring a mixed assortment of our absolute best miniature baked goods, ready to serve instantly.</p>
-                    <ul style="margin-bottom: 20px; font-size: 0.95rem;">
-                        <li>Miniature Croissant & Fresh Jam Board</li>
-                        <li>Assorted Fruit Danish Platter</li>
-                        <li>Mixed Muffins & Coffee Thermos Bundle</li>
-                    </ul>
-                    <p><em>Prices start from R350 / tray</em></p>
-                </div>
-            </article>
-        </section>
+        <!-- Product Container Query Wrappers - RENDERED DYNAMICALLY VIA JAVASCRIPT -->
+        <div id="products-dynamic-container" class="product-grid reveal-on-scroll">
+            <!-- Programmatically injected on page load -->
+        </div>
 
         <!-- Detailed Textual Information Replacement for the old gallery -->
         <br><br>
-        <section id="ordering-guidelines" class="reveal-on-scroll" style="background: var(--white); padding: 50px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); margin-top: 40px; margin-bottom: 20px;">
-            <h2 style="color: var(--brand-brown); border-bottom: 2px solid var(--primary-bg); padding-bottom: 20px; margin-bottom: 35px;">Important Ordering & Allergy Information</h2>
-            
+        <section id="ordering-guidelines" class="reveal-on-scroll"
+            style="background: var(--white); padding: 50px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); margin-top: 40px; margin-bottom: 20px;">
+            <h2
+                style="color: var(--brand-brown); border-bottom: 2px solid var(--primary-bg); padding-bottom: 20px; margin-bottom: 35px;">
+                Important Ordering & Allergy Information</h2>
+
             <div style="display: flex; flex-direction: column; gap: 30px;">
                 <div>
-                    <h3 style="font-size: 1.5rem; color: var(--brand-pink); margin-bottom: 10px;">Allergy Declarations</h3>
-                    <p>All of our exquisite products are baked in a shared commercial bakery. While our staff takes every strict precaution to prevent cross-contamination, please be acutely aware that our products may contain or come into contact with common allergens including <strong>wheat, peanuts, tree nuts, milk, eggs, soybeans, and sesame</strong>. Please explicitly state any severe allergies when placing a custom order so we can isolate your bake.</p>
+                    <h3 style="font-size: 1.5rem; color: var(--brand-pink); margin-bottom: 10px;">Allergy Declarations
+                    </h3>
+                    <p>All of our exquisite products are baked in a shared commercial bakery. While our staff takes
+                        every strict precaution to prevent cross-contamination, please be acutely aware that our
+                        products may contain or come into contact with common allergens including <strong>wheat,
+                            peanuts, tree nuts, milk, eggs, soybeans, and sesame</strong>. Please explicitly state any
+                        severe allergies when placing a custom order so we can isolate your bake.</p>
                 </div>
-                
+
                 <div>
-                    <h3 style="font-size: 1.5rem; color: var(--brand-pink); margin-bottom: 10px;">Preparation Lead Times</h3>
-                    <p>We deeply believe in baking everything absolutely fresh, directly from scratch. Therefore, we firmly require a minimum of <strong>48 hours notice</strong> for all standard signature cake and pastry orders. Massive corporate orders, tiered wedding cakes, and catering spreads require a strict minimum of <strong>three weeks notice</strong> to secure your date and ensure we source the absolutely finest ingredients from our global suppliers.</p>
+                    <h3 style="font-size: 1.5rem; color: var(--brand-pink); margin-bottom: 10px;">Preparation Lead Times
+                    </h3>
+                    <p>We deeply believe in baking everything absolutely fresh, directly from scratch. Therefore, we
+                        firmly require a minimum of <strong>48 hours notice</strong> for all standard signature cake and
+                        pastry orders. Massive corporate orders, tiered wedding cakes, and catering spreads require a
+                        strict minimum of <strong>three weeks notice</strong> to secure your date and ensure we source
+                        the absolutely finest ingredients from our global suppliers.</p>
                 </div>
-                
+
                 <div>
-                    <h3 style="font-size: 1.5rem; color: var(--brand-pink); margin-bottom: 10px;">Deposit & Cancellation Policy</h3>
-                    <p>For custom catering orders exceeding R1,000, a 50% non-refundable deposit is explicitly required at the time of booking to safely secure your production slot. The remaining balance is due exactly 24 hours before your scheduled pickup or vehicle delivery time. If you experience an emergency and need to cancel, please notify our logistics team at least one week in advance.</p>
+                    <h3 style="font-size: 1.5rem; color: var(--brand-pink); margin-bottom: 10px;">Deposit & Cancellation
+                        Policy</h3>
+                    <p>For custom catering orders exceeding R1,000, a 50% non-refundable deposit is explicitly required
+                        at the time of booking to safely secure your production slot. The remaining balance is due
+                        exactly 24 hours before your scheduled pickup or vehicle delivery time. If you experience an
+                        emergency and need to cancel, please notify our logistics team at least one week in advance.</p>
                 </div>
             </div>
         </section>
-        
+
         <!-- Internal anchor routing tag to jump back to top -->
         <br>
         <p style="text-align: center;"><strong><a href="#top">Back To Top</a></strong></p>
@@ -235,7 +173,8 @@
         <div class="footer-grid">
             <div>
                 <h3 class="footer-logo">T's Cakes</h3>
-                <p class="footer-desc">Baked with love and care every single day. Locally sourced butter, hand-mixed batters.</p>
+                <p class="footer-desc">Baked with love and care every single day. Locally sourced butter, hand-mixed
+                    batters.</p>
             </div>
             <div>
                 <h4 class="footer-col-header">Locations</h4>
@@ -292,4 +231,5 @@
     <!-- Link external core script for interactive features -->
     <script src="js/script.js"></script>
 </body>
+
 </html>

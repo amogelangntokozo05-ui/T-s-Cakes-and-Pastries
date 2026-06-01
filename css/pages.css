@@ -85,7 +85,7 @@
     font-size: 1.2rem; 
     max-width: 800px; 
     margin: 0 auto 40px; 
-    color: #555;
+    color: var(--text-muted);
 }
 .stat-flexbox {
     display: flex; 
@@ -215,7 +215,7 @@
 .testimonial-text {
     font-style: italic; 
     font-size: 1.1rem; 
-    color: #666; 
+    color: var(--text-muted); 
     line-height: 1.7; 
     margin-bottom: 20px;
 }
@@ -244,7 +244,7 @@
 }
 .about-hero p {
     font-size: 1.2rem; 
-    color: #666; 
+    color: var(--text-muted); 
     max-width: 600px; 
     margin: 0 auto;
 }
@@ -341,7 +341,7 @@
 .services-subtext {
     text-align: center; 
     font-size: 1.1rem; 
-    color: #555;
+    color: var(--text-muted);
     margin-bottom: 30px;
 }
 .services-grid {

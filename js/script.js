@@ -279,6 +279,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 10. Real-Time Interactive Testimonial Review Submitter ---
     initReviewSubmitter();
+
+    // --- 11. Floating Scroll-to-Top Button ---
+    initBackToTop();
 });
 
 /**

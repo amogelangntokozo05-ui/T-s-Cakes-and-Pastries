@@ -810,7 +810,7 @@ function initFormInteractions() {
                 // Show errors dynamically
                 responseContainer.innerHTML = `
                     <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 35px; color: #2d251f; animation: fadeIn 0.4s ease;">
-                        <h4 style="color: #c62828; font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; font-weight: 700;">Form Submission Errors</h4>
+                        <h4 style="color: #c62828; font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; font-weight: 700;">⚠️ Form Submission Errors</h4>
                         <p style="margin-bottom: 20px; font-weight: 600;">Please correct the following fields before proceeding:</p>
                         <ul style="padding-left: 20px; font-size: 1.05rem; line-height: 1.6;">
                             ${errors.map(err => `<li style="margin-bottom: 8px;">${err}</li>`).join('')}
@@ -1027,18 +1027,18 @@ function initFormInteractions() {
             setTimeout(() => {
                 const recipient = "info@tscakes.co.za";
                 const subject = `[T's Cakes Contact - ${subjectEl.value}] ${nameEl.value}`;
-                
-                const body = `Hello T's Cakes Team,\n\nI have submitted a general inquiry via the website contact form. Here are my details:\n\n` + 
-                             `Name: ${nameEl.value}\n` +
-                             `Email Address: ${emailEl.value}\n` +
-                             `Phone Number: ${phoneEl.value}\n` +
-                             `Type of Inquiry: ${subjectEl.value}\n\n` +
-                             `------------------ MESSAGE BODY ------------------\n` + 
-                             `${messageEl.value}\n\n` + 
-                             `Please review and get in touch with me as soon as possible.\n\nBest Regards,\n${nameEl.value}`;
-                
+
+                const body = `Hello T's Cakes Team,\n\nI have submitted a general inquiry via the website contact form. Here are my details:\n\n` +
+                    `Name: ${nameEl.value}\n` +
+                    `Email Address: ${emailEl.value}\n` +
+                    `Phone Number: ${phoneEl.value}\n` +
+                    `Type of Inquiry: ${subjectEl.value}\n\n` +
+                    `------------------ MESSAGE BODY ------------------\n` +
+                    `${messageEl.value}\n\n` +
+                    `Please review and get in touch with me as soon as possible.\n\nBest Regards,\n${nameEl.value}`;
+
                 const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                
+
                 // Launch default mail client immediately on successful simulated processing
                 window.location.href = mailtoUrl;
 

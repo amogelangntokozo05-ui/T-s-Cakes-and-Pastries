@@ -1871,4 +1871,31 @@ function initReviewSubmitter() {
     });
 }
 
+/**
+ * 11. Floating Scroll-to-Top Button
+ * Monitors page scroll thresholds to show/hide the back-to-top button,
+ * triggering a smooth custom glide back to the top when clicked.
+ */
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top-btn');
+    if (!backToTopBtn) return;
+
+    // Show button when scrolled past 400px
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    // Smooth scroll to top on click
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
 

@@ -129,7 +129,7 @@ const PRODUCT_CATALOG = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- 1. Global Scroll-Driven Reveal Animations ---
     initScrollReveal();
 
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
-    
+
     if ('IntersectionObserver' in window && revealElements.length > 0) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -243,7 +243,7 @@ function initStoreMaps() {
 
             const marker = L.marker(loc.coords).addTo(map);
             marker.bindPopup(popupContent);
-            
+
             if (window.innerWidth > 900) {
                 marker.openPopup();
             }
@@ -327,7 +327,7 @@ function initGalleryLightbox() {
 
         lightboxImg.style.opacity = '0';
         lightboxImg.style.transform = 'scale(0.95)';
-        
+
         setTimeout(() => {
             lightboxImg.src = data.src;
             lightboxImg.alt = data.alt;
@@ -381,7 +381,7 @@ function initProductEngine() {
             });
             tab.classList.add('active');
             tab.setAttribute('aria-selected', 'true');
-            
+
             currentCategory = tab.getAttribute('data-category');
             renderProducts();
         });
@@ -553,7 +553,7 @@ function bindQuickViewButtons() {
  */
 function initFAQAccordion() {
     const headers = document.querySelectorAll('.accordion-header');
-    
+
     headers.forEach(header => {
         header.addEventListener('click', () => {
             const item = header.parentElement;
@@ -587,7 +587,7 @@ function initFormInteractions() {
     const fulfillmentRadios = document.getElementsByName('fulfillment');
     const orderForm = document.getElementById('enquiry-form');
     const contactForm = document.getElementById('contact-form');
-    
+
     // --- enquiry.html Conditional Fields logic ---
     if (fulfillmentRadios.length > 0 && orderForm) {
         let deliveryBlock = document.getElementById('delivery-details-fieldset');
@@ -758,7 +758,7 @@ function initFormInteractions() {
     }
 
     // --- Form Submissions and AJAX Handling ---
-    
+
     // Form 1: enquiry.html submission flows
     if (orderForm) {
         orderForm.addEventListener('submit', (e) => {
@@ -805,7 +805,7 @@ function initFormInteractions() {
             }
 
             const responseContainer = document.getElementById('enquiry-response-container');
-            
+
             if (errors.length > 0) {
                 // Show errors dynamically
                 responseContainer.innerHTML = `
@@ -834,11 +834,11 @@ function initFormInteractions() {
                 // Dynamic Cost Engine Calculations
                 const category = productEl.value;
                 const quantity = parseInt(document.getElementById('quantity').value) || 1;
-                
+
                 // Base Cost Indexing
                 let basePricePerUnit = 25; // Default pastries
                 let categoryLabel = "Premium Bakery Pastries";
-                
+
                 if (category === 'cakes') {
                     basePricePerUnit = 450;
                     categoryLabel = "Signature Celebration Cakes";
@@ -865,7 +865,7 @@ function initFormInteractions() {
                 if (quantity >= 10) {
                     discountPct = 0.10;
                 }
-                
+
                 const originalCost = basePricePerUnit * quantity;
                 if (discountPct > 0) {
                     volumeDiscountAmount = originalCost * discountPct;
@@ -963,7 +963,7 @@ function initFormInteractions() {
                 `;
                 responseContainer.scrollIntoView({ behavior: 'smooth' });
                 orderForm.reset();
-                
+
                 // Clear validation outlines
                 const inputs = orderForm.querySelectorAll('.field-valid, .field-invalid');
                 inputs.forEach(input => {
@@ -1028,7 +1028,7 @@ function initFormInteractions() {
                 // Success feedback and email compilation
                 responseContainer.innerHTML = `
                     <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--hover-shadow); padding: 40px 30px; border-left: 6px solid #2e7d32; animation: slideUp 0.5s ease; color: #2d251f;">
-                        <h3 style="color: #2e7d32; font-size: 1.6rem; margin-top: 0; margin-bottom: 10px;">✔️ Message Successfully Logged Locally!</h3>
+                        <h3 style="color: #2e7d32; font-size: 1.6rem; margin-top: 0; margin-bottom: 10px;">Message Successfully Logged Locally!</h3>
                         <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px;">
                             Hello <strong>${nameEl.value}</strong>! Your message has been locally verified. 
                             We have compiled these details into a local email block. <strong>Please click the button below to authorize sending it to our email team.</strong>
@@ -1036,7 +1036,7 @@ function initFormInteractions() {
                         
                         <div style="text-align: center;">
                             <button id="send-mailto-btn" type="button" style="padding: 16px 45px; font-size: 1.15rem; background: var(--brand-brown); color: var(--white); border-radius: var(--radius-pill); border: none; font-weight: 700; cursor: pointer; transition: var(--transition); box-shadow: 0 8px 20px rgba(92, 58, 33, 0.15);">
-                                📧 Authorize & Launch Mail Client
+                                Authorize & Launch Mail Client
                             </button>
                         </div>
                     </div>
@@ -1047,16 +1047,16 @@ function initFormInteractions() {
                 document.getElementById('send-mailto-btn').addEventListener('click', () => {
                     const recipient = "info@tscakes.co.za";
                     const subject = `[T's Cakes Contact - ${subjectEl.value}] ${nameEl.value}`;
-                    
-                    const body = `Hello T's Cakes Team,\n\nI have submitted a general inquiry via the website contact form. Here are my details:\n\n` + 
-                                 `Name: ${nameEl.value}\n` +
-                                 `Email Address: ${emailEl.value}\n` +
-                                 `Phone Number: ${phoneEl.value}\n` +
-                                 `Type of Inquiry: ${subjectEl.value}\n\n` +
-                                 `------------------ MESSAGE BODY ------------------\n` +
-                                 `${messageEl.value}\n\n` +
-                                 `Please review and get in touch with me as soon as possible.\n\nBest Regards,\n${nameEl.value}`;
-                    
+
+                    const body = `Hello T's Cakes Team,\n\nI have submitted a general inquiry via the website contact form. Here are my details:\n\n` +
+                        `Name: ${nameEl.value}\n` +
+                        `Email Address: ${emailEl.value}\n` +
+                        `Phone Number: ${phoneEl.value}\n` +
+                        `Type of Inquiry: ${subjectEl.value}\n\n` +
+                        `------------------ MESSAGE BODY ------------------\n` +
+                        `${messageEl.value}\n\n` +
+                        `Please review and get in touch with me as soon as possible.\n\nBest Regards,\n${nameEl.value}`;
+
                     const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                     window.location.href = mailtoUrl;
                 });

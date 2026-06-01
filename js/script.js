@@ -273,6 +273,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 8. Premium Interactive Shopping Cart Drawer & State Populator ---
     initShoppingCart();
+
+    // --- 9. Sleek Dark/Light Mode Theme Switcher ---
+    initThemeSwitcher();
 });
 
 /**
@@ -1478,4 +1481,53 @@ function bindAddToCartButtons() {
         });
     });
 }
+
+/**
+ * 9. Sleek Dark/Light Mode Theme Switcher
+ * Handles active color scheme states, localStorage persistence,
+ * and dynamic navbar icon transitions.
+ */
+function initThemeSwitcher() {
+    const themeButtons = document.querySelectorAll('.theme-toggle-btn');
+    
+    // Check local storage or fallback to system preference
+    const savedTheme = localStorage.getItem('tscakes_theme');
+    let currentTheme = 'light';
+
+    if (savedTheme) {
+        currentTheme = savedTheme;
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        currentTheme = 'dark';
+    }
+
+    // Set initial theme state
+    applyTheme(currentTheme);
+
+    // Bind click events to all theme toggles on the page
+    themeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('tscakes_theme', newTheme);
+        });
+    });
+
+    // Helper to toggle theme classes and icons
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeButtons.forEach(btn => {
+                const iconSpan = btn.querySelector('.theme-toggle-icon');
+                if (iconSpan) iconSpan.textContent = '☀️';
+            });
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeButtons.forEach(btn => {
+                const iconSpan = btn.querySelector('.theme-toggle-icon');
+                if (iconSpan) iconSpan.textContent = '🌙';
+            });
+        }
+    }
+}
+
 

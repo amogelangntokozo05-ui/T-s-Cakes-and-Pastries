@@ -1025,41 +1025,39 @@ function initFormInteractions() {
             responseContainer.scrollIntoView({ behavior: 'smooth' });
 
             setTimeout(() => {
-                // Success feedback and email compilation
+                const recipient = "info@tscakes.co.za";
+                const subject = `[T's Cakes Contact - ${subjectEl.value}] ${nameEl.value}`;
+                
+                const body = `Hello T's Cakes Team,\n\nI have submitted a general inquiry via the website contact form. Here are my details:\n\n` + 
+                             `Name: ${nameEl.value}\n` +
+                             `Email Address: ${emailEl.value}\n` +
+                             `Phone Number: ${phoneEl.value}\n` +
+                             `Type of Inquiry: ${subjectEl.value}\n\n` +
+                             `------------------ MESSAGE BODY ------------------\n` + 
+                             `${messageEl.value}\n\n` + 
+                             `Please review and get in touch with me as soon as possible.\n\nBest Regards,\n${nameEl.value}`;
+                
+                const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                
+                // Launch default mail client immediately on successful simulated processing
+                window.location.href = mailtoUrl;
+
+                // Success feedback and email fallback indicators
                 responseContainer.innerHTML = `
                     <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--hover-shadow); padding: 40px 30px; border-left: 6px solid #2e7d32; animation: slideUp 0.5s ease; color: #2d251f;">
-                        <h3 style="color: #2e7d32; font-size: 1.6rem; margin-top: 0; margin-bottom: 10px;">Message Successfully Logged Locally!</h3>
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px;">
-                            Hello <strong>${nameEl.value}</strong>! Your message has been locally verified. 
-                            We have compiled these details into a local email block. <strong>Please click the button below to authorize sending it to our email team.</strong>
+                        <h3 style="color: #2e7d32; font-size: 1.6rem; margin-top: 0; margin-bottom: 10px;">✔️ Message Successfully Verified & Compiled!</h3>
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px;">
+                            Hello <strong>${nameEl.value}</strong>! Your contact message has been locally verified. 
+                            We have automatically compiled these details and launched your default mail application to securely dispatch the enquiry.
                         </p>
-                        
-                        <div style="text-align: center;">
-                            <button id="send-mailto-btn" type="button" style="padding: 16px 45px; font-size: 1.15rem; background: var(--brand-brown); color: var(--white); border-radius: var(--radius-pill); border: none; font-weight: 700; cursor: pointer; transition: var(--transition); box-shadow: 0 8px 20px rgba(92, 58, 33, 0.15);">
-                                Authorize & Launch Mail Client
-                            </button>
+                        <div style="background: rgba(46, 125, 50, 0.05); padding: 20px; border-radius: 8px; font-size: 0.95rem; color: #333; line-height: 1.5; text-align: left; border: 1px solid rgba(46, 125, 50, 0.1);">
+                            <strong>📧 Stated Recipient:</strong> <a href="mailto:${recipient}" style="color: #2e7d32; font-weight: 700;">${recipient}</a><br>
+                            <strong>📋 Compiled Subject:</strong> <code>${subject}</code><br><br>
+                            <em>If your mail client didn't launch automatically, please manually send an email to the recipient above using your compiled form details.</em>
                         </div>
                     </div>
                 `;
                 responseContainer.scrollIntoView({ behavior: 'smooth' });
-
-                // Bind Email compilation action on button click
-                document.getElementById('send-mailto-btn').addEventListener('click', () => {
-                    const recipient = "info@tscakes.co.za";
-                    const subject = `[T's Cakes Contact - ${subjectEl.value}] ${nameEl.value}`;
-
-                    const body = `Hello T's Cakes Team,\n\nI have submitted a general inquiry via the website contact form. Here are my details:\n\n` +
-                        `Name: ${nameEl.value}\n` +
-                        `Email Address: ${emailEl.value}\n` +
-                        `Phone Number: ${phoneEl.value}\n` +
-                        `Type of Inquiry: ${subjectEl.value}\n\n` +
-                        `------------------ MESSAGE BODY ------------------\n` +
-                        `${messageEl.value}\n\n` +
-                        `Please review and get in touch with me as soon as possible.\n\nBest Regards,\n${nameEl.value}`;
-
-                    const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                    window.location.href = mailtoUrl;
-                });
 
                 contactForm.reset();
                 const inputs = contactForm.querySelectorAll('.field-valid, .field-invalid');

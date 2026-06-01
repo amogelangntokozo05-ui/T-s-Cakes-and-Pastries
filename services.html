@@ -248,6 +248,42 @@
         </div>
     </div>
 
+    <!-- Floating Cart Toggle Button -->
+    <button class="floating-cart-btn" id="cart-toggle-btn" type="button" aria-label="Open Shopping Bag">
+        🛒 <span class="floating-cart-badge" id="cart-badge-count">0</span>
+    </button>
+
+    <!-- Side-sliding Shopping Cart Drawer -->
+    <div class="cart-drawer" id="cart-drawer-sidebar">
+        <div class="cart-drawer-header">
+            <h3>Your Treats Bag</h3>
+            <button class="cart-drawer-close" id="cart-drawer-close-btn" aria-label="Close Shopping Bag">&times;</button>
+        </div>
+        <div class="cart-drawer-body" id="cart-drawer-items-list">
+            <!-- Dynamic cart items will be injected here -->
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-summary-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">R0.00</span>
+            </div>
+            <div class="cart-summary-row discount" id="cart-discount-row" style="display: none;">
+                <span>Bulk Discount (10% off)</span>
+                <span id="cart-discount">-R0.00</span>
+            </div>
+            <div class="cart-summary-row total">
+                <span>Estimated Total</span>
+                <span id="cart-total-cost">R0.00</span>
+            </div>
+            <button class="cart-checkout-btn" id="cart-checkout-trigger" type="button">
+                📝 Proceed to Custom Enquiry
+            </button>
+        </div>
+    </div>
+
+    <!-- Blurred background overlay -->
+    <div class="cart-overlay" id="cart-overlay-bg"></div>
+
     <!-- Link external core script for interactive features -->
     <script src="js/script.js"></script>
 </body>

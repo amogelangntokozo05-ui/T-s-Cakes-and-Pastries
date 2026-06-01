@@ -270,6 +270,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 7. Conditional Form Fieldsets & Visual Validation ---
     initFormInteractions();
+
+    // --- 8. Premium Interactive Shopping Cart Drawer & State Populator ---
+    initShoppingCart();
 });
 
 /**
@@ -565,7 +568,10 @@ function initProductEngine() {
                         ${p.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
                     </ul>
                     <p><em>${p.priceText}</em></p>
-                    <button class="quick-view-btn" type="button" data-id="${p.id}">✨ Quick View Specs</button>
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <button class="quick-view-btn" type="button" data-id="${p.id}" style="margin-top: 0; flex: 1;">✨ Specs</button>
+                        <button class="cart-add-btn" type="button" data-id="${p.id}" style="background: var(--brand-pink-gradient); color: var(--brand-brown); border: none; font-family: inherit; font-weight: 700; font-size: 0.95rem; padding: 12px 20px; border-radius: var(--radius-pill); cursor: pointer; flex: 1.2; text-align: center; transition: var(--transition);">🛒 Add to Bag</button>
+                    </div>
                 </div>
             </article>
         `).join('');
@@ -583,6 +589,7 @@ function initProductEngine() {
 
         // Step E: Bind modal selectors to dynamic buttons
         bindQuickViewButtons();
+        bindAddToCartButtons();
     }
 }
 

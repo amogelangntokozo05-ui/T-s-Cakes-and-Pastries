@@ -221,6 +221,47 @@
                     <p class="testimonial-title">Menlyn Branch Catering</p>
                 </article>
             </div>
+
+            <!-- Interactive Review Submitter (Option 4) -->
+            <div id="submit-review-card" class="testimonial-card" style="max-width: 800px; margin: 50px auto 0 auto; padding: 45px; background: var(--white); box-shadow: var(--glass-shadow); border-radius: var(--radius-lg); border: 2px dashed rgba(255, 192, 203, 0.4); transition: var(--transition);">
+                <h3 style="text-align: center; color: var(--brand-brown); font-size: 1.8rem; margin-top: 0; margin-bottom: 8px; font-weight: 700;">✨ Leave a Sweet Review</h3>
+                <p style="text-align: center; color: var(--text-muted); font-size: 1.05rem; margin-top: 0; margin-bottom: 30px;">Share your baking experience with our local South African community!</p>
+                
+                <form id="live-review-form" style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Star Rating Grid Selector -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <span style="font-weight: 700; color: var(--brand-brown); font-size: 1.05rem;">Your Star Rating <span style="color: red;">*</span></span>
+                        <div class="star-rating-selector" id="review-stars-container" style="display: flex; gap: 10px; font-size: 2.5rem; cursor: pointer; user-select: none;" role="radiogroup" aria-label="Select rating in stars">
+                            <span class="star-selector" data-value="1" role="radio" aria-checked="false" style="color: #ccc; transition: transform 0.2s ease;">★</span>
+                            <span class="star-selector" data-value="2" role="radio" aria-checked="false" style="color: #ccc; transition: transform 0.2s ease;">★</span>
+                            <span class="star-selector" data-value="3" role="radio" aria-checked="false" style="color: #ccc; transition: transform 0.2s ease;">★</span>
+                            <span class="star-selector" data-value="4" role="radio" aria-checked="false" style="color: #ccc; transition: transform 0.2s ease;">★</span>
+                            <span class="star-selector" data-value="5" role="radio" aria-checked="false" style="color: #ccc; transition: transform 0.2s ease;">★</span>
+                        </div>
+                        <input type="hidden" id="selected-rating-val" name="rating" required value="0">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+                        <div>
+                            <label for="reviewAuthor" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Full Name <span style="color: red;">*</span></label>
+                            <input type="text" id="reviewAuthor" name="author" required placeholder="e.g. Lerato Khumalo" style="margin-top: 0; margin-bottom: 0;">
+                        </div>
+                        <div>
+                            <label for="reviewTitle" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Location / Branch <span style="color: red;">*</span></label>
+                            <input type="text" id="reviewTitle" name="title" required placeholder="e.g. Sandton Customer" style="margin-top: 0; margin-bottom: 0;">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="reviewText" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Review Message <span style="color: red;">*</span></label>
+                        <textarea id="reviewText" name="message" required rows="3" placeholder="Describe the flavors, textures, or branch environment..." style="margin-top: 0; margin-bottom: 0; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-review-btn" style="background: var(--brand-pink-gradient); color: var(--brand-brown); border: none; font-family: inherit; font-weight: 700; font-size: 1.1rem; padding: 16px 30px; border-radius: var(--radius-pill); cursor: pointer; transition: var(--transition); box-shadow: 0 8px 25px rgba(255, 192, 203, 0.4); width: 100%; margin-top: 10px; text-align: center;">
+                        ✨ Publish Review Instantly
+                    </button>
+                </form>
+            </div>
         </section>
 
         <!-- Elegant FAQ Accordion Section -->

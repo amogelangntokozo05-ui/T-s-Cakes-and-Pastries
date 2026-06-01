@@ -51,7 +51,7 @@
             </div>
 
             <!-- History: Split Layout -->
-            <section id="history" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center; margin-bottom: 80px;">
+            <section id="history" class="reveal-on-scroll" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center; margin-bottom: 80px;">
                 <div style="position: relative;">
                     <img src="Images/Cake55.jpg" alt="Early cake baked by founder" style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); transform: rotate(-2deg); transition: var(--transition);" onmouseover="this.style.transform='rotate(0) scale(1.02)'" onmouseout="this.style.transform='rotate(-2deg)'">
                 </div>
@@ -64,19 +64,19 @@
 
             <!-- Mission & Vision: Side-by-Side Cards -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 80px;">
-                <section id="vision" style="background: var(--brand-pink-gradient); padding: 50px 40px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; color: var(--brand-brown); transition: var(--transition);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <section id="vision" class="reveal-on-scroll" style="background: var(--brand-pink-gradient); padding: 50px 40px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; color: var(--brand-brown); transition: var(--transition);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
                     <h3 style="font-size: 2.2rem; margin-bottom: 20px;">Our Vision</h3>
                     <p style="font-size: 1.1rem; line-height: 1.6; font-weight: 500;">To be the absolute premiere bakery that our community thinks of first when they want fresh, delicious, completely unforgettable treats.</p>
                 </section>
 
-                <section id="mission" style="background: var(--white); padding: 50px 40px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; transition: var(--transition);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <section id="mission" class="reveal-on-scroll" style="background: var(--white); padding: 50px 40px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; transition: var(--transition);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
                     <h3 style="color: var(--brand-pink); font-size: 2.2rem; margin-bottom: 20px;">Our Mission</h3>
                     <p style="color: #555; font-size: 1.1rem; line-height: 1.6;">We are entirely committed to bringing people together through high-quality baked goods. We focus on perfect ingredients, brilliant service, and making every single customer feel special.</p>
                 </section>
             </div>
 
             <!-- Massive Cinematic Quote -->
-            <section style="margin-bottom: 80px; position: relative; padding: 60px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; overflow: hidden; margin-left: 20px; margin-right: 20px;">
+            <section class="reveal-on-scroll" style="margin-bottom: 80px; position: relative; padding: 60px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; overflow: hidden; margin-left: 20px; margin-right: 20px;">
                 <span style="font-size: 10rem; color: rgba(255,192,203,0.3); position: absolute; top: -40px; left: 40px; font-family: Georgia, serif; line-height: 1;">"</span>
                 <blockquote style="position: relative; z-index: 1; margin: 0; padding: 0; border: none; font-size: 1.8rem; color: var(--brand-brown); font-style: italic; font-weight: 500; line-height: 1.5; margin-bottom: 20px;">
                     Baking isn't just about mixing ingredients; it's about making someone's day just a little bit sweeter.
@@ -85,7 +85,7 @@
             </section>
 
             <!-- Goals and Target Audience: Split List Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-bottom: 80px;">
+            <div class="reveal-on-scroll" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-bottom: 80px;">
                 <section id="goals-objectives">
                     <h3 style="color: var(--brand-brown); font-size: 1.8rem; margin-bottom: 25px; border-bottom: 2px solid var(--brand-pink); padding-bottom: 10px; display: inline-block;">Core Goals</h3>
                     <ul style="list-style: none; padding: 0; margin: 0; color: #555; font-size: 1.1rem; line-height: 1.8;">
@@ -118,7 +118,7 @@
             </div>
 
             <!-- Team -->
-            <section id="team" style="text-align: center; margin-bottom: 40px;">
+            <section id="team" class="reveal-on-scroll" style="text-align: center; margin-bottom: 40px;">
                 <h3 style="color: var(--brand-brown); font-size: 2.5rem; margin-bottom: 20px;">Meet Our Staff</h3>
                 <p style="color: #666; font-size: 1.15rem; max-width: 700px; margin: 0 auto 40px; line-height: 1.6;">Our team consists of absolutely passionate bakers who believe in the unbridled power of a good pastry. From our founder in the kitchen to our dedicated front-end logistics crew, every order is perfect.</p>
                 <img src="Images/muffins466.jpg" alt="Our passionate team members baking" style="width: 100%; max-height: 500px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow);">
@@ -164,5 +164,8 @@
             <p><small>&copy; 2026 T's Cakes and Pastries. All rights reserved.</small></p>
         </div>
     </footer>
+    
+    <!-- Link external core script for interactive features -->
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -64,7 +64,7 @@
         </section>
 
         <!-- Expanded introduction to the bakery with interactive hovering stats -->
-        <section id="introduction" class="transparent-section">
+        <section id="introduction" class="transparent-section reveal-on-scroll">
             <h2 class="intro-heading">Welcome to T's Cakes and Pastries!</h2>
             <p class="intro-subtext">We believe that every single day is worth celebrating with something sweet. Whether you are grabbing a quick fresh Muffin on the way to work, sourcing treats for a beautiful funeral, or designing a stunning custom Cake for a memorable 21st birthday, we dedicate our time and effort to baking absolute perfection.</p>
             
@@ -86,7 +86,7 @@
 
         <!-- Featured Products Section redesigned with cinematic poster-style layout -->
         <br><br>
-        <section id="featured-products" style="background: transparent; box-shadow: none;">
+        <section id="featured-products" class="reveal-on-scroll" style="background: transparent; box-shadow: none;">
             <h2 style="text-align: center; color: var(--brand-brown); font-size: 2.8rem; margin-bottom: 10px;">Featured Collections</h2>
             <p style="text-align: center; font-size: 1.2rem; color: #555; margin-bottom: 50px;">Explore the four pillars of our world-class bakery.</p>
             
@@ -141,7 +141,7 @@
         <br><br>
 
         <!-- Eye-Catching Interactive Specials Banner -->
-        <section id="current-specials" style="background: var(--brand-pink-gradient); padding: 60px; border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(255, 192, 203, 0.4); display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+        <section id="current-specials" class="reveal-on-scroll" style="background: var(--brand-pink-gradient); padding: 60px; border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(255, 192, 203, 0.4); display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 300px;">
                 <h2 style="color: var(--brand-brown); font-size: 3rem; margin-bottom: 15px; line-height: 1.1;">Massive Weekend Special</h2>
                 <p style="font-size: 1.2rem; color: var(--brand-brown); font-weight: 500; margin-bottom: 30px;">We run monthly discounts to give back to our amazing local community! For this weekend only:</p>
@@ -160,7 +160,7 @@
 
         <!-- Brand New Interactive Testimonials Section -->
         <br><br>
-        <section id="testimonials" class="transparent-section">
+        <section id="testimonials" class="transparent-section reveal-on-scroll">
             <h2 class="intro-heading">What Our Community Says</h2>
             <div class="testimonials-grid">
                 
@@ -187,10 +187,48 @@
             </div>
         </section>
 
-        <hr>
+        <!-- Elegant FAQ Accordion Section -->
+        <section id="faq-section" class="faq-accordion-section reveal-on-scroll">
+            <h2 class="faq-heading">Frequently Asked Questions</h2>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span>How far in advance do I need to place a custom cake order?</span>
+                        <span class="accordion-icon">&#43;</span>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="panel-content">
+                            <p>For custom celebration cakes, we require a minimum of 4 to 7 days notice depending on complexity. Larger corporate orders or multi-tier wedding cakes require a minimum of three weeks notice. This ensures we can source the finest ingredients and dedicate our full attention to your masterpiece.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span>Do you deliver, and what is your delivery range?</span>
+                        <span class="accordion-icon">&#43;</span>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="panel-content">
+                            <p>Yes, we offer safe, temperature-controlled delivery within a 50km radius of our branches (Sandton, Rosebank, and Menlyn Pretoria). We charge a nominal delivery fee based on distance. Our specialized delivery team ensures that even the most delicate cakes arrive in perfect, pristine condition.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span>Do you offer gluten-free, vegan, or nut-free options?</span>
+                        <span class="accordion-icon">&#43;</span>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="panel-content">
+                            <p>We absolutely do! We offer a variety of delicious vegan and gluten-free cakes, cupcakes, and muffins. However, please note that all our items are baked in a shared facility. If you have a severe allergy, please let us know so we can implement complete isolation protocols for your bake.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Call to action encouraging visitors to make an enquiry -->
-        <section id="call-to-action">
+        <section id="call-to-action" class="reveal-on-scroll">
             <h2>Ready to Taste the Magic?</h2>
             <p>Join the many satisfied families, students, and working professionals in our community. Let us help make your next gathering an absolute hit with our delicious treats!</p>
             <br>
@@ -232,5 +270,8 @@
             <p><small>&copy; 2026 T's Cakes and Pastries. All rights reserved.</small></p>
         </div>
     </footer>
+    
+    <!-- Link external core script for interactive features -->
+    <script src="js/script.js"></script>
 </body>
 </html>

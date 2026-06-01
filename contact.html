@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
 
+    <!-- Leaflet.js Interactive Map CSS library -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 
 <body>
@@ -54,7 +56,7 @@
             the contact form.</p>
 
         <!-- Modernized Grid for Direct Contact Information -->
-        <section id="contact-info" style="background: transparent; box-shadow: none; padding: 0; margin-bottom: 60px;">
+        <section id="contact-info" class="reveal-on-scroll" style="background: transparent; box-shadow: none; padding: 0; margin-bottom: 60px;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
                 <div style="background: var(--white); padding: 40px 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); text-align: center; transition: var(--transition);" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
                     <h4 style="color: var(--brand-pink); font-size: 1.2rem; margin-bottom: 10px;">Phone Support</h4>
@@ -76,7 +78,7 @@
         </section>
 
         <!-- Modernized Operating Hours substituting the legacy table -->
-        <section id="operating-hours" style="max-width: 800px; margin: 0 auto 60px auto;">
+        <section id="operating-hours" class="reveal-on-scroll" style="max-width: 800px; margin: 0 auto 60px auto;">
             <h3 style="text-align: center; color: var(--brand-brown); font-size: 2rem; margin-bottom: 30px;">Store Operating Hours</h3>
             <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); overflow: hidden;">
                 <div style="display: flex; justify-content: space-between; padding: 25px 40px; border-bottom: 1px solid rgba(0,0,0,0.05);">
@@ -95,7 +97,7 @@
         </section>
 
         <!-- Section mapping out store locations with embedded interactive maps using CSS Grid -->
-        <section id="locations" style="background: transparent; box-shadow: none; padding: 0;">
+        <section id="locations" class="reveal-on-scroll" style="background: transparent; box-shadow: none; padding: 0;">
             <h3 style="text-align: center; color: var(--brand-brown); font-size: 2.2rem; margin-bottom: 10px;">Visit Our Flagships</h3>
             <p style="text-align: center; font-size: 1.1rem; color: #555; margin-bottom: 40px;">Walk-ins are always welcome. Find your nearest bakery below.</p>
             
@@ -104,28 +106,28 @@
                 <article style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); display: flex; flex-direction: column;">
                     <h4 style="font-size: 1.4rem; color: var(--brand-pink); margin-bottom: 5px;">Sandton Flagship</h4>
                     <p style="font-size: 0.95rem; color: #666; margin-bottom: 20px;">42 Nelson Mandela Square, Sandton, 2196</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114584.73574987883!2d27.96216440611417!3d-26.2041028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac9d9b1d34041!2sJohannesburg!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" width="100%" height="250" style="border:0; border-radius: 16px; flex-grow: 1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing our Sandton Flagship location"></iframe>
+                    <div id="map-sandton" class="interactive-map"></div>
                 </article>
 
                 <!-- Rosebank Branch Map -->
                 <article style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); display: flex; flex-direction: column;">
                     <h4 style="font-size: 1.4rem; color: var(--brand-pink); margin-bottom: 5px;">Rosebank Branch</h4>
                     <p style="font-size: 0.95rem; color: #666; margin-bottom: 20px;">14 Jellicoe Avenue, Rosebank, 2196</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.3639534927236!2d28.037803615029194!3d-26.152345983460677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950ceab41faacd%3A0x868cbe660a5251db!2sRosebank%2C%20Johannesburg%2C%202196!5e0!3m2!1sen!2sza!4v1700000000001!5m2!1sen!2sza" width="100%" height="250" style="border:0; border-radius: 16px; flex-grow: 1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing our Rosebank Branch"></iframe>
+                    <div id="map-rosebank" class="interactive-map"></div>
                 </article>
 
                 <!-- Menlyn Branch Map: Pretoria -->
                 <article style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); display: flex; flex-direction: column;">
                     <h4 style="font-size: 1.4rem; color: var(--brand-pink); margin-bottom: 5px;">Menlyn Branch</h4>
                     <p style="font-size: 0.95rem; color: #666; margin-bottom: 20px;">Shop 45, Menlyn Maine, Pretoria, 0081</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115132.86311099511!2d28.112267950000003!3d-25.747867599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95619cbec65033%3A0xf66262b07a847b4c!2sPretoria!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" width="100%" height="250" style="border:0; border-radius: 16px; flex-grow: 1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing our Pretoria location"></iframe>
+                    <div id="map-menlyn" class="interactive-map"></div>
                 </article>
             </div>
         </section>
 
         <!-- General contact form for website visitors redesigned to fluid Grid -->
         <br><br>
-        <section id="contact-form-section" style="max-width: 800px; margin: 0 auto;">
+        <section id="contact-form-section" class="reveal-on-scroll" style="max-width: 800px; margin: 0 auto;">
             <h3 style="text-align: center; color: var(--brand-brown); font-size: 2.2rem; margin-bottom: 30px;">Send Us a Message</h3>
             <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
@@ -184,6 +186,11 @@
             <p><small>&copy; 2026 T's Cakes and Pastries. All rights reserved.</small></p>
         </div>
     </footer>
+
+    <!-- Leaflet.js Map engine integration -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Link external core script for interactive features -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>

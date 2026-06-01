@@ -48,8 +48,8 @@
 
         <!-- New Core Services Expansion placed at the top of the routing -->
         <br>
-        <section id="core-services">
-            <h2 style="text-align: center; color: var(--accent-pink-dark); font-size: 2.2rem;">Our Core Services</h2>
+        <section id="core-services" class="reveal-on-scroll">
+            <h2 style="text-align: center; color: var(--brand-brown); font-size: 2.2rem;">Our Core Services</h2>
             <p style="text-align: center; font-size: 1.1rem; color: #555;">Beyond baking, we provide comprehensive logistical catering services to make your event completely stress-free.</p>
             <br>
             <!-- Native inline grid deployment avoiding messy CSS linking for a one-off feature -->
@@ -70,9 +70,24 @@
         </section>
         <br><br>
 
+        <!-- Search and Category Filters controls -->
+        <div class="services-controls reveal-on-scroll">
+            <div class="search-bar-wrapper">
+                <span class="search-icon">&#128269;</span>
+                <input type="text" id="product-search" placeholder="Search delicious treats... (e.g. chocolate, scone, croissant)" aria-label="Search bakery catalog">
+            </div>
+            <div class="category-tabs" role="tablist">
+                <button class="category-tab active" data-category="all" role="tab" aria-selected="true">✨ All Treats</button>
+                <button class="category-tab" data-category="cakes" role="tab" aria-selected="false">🎂 Cakes & Cupcakes</button>
+                <button class="category-tab" data-category="pastries" role="tab" aria-selected="false">🧁 Muffins & Pastries</button>
+                <button class="category-tab" data-category="breads" role="tab" aria-selected="false">🥖 Breads & Scones</button>
+                <button class="category-tab" data-category="savory" role="tab" aria-selected="false">🥧 Savory & Platters</button>
+            </div>
+        </div>
+
         <!-- Product Container Query Wrappers -->
-        <section id="products" class="product-grid" style="background: transparent; padding:0; box-shadow:none;">
-            <article class="product-card">
+        <section id="products" class="product-grid reveal-on-scroll" style="background: transparent; padding:0; box-shadow:none;">
+            <article class="product-card" data-category="cakes">
                 <img src="Images/Cake114.jpg" alt="Fresh Custom Cake">
                 <div class="card-content">
                     <h3>Signature Cakes</h3>
@@ -86,7 +101,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="breads">
                 <!-- Utilizing a high quality alternative image since Bread isn't explicitly in the image drive -->
                 <img src="Images/Scones668.jpg" alt="Freshly baked goods">
                 <div class="card-content">
@@ -101,7 +116,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="pastries">
                 <img src="Images/pastries1102.jpg" alt="Flaky Pastries">
                 <div class="card-content">
                     <h3>Premium Pastries</h3>
@@ -115,7 +130,7 @@
                 </div>
             </article>
             
-            <article class="product-card">
+            <article class="product-card" data-category="pastries">
                 <img src="Images/muffins25.jpg" alt="Muffins">
                 <div class="card-content">
                     <h3>Gourmet Muffins</h3>
@@ -129,7 +144,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="cakes">
                 <img src="Images/Cake3.jpg" alt="Specialty Cupcakes">
                 <div class="card-content">
                     <h3>Specialty Cupcakes</h3>
@@ -143,7 +158,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="savory">
                 <img src="Images/pastries63.jpg" alt="Savory Pies">
                 <div class="card-content">
                     <h3>Savory Pies & Quiches</h3>
@@ -157,7 +172,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="cakes">
                 <img src="Images/Cake002.jpg" alt="Custom Cookies">
                 <div class="card-content">
                     <h3>Custom Frosted Cookies</h3>
@@ -171,7 +186,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="savory">
                 <img src="Images/muffins69877.jpg" alt="Breakfast Trays">
                 <div class="card-content">
                     <h3>Catering Breakfast Trays</h3>
@@ -188,7 +203,7 @@
 
         <!-- Detailed Textual Information Replacement for the old gallery -->
         <br><br>
-        <section id="ordering-guidelines" style="background: var(--white); padding: 50px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); margin-top: 40px; margin-bottom: 20px;">
+        <section id="ordering-guidelines" class="reveal-on-scroll" style="background: var(--white); padding: 50px; border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); margin-top: 40px; margin-bottom: 20px;">
             <h2 style="color: var(--brand-brown); border-bottom: 2px solid var(--primary-bg); padding-bottom: 20px; margin-bottom: 35px;">Important Ordering & Allergy Information</h2>
             
             <div style="display: flex; flex-direction: column; gap: 30px;">
@@ -248,5 +263,33 @@
             <p><small>&copy; 2026 T's Cakes and Pastries. All rights reserved.</small></p>
         </div>
     </footer>
+
+    <!-- Specialty Quick View Modal Overlay -->
+    <div id="quick-view-modal" class="quick-view-modal">
+        <div class="modal-content">
+            <span class="modal-close" aria-label="Close modal">&times;</span>
+            <div class="modal-body-layout">
+                <div class="modal-image-col">
+                    <img id="modal-product-img" src="" alt="Product image preview">
+                </div>
+                <div class="modal-info-col">
+                    <span class="modal-badge" id="modal-product-badge">Bakery Item</span>
+                    <h3 id="modal-product-title">Product Name</h3>
+                    <p class="modal-price" id="modal-product-price">R0.00</p>
+                    <p class="modal-desc" id="modal-product-desc">Details...</p>
+                    <div class="modal-details-bullets">
+                        <h4>Ingredients & Selection:</h4>
+                        <ul id="modal-product-bullets">
+                            <!-- Populated dynamically via JS -->
+                        </ul>
+                    </div>
+                    <a id="modal-enquire-btn" href="enquiry.html" class="modal-btn">Enquire About This Today</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link external core script for interactive features -->
+    <script src="js/script.js"></script>
 </body>
 </html>

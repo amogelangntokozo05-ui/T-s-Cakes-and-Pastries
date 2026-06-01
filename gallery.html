@@ -46,7 +46,7 @@
         <h2>Our Image Gallery</h2>
         <p>Browse through some of our favorite creations over the years! Everything you see was freshly baked in our kitchen.</p>
         
-        <section id="stacked-gallery">
+        <section id="stacked-gallery" class="reveal-on-scroll">
             <!-- Full Width Bakery Showcase Item (Cakes) -->
             <article>
                 <img src="Images/Cake.jpg" alt="Delicious freshly baked cake">
@@ -196,5 +196,19 @@
             <p><small>&copy; 2026 T's Cakes and Pastries. All rights reserved.</small></p>
         </div>
     </footer>
+
+    <!-- Specialty Photo Gallery Lightbox Overlay -->
+    <div id="lightbox" class="lightbox-modal">
+        <span class="lightbox-close" aria-label="Close Lightbox">&times;</span>
+        <button class="lightbox-prev" aria-label="Previous Image">&#10094;</button>
+        <div class="lightbox-content-wrapper">
+            <img class="lightbox-image" id="lightbox-img" src="" alt="Zoomed view of baked goods creation">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <button class="lightbox-next" aria-label="Next Image">&#10095;</button>
+    </div>
+
+    <!-- Link external core script for interactive features -->
+    <script src="js/script.js"></script>
 </body>
 </html>

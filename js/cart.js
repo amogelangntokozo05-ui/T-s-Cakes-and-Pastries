@@ -1,18 +1,11 @@
-/* =========================================================================
-   T's Cakes and Pastries - Shopping Bag & Checkout State Engine
-   ========================================================================= */
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Initialize Shopping Bag ---
     initShoppingCart();
 });
 
-/**
- * Premium Interactive Shopping Cart Drawer & State Populator
- * Implements a complete client-side shopping bag state engine,
- * interactive sliding drawer, real-time math totals with bulk discounts,
- * and form pre-fill auto-population redirects.
- */
+
 function initShoppingCart() {
     const cartToggleBtn = document.getElementById('cart-toggle-btn');
     const cartSidebar = document.getElementById('cart-drawer-sidebar');

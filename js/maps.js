@@ -5,10 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initStoreMaps();
 });
 
-/**
- * 2. Interactive Store Location Maps (Leaflet.js)
- * Replaces static iFrames with live Leaflet coordinates, markers, and popups
- */
+
 function initStoreMaps() {
     const locations = {
         sandton: {

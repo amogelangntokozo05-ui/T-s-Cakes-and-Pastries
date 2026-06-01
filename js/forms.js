@@ -5,10 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFormInteractions();
 });
 
-/**
- * 7. Conditional Form Fieldsets & Visual Validation
- * Dynamically slides open relevant form subsections based on selection parameters
- */
+
 function initFormInteractions() {
     const fulfillmentRadios = document.getElementsByName('fulfillment');
     const orderForm = document.getElementById('enquiry-form');

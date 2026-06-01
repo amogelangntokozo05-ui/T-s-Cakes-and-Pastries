@@ -8,10 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initReviewSubmitter();
 });
 
-/**
- * 6. FAQ Accordion System
- * Smooth slide up/down animation based on ScrollHeight computations
- */
+
 function initFAQAccordion() {
     const headers = document.querySelectorAll('.accordion-header');
 
@@ -40,11 +37,7 @@ function initFAQAccordion() {
     });
 }
 
-/**
- * 10. Real-Time Interactive Testimonial Review Submitter
- * Handles interactive hover/click star selection, client-side validation,
- * dynamic DOM element insertion, and smooth elastic entry animations.
- */
+
 function initReviewSubmitter() {
     const reviewForm = document.getElementById('live-review-form');
     const starsContainer = document.getElementById('review-stars-container');

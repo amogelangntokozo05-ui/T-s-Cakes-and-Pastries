@@ -11,10 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
 });
 
-/**
- * 1. Global Scroll-Driven Reveal Animations
- * Uses IntersectionObserver to trigger smooth fade-up entry animations
- */
+
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
 
@@ -86,11 +83,7 @@ function initThemeSwitcher() {
     }
 }
 
-/**
- * 3. Floating Scroll-to-Top Button
- * Monitors page scroll thresholds to show/hide the back-to-top button,
- * triggering a smooth custom glide back to the top when clicked.
- */
+
 function initBackToTop() {
     const backToTopBtn = document.getElementById('back-to-top-btn');
     if (!backToTopBtn) return;

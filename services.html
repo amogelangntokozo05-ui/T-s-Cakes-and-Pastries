@@ -270,7 +270,12 @@
     <div class="cart-drawer" id="cart-drawer-sidebar">
         <div class="cart-drawer-header">
             <h3>Your Treats Bag</h3>
-            <button class="cart-drawer-close" id="cart-drawer-close-btn" aria-label="Close Shopping Bag">&times;</button>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <button id="cart-clear-all-btn" style="background: transparent; border: none; color: #c62828; font-family: inherit; font-size: 0.9rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: var(--transition);" type="button">
+                    🧹 Clear Bag
+                </button>
+                <button class="cart-drawer-close" id="cart-drawer-close-btn" aria-label="Close Shopping Bag" style="padding-top: 0; line-height: 1;">&times;</button>
+            </div>
         </div>
         <div class="cart-drawer-body" id="cart-drawer-items-list">
             <!-- Dynamic cart items will be injected here -->

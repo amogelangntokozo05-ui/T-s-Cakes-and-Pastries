@@ -1,63 +1,38 @@
-/* =========================================================================
-   T's Cakes and Pastries - Ultra Modern Stylesheet (2026 UX Layout)
-   Author: Amogelang Kunene
-   Module: WEDE5020 Part 2
-   ========================================================================= */
-
-/* --- CSS Reset & Base Consistency --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* --- Ultra-Modern Base Variables --- */
 :root {
-    /* Muted colors to look expensive and modern instead of distinctly 1990s */
     --primary-bg: #FCFAF6;
-    /* Breathable, barely-there cream background */
     --white: #FFFFFF;
-
-    /* Branding */
     --brand-brown: #5C3A21;
-    /* Deeper, more sophisticated chocolate brown */
     --brand-light-brown: #8C5831;
     --brand-pink: #FFC0CB;
     --brand-pink-gradient: linear-gradient(135deg, #FFC0CB 0%, #FFA0B4 100%);
-
-    /* Typography */
     --text-primary: #2D251F;
-    /* Soft off-black for premium reading contrast */
     --text-muted: #73675E;
-
-    /* Glassmorphism & UI Layout Control */
     --glass-shadow: 0 16px 40px rgba(92, 58, 33, 0.08);
-    /* Massive diffuse shadow, abandoning crude borders */
     --hover-shadow: 0 24px 60px rgba(92, 58, 33, 0.15);
-    /* Deep lifting shadow */
     --radius-lg: 24px;
-    /* Bubbly, friendly, expansive app-like corners */
     --radius-pill: 50px;
-
-    /* Global Universal Transitions */
     --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* --- Ultra-Premium roasted Espresso Dark Mode Tokens --- */
 [data-theme="dark"] {
-    --primary-bg: #1B1512;        /* Roasted dark espresso bean background */
-    --white: #271E19;             /* Dark chocolate solid container cards */
-    --brand-brown: #FFD4C2;       /* Creamy gold brand title */
-    --brand-light-brown: #DF9B72; /* Warm cinnamon accent */
-    --brand-pink: #FF8BA4;        /* Soft rose gold details */
+    --primary-bg: #1B1512;
+    --white: #271E19;
+    --brand-brown: #FFD4C2;
+    --brand-light-brown: #DF9B72;
+    --brand-pink: #FF8BA4;
     --brand-pink-gradient: linear-gradient(135deg, #FF8BA4 0%, #FF6080 100%);
-    --text-primary: #F0EAD6;      /* Off-white high-contrast typography */
-    --text-muted: #B3A296;        /* Muted grayish-cream details */
+    --text-primary: #F0EAD6;
+    --text-muted: #B3A296;
     --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
     --hover-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
 }
 
-/* Sleek Navbar Theme Switcher button styling */
 .theme-toggle-btn {
     background: transparent;
     border: none;
@@ -78,7 +53,6 @@
     transform: rotate(30deg) scale(1.1);
 }
 
-/* --- Global Typography --- */
 body {
     font-family: 'Inter', -apple-system, sans-serif;
     font-size: 1.05rem;
@@ -86,7 +60,6 @@ body {
     background-color: var(--primary-bg);
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
-    /* Triggers ultra-crisp browser font rendering */
 }
 
 h1,
@@ -96,12 +69,10 @@ h4 {
     font-family: 'Outfit', 'Inter', sans-serif;
     color: var(--brand-brown);
     letter-spacing: -0.8px;
-    /* Modern tight tracking for editorial headers */
     margin-bottom: 24px;
     font-weight: 700;
 }
 
-/* Extreme header scaling */
 h1 {
     font-size: 2.8rem;
 }
@@ -139,16 +110,12 @@ img {
     max-width: 100%;
     height: auto;
     border-radius: 16px;
-    /* Slightly tighter edge radius than the surrounding container */
     display: block;
 }
 
-/* --- Glassmorphism Navigation Sticky Header --- */
 header {
     background: rgba(255, 255, 255, 0.85);
-    /* Frosty translucency */
     backdrop-filter: blur(16px);
-    /* Pure Glassmorphism effect overlaying content as user scrolls */
     -webkit-backdrop-filter: blur(16px);
     padding: 20px 60px;
     display: flex;
@@ -158,7 +125,6 @@ header {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-    /* Tiny crisp anchor line */
 }
 
 header h1 {
@@ -168,7 +134,6 @@ header h1 {
     background: linear-gradient(135deg, var(--brand-brown), var(--brand-light-brown));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* Cutting-edge CSS gradient text implementation */
 }
 
 header nav ul {
@@ -185,7 +150,6 @@ header nav a {
     color: var(--text-muted);
 }
 
-/* Navigation Hover Micro-Animations */
 header nav a:hover {
     background-color: rgba(255, 192, 203, 0.2);
     color: var(--brand-brown);
@@ -196,36 +160,28 @@ header nav a[aria-current="page"] {
     background: var(--brand-pink-gradient);
     color: var(--brand-brown);
     box-shadow: 0 8px 20px rgba(255, 192, 203, 0.4);
-    /* Colored shadow glow */
 }
 
-/* --- Layout Mechanics --- */
 main {
     max-width: 1300px;
-    /* Vastly wider "full bleed" allowance */
     margin: 60px auto;
     padding: 0 30px;
 }
 
-/* Elevated, Floating Modern Cards instead of flat boxed rows */
 section {
     background-color: var(--white);
     padding: 60px;
     margin-bottom: 60px;
     border-radius: var(--radius-lg);
     box-shadow: var(--glass-shadow);
-    /* Massive drop soft shadows */
     transition: var(--transition);
 }
 
-/* Make EVERY section dynamically hover and lift using pure CSS cascading */
 section:not(#hero):hover {
     box-shadow: var(--hover-shadow);
     transform: translateY(-4px);
-    /* Magnetic float effect */
 }
 
-/* --- Hero Banner System --- */
 section#hero {
     position: relative;
     background-color: transparent;
@@ -240,7 +196,6 @@ section#hero {
     object-fit: cover;
     border-radius: var(--radius-lg);
     filter: brightness(0.7) saturate(1.2);
-    /* Deepens image to pop white text */
     box-shadow: var(--glass-shadow);
 }
 
@@ -253,7 +208,6 @@ section#hero {
     text-align: center;
 }
 
-/* Massive Display Sizing */
 #hero .hero-text h2 {
     font-size: 4.8rem;
     color: var(--white);
@@ -268,7 +222,6 @@ section#hero {
     font-weight: 500;
 }
 
-/* --- Custom CTA Callout --- */
 #call-to-action {
     text-align: center;
     background: linear-gradient(135deg, var(--brand-brown) 0%, var(--brand-light-brown) 100%);
@@ -293,17 +246,14 @@ section#hero {
     border: 2px solid transparent;
 }
 
-/* Extreme Micro-Animation Wow Factor */
 #call-to-action a:not(nav a):hover {
     transform: translateY(-10px) scale(1.05);
-    /* Scales UP while jumping structurally! */
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
     background: transparent;
     border-color: var(--brand-pink);
     color: var(--brand-pink);
 }
 
-/* --- Layout Grid Auto-Fitting --- */
 #gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -312,7 +262,6 @@ section#hero {
 
 #gallery-grid article {
     background: var(--primary-bg);
-    /* Slight offset for inner cards */
     padding: 30px;
     border-radius: var(--radius-lg);
     box-shadow: none;
@@ -338,278 +287,6 @@ section#hero {
     display: none;
 }
 
-/* --- Complex Forms --- */
-form {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-fieldset {
-    border: none;
-    /* Removing old 1990s border lines natively */
-    background: var(--primary-bg);
-    padding: 50px;
-    border-radius: var(--radius-lg);
-    margin-bottom: 40px;
-}
-
-legend {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--brand-brown);
-    margin-bottom: 20px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="date"],
-select,
-textarea {
-    width: 100%;
-    padding: 20px;
-    border: 2px solid transparent;
-    background-color: var(--white);
-    border-radius: 16px;
-    font-family: inherit;
-    font-size: 1.1rem;
-    color: var(--text-primary);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-    transition: var(--transition);
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-/* Ultra-modern pure focus tracking */
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: var(--brand-pink);
-    box-shadow: 0 4px 25px rgba(255, 192, 203, 0.4);
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-    width: 22px;
-    height: 22px;
-    margin-right: 15px;
-    accent-color: var(--brand-brown);
-}
-
-button[type="submit"],
-input[type="submit"],
-button[type="reset"] {
-    width: 100%;
-    background: var(--brand-brown);
-    color: var(--white);
-    padding: 22px;
-    border: none;
-    border-radius: 18px;
-    font-size: 1.25rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-button[type="submit"]:hover,
-input[type="submit"]:hover {
-    background: var(--brand-light-brown);
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(92, 58, 33, 0.2);
-}
-
-button[type="reset"] {
-    background: var(--primary-bg);
-    color: var(--text-muted);
-    margin-top: 15px;
-}
-
-button[type="reset"]:hover {
-    background: #EEEEEE;
-}
-
-
-/* --- Modern Container Query Product Cards --- */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 40px;
-}
-
-.product-card {
-    /* Initialize CSS Container Constraints */
-    container-type: inline-size;
-    container-name: pCard;
-
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--glass-shadow);
-    overflow: hidden;
-    /* Clips the image straight to the border radius curve */
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-}
-
-/* Hover magnetics */
-.product-card:hover {
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-8px);
-}
-
-.product-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 0;
-    /* Prevents double-curving */
-    margin-bottom: 0;
-    /* Resets default image margin */
-}
-
-.product-card .card-content {
-    padding: 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* 
-Container Query Magic: 
-If the literal width of the structural card dynamically exceeds 480px, 
-shift the inner layout completely from Vertical to Horizontal!
-*/
-@container pCard (min-width: 480px) {
-    .product-card {
-        flex-direction: row;
-    }
-
-    .product-card img {
-        width: 45%;
-        height: 100%;
-        min-height: 250px;
-    }
-
-    .product-card .card-content {
-        width: 55%;
-        padding: 40px;
-    }
-}
-
-
-/* --- Full Width Vertical Stacked Gallery --- */
-#stacked-gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    /* Massive separation between full-width pieces */
-    padding: 0;
-    box-shadow: none;
-    background: transparent;
-}
-
-#stacked-gallery article {
-    width: 100%;
-    /* forces full width within the 1300px max-width boundary */
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--glass-shadow);
-    transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.02);
-}
-
-#stacked-gallery article:hover {
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-5px);
-}
-
-#stacked-gallery img {
-    width: 100%;
-    height: 700px;
-    /* Massive sprawling cinematic height */
-    object-fit: cover;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    /* Curve the top, flatten the bottom */
-    margin-bottom: 0;
-}
-
-/* Native HTML5 Toggle Styling */
-#stacked-gallery details {
-    background: transparent;
-    padding: 20px 50px 40px 50px;
-}
-
-#stacked-gallery summary {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--brand-brown);
-    cursor: pointer;
-    list-style: none;
-    /* Removes default triangle in modern browsers */
-    outline: none;
-    padding: 10px 0;
-    transition: var(--transition);
-    user-select: none;
-}
-
-#stacked-gallery summary::-webkit-details-marker {
-    display: none;
-    /* Forces marker removal in Safari/Chrome */
-}
-
-/* Custom UI Toggle graphic */
-#stacked-gallery summary::after {
-    content: '+ Read More';
-    float: right;
-    font-size: 1.1rem;
-    color: var(--brand-pink);
-    background: rgba(255, 192, 203, 0.2);
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-#stacked-gallery details[open] summary::after {
-    content: '- Close';
-    background: rgba(0, 0, 0, 0.05);
-    color: var(--text-muted);
-}
-
-#stacked-gallery details[open] summary {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    margin-bottom: 30px;
-}
-
-#stacked-gallery .details-content {
-    animation: fadeInDown 0.5s ease forwards;
-}
-
-#stacked-gallery .details-content h3 {
-    margin-top: 15px;
-    font-size: 2.4rem;
-    color: var(--brand-brown);
-}
-
-#stacked-gallery .details-content p {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* --- HTML Sub-Tables --- */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -637,44 +314,6 @@ tbody tr:hover {
     background-color: var(--primary-bg);
 }
 
-/* --- Clean Modern Footer --- */
-footer {
-    background: var(--brand-brown);
-    color: var(--primary-bg);
-    padding: 80px 40px 40px;
-    text-align: center;
-    border-top-left-radius: 60px;
-    /* Modern curved footing */
-    border-top-right-radius: 60px;
-    margin-top: 100px;
-}
-
-footer h3,
-footer p {
-    color: var(--primary-bg);
-}
-
-footer a {
-    color: var(--brand-pink);
-    font-weight: bold;
-}
-
-footer a:hover {
-    color: var(--white);
-}
-
-footer hr {
-    border-color: rgba(255, 255, 255, 0.08);
-    margin: 40px auto;
-    max-width: 800px;
-}
-
-
-/* =========================================================================
-   Media Queries (Responsive Stack Breakpoints)
-   ========================================================================= */
-
-/* Tablet & Smaller Laptops */
 @media (max-width: 900px) {
     header {
         padding: 20px;
@@ -715,7 +354,6 @@ footer hr {
     }
 }
 
-/* Hamburger Toggle System (Pure CSS) */
 .nav-toggle {
     display: none;
 }
@@ -739,11 +377,9 @@ footer hr {
     transition: var(--transition);
 }
 
-/* Strict Mobile Devices */
 @media (max-width: 600px) {
     header {
         flex-direction: row;
-        /* reset for flex-between */
         flex-wrap: wrap;
         padding: 15px 25px;
         align-items: center;
@@ -758,20 +394,17 @@ footer hr {
 
     .nav-toggle-label {
         display: flex;
-        /* shows hamburger icon */
     }
 
     header nav {
         width: 100%;
         display: none;
-        /* hidden initially */
         margin-top: 20px;
     }
 
-    /* Checkbox hack logic */
     .nav-toggle:checked~nav {
         display: block;
-        animation: fadeInDown 0.3s ease;
+        animation: fadeInDownRec 0.3s ease;
     }
 
     .nav-toggle:checked~.nav-toggle-label span:nth-child(1) {
@@ -791,7 +424,6 @@ footer hr {
         justify-content: center;
         align-items: stretch;
         padding-bottom: 0;
-        /* override previous carousel logic */
         overflow-x: visible;
         scroll-snap-type: none;
     }
@@ -807,5 +439,16 @@ footer hr {
         font-size: 1.1rem;
         border-radius: 12px;
         margin-bottom: 10px;
+    }
+}
+
+@keyframes fadeInDownRec {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

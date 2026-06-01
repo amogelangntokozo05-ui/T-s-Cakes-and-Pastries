@@ -1490,6 +1490,19 @@ function initShoppingCart() {
     cartCloseBtn.addEventListener('click', closeCartDrawer);
     cartOverlay.addEventListener('click', closeCartDrawer);
 
+    // Clear All Cart items callback
+    const clearAllBtn = document.getElementById('cart-clear-all-btn');
+    if (clearAllBtn) {
+        clearAllBtn.addEventListener('click', () => {
+            if (cart.length === 0) return;
+            if (confirm("Are you sure you want to empty your entire treats bag?")) {
+                cart = [];
+                saveCartState();
+                updateCartDisplay();
+            }
+        });
+    }
+
     // Proceed to checkout callback
     checkoutTrigger.addEventListener('click', () => {
         if (cart.length === 0) {

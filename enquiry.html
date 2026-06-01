@@ -91,7 +91,7 @@
         <hr>
 
         <!-- Form for product/service enquiries replaced with modern grid architecture -->
-        <form action="#" method="POST" class="reveal-on-scroll" style="display: flex; flex-direction: column; gap: 40px; margin-top: 40px;">
+        <form id="enquiry-form" action="https://httpbin.org/post" method="POST" class="reveal-on-scroll" style="display: flex; flex-direction: column; gap: 40px; margin-top: 40px;">
             
             <fieldset style="position: relative;">
                 <legend style="font-size: 1.6rem; color: var(--brand-brown); font-weight: 700; margin-bottom: 20px; padding: 0 10px;">1. Personal Information</legend>
@@ -175,6 +175,9 @@
                 <button type="submit" style="padding: 20px 60px; font-size: 1.3rem; border-radius: var(--radius-pill); cursor: pointer; border: none; font-weight: 700;">Submit Final Enquiry</button>
             </div>
         </form>
+
+        <!-- Container for dynamically rendering simulated AJAX costs, discounts, and date availability responses -->
+        <div id="enquiry-response-container" class="reveal-on-scroll" style="margin-top: 40px;"></div>
     </main>
 
     <!-- Standard footer -->

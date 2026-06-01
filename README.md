@@ -27,13 +27,44 @@ This website includes comprehensive, well-detailed pages that serve the bakery's
 
 ## Timeline and Milestones
 - **Milestone 1:** Project requirements analysis and research. *(Completed)*
-- **Milestone 2:** Folder structure setup and semantic HTML base code for 5 assigned pages. *(Completed)*
-- **Milestone 3:** Content integration and image population. *(Completed)*
-- **Milestone 4:** Part 1 submission and Git Repository push. *(Pending)*
-- **Milestone 5:** CSS Styling implementation (Part 2 - Future).
-- **Milestone 6:** JavaScript interactivity (Part 3 - Future).
+- **Milestone 2:** Folder structure setup and semantic HTML base code. *(Completed)*
+- **Milestone 3:** CSS styling and responsive layout designs. *(Completed)*
+- **Milestone 4:** Premium JavaScript interactivity, Leaflet maps, catalog sorting & gallery lightboxes. *(Completed)*
+- **Milestone 5:** Form Functionality, Client-Side Validation & AJAX Asynchronous integration. *(Completed)*
 
-## Part 1 Details
+---
+
+## 📝 Form Processing, Client-Side Validation & AJAX Workflows
+
+We have implemented a premium form processing architecture on both `enquiry.html` and `contact.html` with robust JavaScript verification engines.
+
+### 1. 🎂 Enquiry Form & Dynamic Cost Engine (`enquiry.html`)
+- **Action Endpoint**: Submits asynchronously using `FormData` and native `fetch` POST requests directly to `https://httpbin.org/post`.
+- **Client-Side JS Validation**:
+  - Checks alphabetical string constraints for the full name.
+  - Verifies email patterns against RFC-5322 specifications.
+  - Ensures exactly 10-digit South African mobile phone numbers.
+  - Validates that custom cake and booking dates are selected **at least 48 hours in the future** to guarantee preparation schedules.
+- **Dynamic Cost Engine (AJAX callback)**:
+  - Parses category base prices: Signature Cakes (`R450`), Baked Bread (`R45`), Pastries (`R25`), Muffins (`R20`), Scones (`R15`), Custom (`R500`).
+  - Automatically calculates volume discount (10% bulk deduction if quantity is 10 or more items).
+  - Appends a R150 delivery surcharge if the "Local Delivery" radio parameter is checked.
+  - Computes a strict 50% deposit required schedule.
+  - Triggers customized allergy warning highlights based on checked dietary attributes (Gluten-Free, Vegan, Nut Allergy).
+  - Generates a beautifully formatted HTML invoice layout inside `enquiry-response-container` on success.
+
+### 2. 📧 Contact Form & Email Compiler (`contact.html`)
+- **Action Endpoint**: Intercepts standard redirect methods, submitting a POST request asynchronously to `https://httpbin.org/post` via AJAX.
+- **Basic Contact details**: Requires visitor's Name, Email, and Phone Number.
+- **Type of Inquiry**: Implemented a styled selector dropdown for: `General Feedback`, `Customer Support`, `Catering Request`, `Sponsorship & Volunteers`.
+- **Email compilation flow**:
+  - Displays a glassmorphic success modal confirming database logging.
+  - Triggers a compiled browser `mailto:info@tscakes.co.za` redirect on click, auto-populating subject and body with structured form values for a seamless communication experience.
+
+### 3. 🔴 Visual Error Handling & Tooltips
+- Invalid fields dynamically trigger high-contrast red borders (`.field-invalid`) and display detailed visual instructions on submit.
+- Textareas possess live character counters (`123 / 500 characters`) shifting red if approaching limits.
+
 This submission constitutes Part 1 of the Web Development assignment. It focuses singularly on **HTML5 structure, semantic markup, and comprehensive local file organization**. No CSS or JS has been actively deployed, matching the strict assignment logic constraints for this phase.
 
 ## Sitemap

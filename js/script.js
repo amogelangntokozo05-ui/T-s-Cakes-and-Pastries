@@ -585,8 +585,10 @@ function initFAQAccordion() {
  */
 function initFormInteractions() {
     const fulfillmentRadios = document.getElementsByName('fulfillment');
-    const orderForm = document.querySelector('form');
+    const orderForm = document.getElementById('enquiry-form');
+    const contactForm = document.getElementById('contact-form');
     
+    // --- enquiry.html Conditional Fields logic ---
     if (fulfillmentRadios.length > 0 && orderForm) {
         let deliveryBlock = document.getElementById('delivery-details-fieldset');
         if (!deliveryBlock) {
@@ -688,15 +690,19 @@ function initFormInteractions() {
         toggleCustomOptions();
     }
 
+    // --- Textareas Maxlength and Character counters ---
     const textareas = document.querySelectorAll('textarea');
     textareas.forEach(textarea => {
         const maxLen = 500;
         textarea.setAttribute('maxlength', maxLen);
 
-        const counter = document.createElement('div');
-        counter.className = 'char-counter';
-        counter.textContent = `0 / ${maxLen} characters`;
-        textarea.parentNode.insertBefore(counter, textarea.nextSibling);
+        let counter = textarea.parentNode.querySelector('.char-counter');
+        if (!counter) {
+            counter = document.createElement('div');
+            counter.className = 'char-counter';
+            counter.textContent = `0 / ${maxLen} characters`;
+            textarea.parentNode.insertBefore(counter, textarea.nextSibling);
+        }
 
         textarea.addEventListener('input', () => {
             const count = textarea.value.length;
@@ -709,42 +715,32 @@ function initFormInteractions() {
         });
     });
 
-    const nameInput = document.getElementById('fullName') || document.getElementById('contactName');
-    const phoneInput = document.getElementById('phoneNum') || document.getElementById('deliveryContact');
-    const emailInput = document.getElementById('emailAddr') || document.getElementById('contactEmail');
-
-    if (nameInput) {
-        nameInput.addEventListener('input', () => {
-            const val = nameInput.value.trim();
-            if (val.length >= 3 && /^[A-Za-z\s]+$/.test(val)) {
-                setFieldValid(nameInput);
+    // --- Keypress and Live Input validations ---
+    const bindLiveValidation = (input, validator) => {
+        if (!input) return;
+        input.addEventListener('input', () => {
+            if (validator(input.value)) {
+                setFieldValid(input);
             } else {
-                setFieldInvalid(nameInput);
+                setFieldInvalid(input);
             }
         });
-    }
+    };
 
-    if (phoneInput) {
-        phoneInput.addEventListener('input', () => {
-            const val = phoneInput.value.replace(/\s+/g, '');
-            if (/^\d{10}$/.test(val)) {
-                setFieldValid(phoneInput);
-            } else {
-                setFieldInvalid(phoneInput);
-            }
-        });
-    }
+    const validateName = (val) => val.trim().length >= 3 && /^[A-Za-z\s]+$/.test(val);
+    const validatePhone = (val) => /^\d{10}$/.test(val.replace(/\s+/g, ''));
+    const validateEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
 
-    if (emailInput) {
-        emailInput.addEventListener('input', () => {
-            const val = emailInput.value.trim();
-            if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-                setFieldValid(emailInput);
-            } else {
-                setFieldInvalid(emailInput);
-            }
-        });
-    }
+    // Bind validations for enquiry.html
+    bindLiveValidation(document.getElementById('fullName'), validateName);
+    bindLiveValidation(document.getElementById('phoneNum'), validatePhone);
+    bindLiveValidation(document.getElementById('emailAddr'), validateEmail);
+    bindLiveValidation(document.getElementById('deliveryContact'), validatePhone);
+
+    // Bind validations for contact.html
+    bindLiveValidation(document.getElementById('contactName'), validateName);
+    bindLiveValidation(document.getElementById('contactEmail'), validateEmail);
+    bindLiveValidation(document.getElementById('contactPhone'), validatePhone);
 
     function setFieldValid(input) {
         input.classList.remove('field-invalid');
@@ -759,5 +755,354 @@ function initFormInteractions() {
         }
         input.classList.remove('field-valid');
         input.classList.add('field-invalid');
+    }
+
+    // --- Form Submissions and AJAX Handling ---
+    
+    // Form 1: enquiry.html submission flows
+    if (orderForm) {
+        orderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Client-Side validation check
+            const nameEl = document.getElementById('fullName');
+            const emailEl = document.getElementById('emailAddr');
+            const phoneEl = document.getElementById('phoneNum');
+            const dateEl = document.getElementById('eventDate');
+            const productEl = document.getElementById('productChoice');
+            const deliverySelected = document.getElementById('delivery').checked;
+            const deliveryContactEl = document.getElementById('deliveryContact');
+
+            let errors = [];
+
+            if (!validateName(nameEl.value)) {
+                errors.push("Full Name must be at least 3 alphabetical characters.");
+                setFieldInvalid(nameEl);
+            }
+            if (!validateEmail(emailEl.value)) {
+                errors.push("Please enter a valid email address.");
+                setFieldInvalid(emailEl);
+            }
+            if (!validatePhone(phoneEl.value)) {
+                errors.push("Phone number must contain exactly 10 digits.");
+                setFieldInvalid(phoneEl);
+            }
+            if (deliverySelected && deliveryContactEl && !validatePhone(deliveryContactEl.value)) {
+                errors.push("Delivery contact phone number must contain exactly 10 digits.");
+                setFieldInvalid(deliveryContactEl);
+            }
+
+            // Date validation (must be at least 48 hours in the future)
+            const eventDate = new Date(dateEl.value);
+            const now = new Date();
+            const minTimeDiff = 48 * 60 * 60 * 1000; // 48 hours in milliseconds
+            if (!dateEl.value || (eventDate.getTime() - now.getTime()) < minTimeDiff) {
+                errors.push("Booking Date must be at least 48 hours in the future to allow fresh baking preparations.");
+                dateEl.classList.add('field-invalid');
+            } else {
+                dateEl.classList.remove('field-invalid');
+                dateEl.classList.add('field-valid');
+            }
+
+            const responseContainer = document.getElementById('enquiry-response-container');
+            
+            if (errors.length > 0) {
+                // Show errors dynamically
+                responseContainer.innerHTML = `
+                    <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 35px; color: #2d251f; animation: fadeIn 0.4s ease;">
+                        <h4 style="color: #c62828; font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; font-weight: 700;">⚠️ Form Submission Errors</h4>
+                        <p style="margin-bottom: 20px; font-weight: 600;">Please correct the following fields before proceeding:</p>
+                        <ul style="padding-left: 20px; font-size: 1.05rem; line-height: 1.6;">
+                            ${errors.map(err => `<li style="margin-bottom: 8px;">${err}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                responseContainer.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            // AJAX async submit (fetch to httpbin)
+            responseContainer.innerHTML = `
+                <div style="text-align: center; padding: 40px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow);">
+                    <div style="width: 50px; height: 50px; border: 4px solid rgba(255, 192, 203, 0.3); border-top-color: var(--brand-pink); border-radius: 50%; display: inline-block; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+                    <h4 style="color: var(--brand-brown); font-size: 1.3rem; margin: 0;">Processing and Securely Submitting your Enquiry...</h4>
+                </div>
+            `;
+            responseContainer.scrollIntoView({ behavior: 'smooth' });
+
+            const formData = new FormData(orderForm);
+            
+            fetch(orderForm.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Server responded with a submission error.");
+                return res.json();
+            })
+            .then(data => {
+                // Dynamic Cost Engine Calculations
+                const category = productEl.value;
+                const quantity = parseInt(document.getElementById('quantity').value) || 1;
+                
+                // Base Cost Indexing
+                let basePricePerUnit = 25; // Default pastries
+                let categoryLabel = "Premium Bakery Pastries";
+                
+                if (category === 'cakes') {
+                    basePricePerUnit = 450;
+                    categoryLabel = "Signature Celebration Cakes";
+                } else if (category === 'bread') {
+                    basePricePerUnit = 45;
+                    categoryLabel = "Baked Bread & Loaves";
+                } else if (category === 'pastries') {
+                    basePricePerUnit = 25;
+                    categoryLabel = "Premium Hand-Folded Pastries";
+                } else if (category === 'muffins') {
+                    basePricePerUnit = 20;
+                    categoryLabel = "Gourmet Bakery Muffins";
+                } else if (category === 'scones') {
+                    basePricePerUnit = 15;
+                    categoryLabel = "Traditional Buttermilk Scones";
+                } else if (category === 'custom') {
+                    basePricePerUnit = 500;
+                    categoryLabel = "Custom Crafted Event Design";
+                }
+
+                // Volume discount math (10% off for bulk quantities >= 10)
+                let discountPct = 0;
+                let volumeDiscountAmount = 0;
+                if (quantity >= 10) {
+                    discountPct = 0.10;
+                }
+                
+                const originalCost = basePricePerUnit * quantity;
+                if (discountPct > 0) {
+                    volumeDiscountAmount = originalCost * discountPct;
+                }
+                const productCost = originalCost - volumeDiscountAmount;
+
+                // Delivery fees
+                const deliveryFee = deliverySelected ? 150 : 0;
+                const totalCost = productCost + deliveryFee;
+                const depositNeeded = totalCost * 0.50; // 50% deposit policy
+
+                // Allergen annotations
+                const dietCheckboxes = document.querySelectorAll('input[name="diet[]"]:checked');
+                let dietaryAlerts = [];
+                dietCheckboxes.forEach(cb => {
+                    if (cb.value === 'gluten-free') dietaryAlerts.push("Gluten-Free Ingredients Isolation Required");
+                    if (cb.value === 'vegan') dietaryAlerts.push("Strict Plant-Based Vegan Preparations");
+                    if (cb.value === 'nut-allergy') dietaryAlerts.push("Strict Nut-Free Isolation Zone");
+                });
+
+                // Compute Availability indicator
+                const daysDiff = Math.ceil((eventDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+                let availabilityStatus = "🟢 Highly Available (Order slot fits schedule perfectly)";
+                if (category === 'cakes' && daysDiff < 5) {
+                    availabilityStatus = "🟡 Tight Schedule (Requires urgent confirmation due to custom piping detail)";
+                } else if (category === 'custom' && daysDiff < 10) {
+                    availabilityStatus = "🟡 High Production Demand (Pending head baker final authorization)";
+                }
+
+                // Render dynamic glassmorphic receipt card
+                responseContainer.innerHTML = `
+                    <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--hover-shadow); padding: 50px 40px; border-left: 6px solid var(--brand-pink); animation: slideUp 0.5s ease; color: #2d251f;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; border-bottom: 2px solid var(--primary-bg); padding-bottom: 20px; margin-bottom: 30px;">
+                            <div>
+                                <span style="background: rgba(255, 192, 203, 0.2); color: var(--brand-brown); padding: 6px 14px; border-radius: var(--radius-pill); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">AJAX Receipt Confirmed</span>
+                                <h3 style="font-size: 2.2rem; color: var(--brand-brown); margin: 10px 0 5px 0;">Estimate Cost Invoice</h3>
+                                <p style="margin: 0; color: var(--text-muted);">Thank you, <strong>${nameEl.value}</strong>! Your enquiry has been programmatically processed.</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <p style="margin: 0; font-weight: 700; color: var(--brand-brown); font-size: 1.1rem;">Date Selected:</p>
+                                <p style="margin: 0; font-size: 1.1rem; color: var(--brand-pink); font-weight: 800;">${dateEl.value}</p>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                            <div>
+                                <h4 style="text-transform: uppercase; color: var(--brand-brown); font-size: 1.05rem; letter-spacing: 1px; border-bottom: 1px dashed rgba(0,0,0,0.1); padding-bottom: 8px; margin-bottom: 15px;">Cost Breakdown</h4>
+                                <table style="width: 100%; border-collapse: collapse; font-size: 1.05rem;">
+                                    <tr style="height: 35px;">
+                                        <td style="color: #666;">${categoryLabel} (${quantity} qty)</td>
+                                        <td style="text-align: right; font-weight: 600;">R${originalCost.toFixed(2)}</td>
+                                    </tr>
+                                    ${volumeDiscountAmount > 0 ? `
+                                    <tr style="height: 35px; color: #2e7d32;">
+                                        <td>Bulk Volume Discount (10%)</td>
+                                        <td style="text-align: right; font-weight: 700;">-R${volumeDiscountAmount.toFixed(2)}</td>
+                                    </tr>
+                                    ` : ''}
+                                    <tr style="height: 35px;">
+                                        <td style="color: #666;">Fulfillment (${deliverySelected ? 'Local Delivery' : 'In-Store Pickup'})</td>
+                                        <td style="text-align: right; font-weight: 600;">R${deliveryFee.toFixed(2)}</td>
+                                    </tr>
+                                    <tr style="height: 50px; border-top: 1px solid rgba(0,0,0,0.08); font-weight: 800; font-size: 1.25rem;">
+                                        <td style="color: var(--brand-brown);">Total Estimated Cost</td>
+                                        <td style="text-align: right; color: var(--brand-brown);">R${totalCost.toFixed(2)}</td>
+                                    </tr>
+                                    <tr style="height: 40px; border-top: 2px solid var(--primary-bg); font-weight: 700; color: var(--brand-pink); font-size: 1.1rem;">
+                                        <td>50% Booking Deposit Required</td>
+                                        <td style="text-align: right;">R${depositNeeded.toFixed(2)}</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div>
+                                <h4 style="text-transform: uppercase; color: var(--brand-brown); font-size: 1.05rem; letter-spacing: 1px; border-bottom: 1px dashed rgba(0,0,0,0.1); padding-bottom: 8px; margin-bottom: 15px;">Availability & Dietary Status</h4>
+                                <p style="font-weight: 700; color: #2d251f; margin-bottom: 10px;">Production Schedule:</p>
+                                <p style="font-size: 1.05rem; margin-top: 0; color: #555; line-height: 1.5; margin-bottom: 25px;">${availabilityStatus}</p>
+                                
+                                ${dietaryAlerts.length > 0 ? `
+                                    <p style="font-weight: 700; color: #c62828; margin-bottom: 10px;">⚠️ Dietary Allergy Directives:</p>
+                                    <ul style="padding-left: 20px; font-weight: 600; color: #c62828; font-size: 0.95rem; margin: 0;">
+                                        ${dietaryAlerts.map(alert => `<li style="margin-bottom: 5px;">${alert}</li>`).join('')}
+                                    </ul>
+                                ` : `
+                                    <p style="font-weight: 600; color: #2e7d32; margin: 0;">🟢 Standard Allergen Guidelines Apply</p>
+                                `}
+                            </div>
+                        </div>
+
+                        <div style="background: var(--primary-bg); padding: 25px 30px; border-radius: 12px; font-size: 0.95rem; color: #555; line-height: 1.6;">
+                            <p style="margin: 0; font-weight: 600; color: var(--brand-brown); margin-bottom: 5px;">ℹ️ What happens next?</p>
+                            We have logged this request on our servers. A customer care representative will email you at <strong>${emailEl.value}</strong> or call you at <strong>${phoneEl.value}</strong> within 3 business hours to authorize the invoice and provide direct bank deposit info.
+                        </div>
+                    </div>
+                `;
+                responseContainer.scrollIntoView({ behavior: 'smooth' });
+                orderForm.reset();
+                
+                // Clear validation outlines
+                const inputs = orderForm.querySelectorAll('.field-valid, .field-invalid');
+                inputs.forEach(input => {
+                    input.classList.remove('field-valid', 'field-invalid');
+                });
+            })
+            .catch(err => {
+                responseContainer.innerHTML = `
+                    <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 30px; color: #c62828; text-align: center;">
+                        <h4 style="font-weight: 700; margin-top: 0; font-size: 1.3rem;">⚠️ Network Submission Error</h4>
+                        <p style="margin: 0; font-size: 1.1rem; color: #2d251f;">${err.message || 'The server could not be reached. Please check your internet connection and try again.'}</p>
+                    </div>
+                `;
+            });
+        });
+    }
+
+    // Form 2: contact.html submission flows
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Client-Side validation check
+            const nameEl = document.getElementById('contactName');
+            const emailEl = document.getElementById('contactEmail');
+            const phoneEl = document.getElementById('contactPhone');
+            const subjectEl = document.getElementById('contactSubject');
+            const messageEl = document.getElementById('contactMessage');
+
+            let errors = [];
+
+            if (!validateName(nameEl.value)) {
+                errors.push("Name must be at least 3 alphabetical characters.");
+                setFieldInvalid(nameEl);
+            }
+            if (!validateEmail(emailEl.value)) {
+                errors.push("Please enter a valid email address.");
+                setFieldInvalid(emailEl);
+            }
+            if (!validatePhone(phoneEl.value)) {
+                errors.push("Phone number must contain exactly 10 digits.");
+                setFieldInvalid(phoneEl);
+            }
+
+            const responseContainer = document.getElementById('contact-response-container');
+
+            if (errors.length > 0) {
+                responseContainer.innerHTML = `
+                    <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 25px; color: #c62828; animation: fadeIn 0.4s ease;">
+                        <h4 style="font-weight: 700; margin-top: 0; margin-bottom: 10px;">⚠️ Errors in Submission</h4>
+                        <ul style="padding-left: 20px; font-size: 1rem; line-height: 1.5; margin: 0;">
+                            ${errors.map(err => `<li>${err}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                responseContainer.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            // AJAX Submission (post to httpbin)
+            responseContainer.innerHTML = `
+                <div style="text-align: center; padding: 30px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow);">
+                    <div style="width: 40px; height: 40px; border: 4px solid rgba(255, 192, 203, 0.3); border-top-color: var(--brand-pink); border-radius: 50%; display: inline-block; animation: spin 1s linear infinite; margin-bottom: 15px;"></div>
+                    <h4 style="color: var(--brand-brown); font-size: 1.1rem; margin: 0;">Preparing Asynchronous General Message Transmission...</h4>
+                </div>
+            `;
+            responseContainer.scrollIntoView({ behavior: 'smooth' });
+
+            const formData = new FormData(contactForm);
+
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Could not log general message on our servers.");
+                return res.json();
+            })
+            .then(data => {
+                // Success feedback and email compilation
+                responseContainer.innerHTML = `
+                    <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--hover-shadow); padding: 40px 30px; border-left: 6px solid #2e7d32; animation: slideUp 0.5s ease; color: #2d251f;">
+                        <h3 style="color: #2e7d32; font-size: 1.6rem; margin-top: 0; margin-bottom: 10px;">✔️ Message Successfully Logged!</h3>
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px;">
+                            Hello <strong>${nameEl.value}</strong>! Your message is securely cached on our backend systems. 
+                            We are now compiling these details into a local email block. <strong>Please click the button below to authorize sending it to our email team.</strong>
+                        </p>
+                        
+                        <div style="text-align: center;">
+                            <button id="send-mailto-btn" type="button" style="padding: 16px 45px; font-size: 1.15rem; background: var(--brand-brown); color: var(--white); border-radius: var(--radius-pill); border: none; font-weight: 700; cursor: pointer; transition: var(--transition); box-shadow: 0 8px 20px rgba(92, 58, 33, 0.15);">
+                                📧 Authorize & Launch Mail Client
+                            </button>
+                        </div>
+                    </div>
+                `;
+                responseContainer.scrollIntoView({ behavior: 'smooth' });
+
+                // Bind Email compilation action on button click
+                document.getElementById('send-mailto-btn').addEventListener('click', () => {
+                    const recipient = "info@tscakes.co.za";
+                    const subject = `[T's Cakes Contact - ${subjectEl.value}] ${nameEl.value}`;
+                    
+                    const body = `Hello T's Cakes Team,\n\nI have submitted a general inquiry via the website contact form. Here are my details:\n\n` + 
+                                 `Name: ${nameEl.value}\n` +
+                                 `Email Address: ${emailEl.value}\n` +
+                                 `Phone Number: ${phoneEl.value}\n` +
+                                 `Type of Inquiry: ${subjectEl.value}\n\n` +
+                                 `------------------ MESSAGE BODY ------------------\n` +
+                                 `${messageEl.value}\n\n` +
+                                 `Please review and get in touch with me as soon as possible.\n\nBest Regards,\n${nameEl.value}`;
+                    
+                    const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.location.href = mailtoUrl;
+                });
+
+                contactForm.reset();
+                const inputs = contactForm.querySelectorAll('.field-valid, .field-invalid');
+                inputs.forEach(input => {
+                    input.classList.remove('field-valid', 'field-invalid');
+                });
+            })
+            .catch(err => {
+                responseContainer.innerHTML = `
+                    <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 25px; color: #c62828; text-align: center;">
+                        <h4 style="font-weight: 700; margin-top: 0;">⚠️ Submission Pipeline Error</h4>
+                        <p style="margin: 0; color: #2d251f;">${err.message || 'Unable to complete network operations.'}</p>
+                    </div>
+                `;
+            });
+        });
     }
 }

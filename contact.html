@@ -148,8 +148,8 @@
         <br><br>
         <section id="contact-form-section" class="reveal-on-scroll" style="max-width: 800px; margin: 0 auto;">
             <h3 style="text-align: center; color: var(--brand-brown); font-size: 2.2rem; margin-bottom: 30px;">Send Us a Message</h3>
-            <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <form id="contact-form" action="https://httpbin.org/post" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                     <div>
                         <label for="contactName" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Name <span style="color:red;">*</span></label>
                         <input type="text" id="contactName" name="contactName" required placeholder="e.g. Sarah">
@@ -158,6 +158,21 @@
                         <label for="contactEmail" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Email Address <span style="color:red;">*</span></label>
                         <input type="email" id="contactEmail" name="contactEmail" required placeholder="name@domain.com">
                     </div>
+                    <div>
+                        <label for="contactPhone" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Phone Number <span style="color:red;">*</span></label>
+                        <input type="tel" id="contactPhone" name="contactPhone" required pattern="[0-9]{10}" title="Please enter exactly 10 digits without spaces." placeholder="e.g. 072 432 9811">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="contactSubject" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Type of Message <span style="color:red;">*</span></label>
+                    <select id="contactSubject" name="contactSubject" required style="width: 100%; padding: 15px; border: 2px solid transparent; background-color: var(--primary-bg); border-radius: var(--radius-pill); font-family: inherit; font-size: 1rem; color: var(--text-primary); transition: var(--transition);">
+                        <option value="" disabled selected>-- Select Message Type --</option>
+                        <option value="General Feedback">General Feedback</option>
+                        <option value="Customer Support">Customer Support</option>
+                        <option value="Catering Request">Catering Request</option>
+                        <option value="Sponsorship & Volunteers">Sponsorship & Volunteers</option>
+                    </select>
                 </div>
 
                 <div>
@@ -169,6 +184,9 @@
                     <button type="submit" style="padding: 15px 50px; font-size: 1.2rem; border-radius: var(--radius-pill); cursor: pointer; border: none; font-weight: 700;">Send Message</button>
                 </div>
             </form>
+            
+            <!-- Container for dynamically rendering simulated AJAX message outcomes and launching the email compiler -->
+            <div id="contact-response-container" class="reveal-on-scroll" style="margin-top: 30px;"></div>
         </section>
     </main>
 

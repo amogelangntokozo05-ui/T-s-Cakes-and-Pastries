@@ -43,6 +43,41 @@
     --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* --- Ultra-Premium roasted Espresso Dark Mode Tokens --- */
+[data-theme="dark"] {
+    --primary-bg: #1B1512;        /* Roasted dark espresso bean background */
+    --white: #271E19;             /* Dark chocolate solid container cards */
+    --brand-brown: #FFD4C2;       /* Creamy gold brand title */
+    --brand-light-brown: #DF9B72; /* Warm cinnamon accent */
+    --brand-pink: #FF8BA4;        /* Soft rose gold details */
+    --brand-pink-gradient: linear-gradient(135deg, #FF8BA4 0%, #FF6080 100%);
+    --text-primary: #F0EAD6;      /* Off-white high-contrast typography */
+    --text-muted: #B3A296;        /* Muted grayish-cream details */
+    --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    --hover-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+}
+
+/* Sleek Navbar Theme Switcher button styling */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: var(--transition);
+    color: var(--brand-brown);
+    outline: none;
+}
+
+.theme-toggle-btn:hover {
+    background-color: rgba(255, 192, 203, 0.2);
+    transform: rotate(30deg) scale(1.1);
+}
+
 /* --- Global Typography --- */
 body {
     font-family: 'Inter', -apple-system, sans-serif;

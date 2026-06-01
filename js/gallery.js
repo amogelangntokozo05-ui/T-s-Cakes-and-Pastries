@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initGalleryLightbox();
 });
 
-/**
- * 3. Image Gallery Lightbox Modal
- */
+// Image Gallery Lightbox Modal Setup
 function initGalleryLightbox() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');

@@ -1,14 +1,10 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Initialize Homepage FAQ accordion ---
+    // Initialize FAQs accordion and testimonials review submitter
     initFAQAccordion();
-
-    // --- Initialize Homepage star review submitter ---
     initReviewSubmitter();
 });
 
-
+// Manage collapsible accordion panels
 function initFAQAccordion() {
     const headers = document.querySelectorAll('.accordion-header');
 
@@ -18,6 +14,7 @@ function initFAQAccordion() {
             const panel = header.nextElementSibling;
             const isActive = item.classList.contains('active');
 
+            // Close all sibling accordions
             const siblingItems = item.parentElement.querySelectorAll('.accordion-item');
             siblingItems.forEach(sib => {
                 if (sib !== item) {
@@ -26,6 +23,7 @@ function initFAQAccordion() {
                 }
             });
 
+            // Toggle selected panel
             if (!isActive) {
                 item.classList.add('active');
                 panel.style.maxHeight = panel.scrollHeight + 'px';
@@ -37,7 +35,7 @@ function initFAQAccordion() {
     });
 }
 
-
+// Manage user star review submissions
 function initReviewSubmitter() {
     const reviewForm = document.getElementById('live-review-form');
     const starsContainer = document.getElementById('review-stars-container');
@@ -48,43 +46,45 @@ function initReviewSubmitter() {
     const stars = starsContainer.querySelectorAll('.star-selector');
     let currentSelectedRating = 0;
 
-    // A. Star Selector Hover & Click interactions
+    // Handle hover and click interactions for stars
     stars.forEach((star, index) => {
-        // Highlight stars up to hovered index on mouseenter
+        // Highlight stars on hover
         star.addEventListener('mouseenter', () => {
             highlightStars(index + 1);
         });
 
-        // Click to freeze selection
+        // Set selected rating on click
         star.addEventListener('click', () => {
             currentSelectedRating = index + 1;
             ratingInput.value = currentSelectedRating;
             highlightStars(currentSelectedRating);
-            // Toggle accessibility aria check status
+            
+            // Set accessibility aria check attributes
             stars.forEach((s, i) => {
                 s.setAttribute('aria-checked', i < currentSelectedRating ? 'true' : 'false');
             });
         });
     });
 
-    // Revert highlight to the selected rating when mouse leaves container
+    // Restore selected rating when mouse leaves stars container
     starsContainer.addEventListener('mouseleave', () => {
         highlightStars(currentSelectedRating);
     });
 
+    // Helper to highlight star elements visually
     function highlightStars(rating) {
         stars.forEach((s, i) => {
             if (i < rating) {
-                s.style.color = '#FFD700'; // gold color
+                s.style.color = '#FFD700'; // gold
                 s.style.transform = 'scale(1.15)';
             } else {
-                s.style.color = '#ccc'; // default grey
+                s.style.color = '#ccc'; // grey
                 s.style.transform = 'scale(1)';
             }
         });
     }
 
-    // B. Live Form Submission handling
+    // Process live reviews publishing
     reviewForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -101,14 +101,14 @@ function initReviewSubmitter() {
         const grid = document.querySelector('.testimonials-grid');
         if (!grid) return;
 
-        // Create new visual testimonial card
+        // Build new review card
         const newCard = document.createElement('article');
         newCard.className = 'testimonial-card';
         newCard.style.opacity = '0';
         newCard.style.transform = 'scale(0.8) translateY(40px)';
-        newCard.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)'; // elastic bounce in!
+        newCard.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)'; // Spring entry
 
-        // Generate gold stars markup
+        // Build star rating markup
         let starsMarkup = '';
         for (let i = 0; i < 5; i++) {
             starsMarkup += `<span style="color: ${i < rating ? '#FFD700' : '#ccc'}; font-size: 1.25rem;">★</span>`;
@@ -124,10 +124,10 @@ function initReviewSubmitter() {
             <p class="testimonial-title">${title} (Verified Live)</p>
         `;
 
-        // Prepend to testimonials grid
+        // Prepend to display reviews list
         grid.insertBefore(newCard, grid.firstChild);
 
-        // Trigger hardware-accelerated spring entrance reveal
+        // Trigger entrance transition
         requestAnimationFrame(() => {
             setTimeout(() => {
                 newCard.style.opacity = '1';
@@ -135,7 +135,7 @@ function initReviewSubmitter() {
             }, 50);
         });
 
-        // Show visual success notification banner
+        // Show green visual success alert on button
         const submitBtn = document.getElementById('submit-review-btn');
         const originalText = submitBtn.textContent;
         submitBtn.disabled = true;
@@ -150,7 +150,7 @@ function initReviewSubmitter() {
             submitBtn.textContent = originalText;
         }, 2000);
 
-        // Reset form & rating state
+        // Reset inputs and stars state
         reviewForm.reset();
         currentSelectedRating = 0;
         ratingInput.value = 0;

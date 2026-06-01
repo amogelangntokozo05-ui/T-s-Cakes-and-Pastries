@@ -1,11 +1,1 @@
-/* 
-   T's Cakes and Pastries - Pages Stylesheet
-   NOTE: This file has been successfully refactored and decomposed into 
-   modular, single-responsibility stylesheets for enhanced speed and caching:
-   
-   - css/home.css      (Homepage slideshows, intro flexboxes, timeline grids)
-   - css/gallery.css   (Cinematic gallery stacked photo cards)
-   - css/services.css  (Catalog products grids, service highlights)
-   
-   Please link the modular files in each page's heads.
-*/
+/* Decomposed page styles: see css/home.css, css/gallery.css, and css/services.css */

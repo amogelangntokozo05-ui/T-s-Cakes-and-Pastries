@@ -1,11 +1,9 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Initialize Gallery Lightbox ---
+    // Init gallery image lightbox modal
     initGalleryLightbox();
 });
 
-// Image Gallery Lightbox Modal Setup
+// Manage photo lightboxes and slides
 function initGalleryLightbox() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -18,6 +16,7 @@ function initGalleryLightbox() {
     const imagesData = [];
     let currentIndex = 0;
 
+    // Load images metadata from DOM gallery layout
     articles.forEach((article, index) => {
         const img = article.querySelector('img');
         const summary = article.querySelector('summary');
@@ -48,12 +47,14 @@ function initGalleryLightbox() {
     if (prevBtn) prevBtn.addEventListener('click', showPrevImage);
     if (nextBtn) nextBtn.addEventListener('click', showNextImage);
 
+    // Close on clicking backdrop/wrapper area
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) {
             closeLightbox();
         }
     });
 
+    // Keyboard controls support
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('show')) return;
         if (e.key === 'Escape') closeLightbox();
@@ -73,6 +74,7 @@ function initGalleryLightbox() {
         document.body.style.overflow = '';
     }
 
+    // Refresh image slide details and fade transitions
     function updateLightboxContent() {
         const data = imagesData[currentIndex];
         if (!data) return;

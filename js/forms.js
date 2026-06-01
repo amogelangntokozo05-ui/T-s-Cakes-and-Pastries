@@ -1,17 +1,15 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Initialize Form Interactions ---
+    // Init interactive forms
     initFormInteractions();
 });
 
-
+// Manage client validations, conditional options, and invoice computations
 function initFormInteractions() {
     const fulfillmentRadios = document.getElementsByName('fulfillment');
     const orderForm = document.getElementById('enquiry-form');
     const contactForm = document.getElementById('contact-form');
 
-    // --- enquiry.html Conditional Fields logic ---
+    // Build and inject local delivery fields on enquiry form dynamically
     if (fulfillmentRadios.length > 0 && orderForm) {
         let deliveryBlock = document.getElementById('delivery-details-fieldset');
         if (!deliveryBlock) {
@@ -66,6 +64,7 @@ function initFormInteractions() {
         toggleDelivery();
     }
 
+    // Build and inject custom cake builder fields dynamically
     const categorySelect = document.getElementById('productChoice');
     if (categorySelect && orderForm) {
         let customBlock = document.getElementById('custom-order-fieldset');
@@ -76,7 +75,6 @@ function initFormInteractions() {
             customBlock.innerHTML = `
                 <legend style="font-size: 1.5rem; color: var(--brand-brown); font-weight: 700; margin-bottom: 20px; padding: 0 10px;">🎨 Custom Order Assistant</legend>
                 <div class="cake-assistant-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; align-items: start;">
-                    <!-- Left Column: Selection Controls -->
                     <div class="cake-controls-col" style="display: flex; flex-direction: column; gap: 20px;">
                         <div>
                             <label for="cakeLayers" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Cake Layers</label>
@@ -122,14 +120,11 @@ function initFormInteractions() {
                         </div>
                     </div>
 
-                    <!-- Right Column: Interactive Visual Preview -->
                     <div class="cake-preview-col" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--primary-bg); border: 2px dashed rgba(92,58,33,0.15); border-radius: 20px; padding: 30px; min-height: 360px;">
                         <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand-light-brown); font-weight: 800; margin-bottom: 25px;">🎂 Live Visual Bake Preview</span>
                         <div class="cake-preview-wrapper" style="position: relative; width: 100%; height: 240px; display: flex; flex-direction: column-reverse; align-items: center; justify-content: flex-start; padding-bottom: 20px;">
-                            <!-- Silver Cake Base/Plate -->
                             <div class="cake-plate" style="width: 220px; height: 16px; background: linear-gradient(180deg, #e0e0e0 0%, #b3b3b3 100%); border-radius: 50%; box-shadow: 0 6px 15px rgba(0,0,0,0.1); margin-top: -8px; z-index: 1;"></div>
                             
-                            <!-- Bottom Tier (Tier 1) -->
                             <div class="visual-tier bottom-tier" style="width: 170px; height: 60px; background: #faf8f5; border: 1px solid rgba(0,0,0,0.06); position: relative; transition: all 0.4s ease; z-index: 2; margin-bottom: -4px;">
                                 <div class="drizzle-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 12px; background: #4e2f1d; border-radius: 10px 10px 0 0; clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 90% 90%, 80% 50%, 70% 80%, 60% 40%, 50% 90%, 40% 50%, 30% 80%, 20% 40%, 10% 70%, 0% 50%);"></div>
                                 <div class="sprinkles-overlay" style="display: none; position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; background-image: radial-gradient(circle, #f06292 1.5px, transparent 1.5px), radial-gradient(circle, #4db6ac 1.5px, transparent 1.5px), radial-gradient(circle, #ffb74d 1.5px, transparent 1.5px); background-size: 20px 20px; background-position: 0 0, 6px 10px, 12px 3px;"></div>
@@ -138,7 +133,6 @@ function initFormInteractions() {
                                 <div class="cherry-top cherry-crown" style="display: none; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 18px; height: 18px; background: #d32f2f; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 5;"><div style="position: absolute; top: -8px; left: 9px; width: 2px; height: 10px; background: #2e7d32; transform: rotate(15deg); border-radius: 1px;"></div></div>
                             </div>
                             
-                            <!-- Middle Tier (Tier 2) -->
                             <div class="visual-tier middle-tier" style="display: none; width: 125px; height: 50px; background: #faf8f5; border: 1px solid rgba(0,0,0,0.06); position: relative; transition: all 0.4s ease; z-index: 3; margin-bottom: -4px;">
                                 <div class="drizzle-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 12px; background: #4e2f1d; border-radius: 8px 8px 0 0; clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 90% 90%, 80% 50%, 70% 80%, 60% 40%, 50% 90%, 40% 50%, 30% 80%, 20% 40%, 10% 70%, 0% 50%);"></div>
                                 <div class="sprinkles-overlay" style="display: none; position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; background-image: radial-gradient(circle, #f06292 1.5px, transparent 1.5px), radial-gradient(circle, #4db6ac 1.5px, transparent 1.5px), radial-gradient(circle, #ffb74d 1.5px, transparent 1.5px); background-size: 18px 18px; background-position: 0 0, 5px 8px, 10px 3px;"></div>
@@ -147,7 +141,6 @@ function initFormInteractions() {
                                 <div class="cherry-top cherry-crown" style="display: none; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 18px; height: 18px; background: #d32f2f; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 5;"><div style="position: absolute; top: -8px; left: 9px; width: 2px; height: 10px; background: #2e7d32; transform: rotate(15deg); border-radius: 1px;"></div></div>
                             </div>
                             
-                            <!-- Top Tier (Tier 3) -->
                             <div class="visual-tier top-tier" style="display: none; width: 85px; height: 42px; background: #faf8f5; border: 1px solid rgba(0,0,0,0.06); position: relative; transition: all 0.4s ease; z-index: 4; margin-bottom: -4px;">
                                 <div class="drizzle-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 12px; background: #4e2f1d; border-radius: 6px 6px 0 0; clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 90% 90%, 80% 50%, 70% 80%, 60% 40%, 50% 90%, 40% 50%, 30% 80%, 20% 40%, 10% 70%, 0% 50%);"></div>
                                 <div class="sprinkles-overlay" style="display: none; position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; background-image: radial-gradient(circle, #f06292 1.5px, transparent 1.5px), radial-gradient(circle, #4db6ac 1.5px, transparent 1.5px), radial-gradient(circle, #ffb74d 1.5px, transparent 1.5px); background-size: 15px 15px; background-position: 0 0, 4px 6px, 8px 2px;"></div>
@@ -162,7 +155,6 @@ function initFormInteractions() {
                 orderForm.insertBefore(customBlock, fieldsets[1].nextSibling);
             }
 
-            // Immediately hook up Visual Builder interactive event handlers
             setupCakeBuilder(customBlock);
         }
 
@@ -178,7 +170,7 @@ function initFormInteractions() {
         toggleCustomOptions();
     }
 
-    // Helper to control and animate the live stacked visual cake preview
+    // Handles the stacked interactive cake designer visual updates
     function setupCakeBuilder(customBlock) {
         const layersSelect = document.getElementById('cakeLayers');
         const shapeSelect = document.getElementById('cakeShape');
@@ -187,14 +179,12 @@ function initFormInteractions() {
         const cherriesCheck = document.getElementById('topCherries');
         const drizzleCheck = document.getElementById('topDrizzle');
 
-        // Preview Tiers
         const bottomTier = customBlock.querySelector('.bottom-tier');
         const middleTier = customBlock.querySelector('.middle-tier');
         const topTier = customBlock.querySelector('.top-tier');
 
         if (!layersSelect || !shapeSelect || !frostingSelect || !sprinklesCheck || !cherriesCheck || !drizzleCheck) return;
 
-        // Topping elements
         const bottomDrizzle = bottomTier.querySelector('.drizzle-overlay');
         const middleDrizzle = middleTier.querySelector('.drizzle-overlay');
         const topDrizzle = topTier.querySelector('.drizzle-overlay');
@@ -215,18 +205,17 @@ function initFormInteractions() {
             const hasCherries = cherriesCheck.checked;
             const hasDrizzle = drizzleCheck.checked;
 
-            // 1. Frosting Color mapping
-            let frostingColor = '#faf8f5'; // vanilla default
-            if (frosting === 'strawberry') frostingColor = '#ffb0c4'; // pastel pink
-            if (frosting === 'chocolate') frostingColor = '#5c3a21'; // deep brown
-            if (frosting === 'cinnamon') frostingColor = '#df9b72'; // warm gold cinnamon
+            // Map selected frosting color
+            let frostingColor = '#faf8f5';
+            if (frosting === 'strawberry') frostingColor = '#ffb0c4';
+            if (frosting === 'chocolate') frostingColor = '#5c3a21';
+            if (frosting === 'cinnamon') frostingColor = '#df9b72';
 
-            // Apply frosting color to all tiers
             [bottomTier, middleTier, topTier].forEach(tier => {
                 tier.style.backgroundColor = frostingColor;
             });
 
-            // 2. Shape mapping (border-radius)
+            // Map tier border rounding shape
             let borderRadiusBottom = '10px 10px 4px 4px';
             let borderRadiusMiddle = '8px 8px 4px 4px';
             let borderRadiusTop = '6px 6px 4px 4px';
@@ -245,7 +234,7 @@ function initFormInteractions() {
             middleTier.style.borderRadius = borderRadiusMiddle;
             topTier.style.borderRadius = borderRadiusTop;
 
-            // 3. Layers count (visibility check)
+            // Adjust visible tiers
             if (layers === 1) {
                 middleTier.style.display = 'none';
                 topTier.style.display = 'none';
@@ -257,23 +246,18 @@ function initFormInteractions() {
                 topTier.style.display = 'block';
             }
 
-            // 4. Sprinkles display
+            // Set dynamic sprinkles overlay
             [bottomSprinkles, middleSprinkles, topSprinkles].forEach(s => {
                 s.style.display = hasSprinkles ? 'block' : 'none';
             });
 
-            // 5. Drizzle display
+            // Set dynamic chocolate drizzle overlay
             [bottomDrizzle, middleDrizzle, topDrizzle].forEach(d => {
                 d.style.display = hasDrizzle ? 'block' : 'none';
-                if (frosting === 'chocolate') {
-                    d.style.backgroundColor = '#faf8f5'; // white chocolate drizzle
-                } else {
-                    d.style.backgroundColor = '#4e2f1d'; // dark chocolate drizzle
-                }
+                d.style.backgroundColor = frosting === 'chocolate' ? '#faf8f5' : '#4e2f1d';
             });
 
-            // 6. Cherries display
-            // Reset all cherries first
+            // Set dynamic cherry overlays
             bottomCherries.forEach(c => c.style.display = 'none');
             middleCherries.forEach(c => c.style.display = 'none');
             topCherries.forEach(c => c.style.display = 'none');
@@ -298,7 +282,6 @@ function initFormInteractions() {
             }
         };
 
-        // Bind events
         [layersSelect, shapeSelect, frostingSelect].forEach(select => {
             select.addEventListener('change', updateCakePreview);
         });
@@ -306,11 +289,10 @@ function initFormInteractions() {
             check.addEventListener('change', updateCakePreview);
         });
 
-        // Initial preview render
         updateCakePreview();
     }
 
-    // --- Textareas Maxlength and Character counters ---
+    // Set character limits and counters on text fields
     const textareas = document.querySelectorAll('textarea');
     textareas.forEach(textarea => {
         const maxLen = 500;
@@ -327,15 +309,11 @@ function initFormInteractions() {
         textarea.addEventListener('input', () => {
             const count = textarea.value.length;
             counter.textContent = `${count} / ${maxLen} characters`;
-            if (count >= maxLen - 20) {
-                counter.style.color = '#c62828';
-            } else {
-                counter.style.color = '';
-            }
+            counter.style.color = count >= maxLen - 20 ? '#c62828' : '';
         });
     });
 
-    // --- Keypress and Live Input validations ---
+    // Client-side visual input validations
     const bindLiveValidation = (input, validator) => {
         if (!input) return;
         input.addEventListener('input', () => {
@@ -351,13 +329,11 @@ function initFormInteractions() {
     const validatePhone = (val) => /^\d{10}$/.test(val.replace(/\s+/g, ''));
     const validateEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
 
-    // Bind validations for enquiry.html
     bindLiveValidation(document.getElementById('fullName'), validateName);
     bindLiveValidation(document.getElementById('phoneNum'), validatePhone);
     bindLiveValidation(document.getElementById('emailAddr'), validateEmail);
     bindLiveValidation(document.getElementById('deliveryContact'), validatePhone);
 
-    // Bind validations for contact.html
     bindLiveValidation(document.getElementById('contactName'), validateName);
     bindLiveValidation(document.getElementById('contactEmail'), validateEmail);
     bindLiveValidation(document.getElementById('contactPhone'), validatePhone);
@@ -377,14 +353,11 @@ function initFormInteractions() {
         input.classList.add('field-invalid');
     }
 
-    // --- Form Submissions and AJAX Handling ---
-
-    // Form 1: enquiry.html submission flows
+    // Handles AJAX simulated submit and dynamic costing for enquiry.html
     if (orderForm) {
         orderForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Client-Side validation check
             const nameEl = document.getElementById('fullName');
             const emailEl = document.getElementById('emailAddr');
             const phoneEl = document.getElementById('phoneNum');
@@ -412,10 +385,10 @@ function initFormInteractions() {
                 setFieldInvalid(deliveryContactEl);
             }
 
-            // Date validation (must be at least 48 hours in the future)
+            // Ensure booking is at least 48 hours out
             const eventDate = new Date(dateEl.value);
             const now = new Date();
-            const minTimeDiff = 48 * 60 * 60 * 1000; // 48 hours in milliseconds
+            const minTimeDiff = 48 * 60 * 60 * 1000;
             if (!dateEl.value || (eventDate.getTime() - now.getTime()) < minTimeDiff) {
                 errors.push("Booking Date must be at least 48 hours in the future to allow fresh baking preparations.");
                 dateEl.classList.add('field-invalid');
@@ -427,7 +400,6 @@ function initFormInteractions() {
             const responseContainer = document.getElementById('enquiry-response-container');
 
             if (errors.length > 0) {
-                // Show errors dynamically
                 responseContainer.innerHTML = `
                     <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 35px; color: #2d251f; animation: fadeIn 0.4s ease;">
                         <h4 style="color: #c62828; font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; font-weight: 700;">⚠️ Form Submission Errors</h4>
@@ -441,7 +413,6 @@ function initFormInteractions() {
                 return;
             }
 
-            // AJAX simulated async submit (100% local and reliable offline)
             responseContainer.innerHTML = `
                 <div style="text-align: center; padding: 40px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow);">
                     <div style="width: 50px; height: 50px; border: 4px solid rgba(255, 192, 203, 0.3); border-top-color: var(--brand-pink); border-radius: 50%; display: inline-block; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
@@ -451,12 +422,10 @@ function initFormInteractions() {
             responseContainer.scrollIntoView({ behavior: 'smooth' });
 
             setTimeout(() => {
-                // Dynamic Cost Engine Calculations
                 const category = productEl.value;
                 const quantity = parseInt(document.getElementById('quantity').value) || 1;
 
-                // Base Cost Indexing
-                let basePricePerUnit = 25; // Default pastries
+                let basePricePerUnit = 25;
                 let categoryLabel = "Premium Bakery Pastries";
 
                 if (category === 'cakes') {
@@ -479,25 +448,17 @@ function initFormInteractions() {
                     categoryLabel = "Custom Crafted Event Design";
                 }
 
-                // Volume discount math (10% off for bulk quantities >= 10)
-                let discountPct = 0;
-                let volumeDiscountAmount = 0;
-                if (quantity >= 10) {
-                    discountPct = 0.10;
-                }
-
+                // Calculate volume discount (10% off for quantities >= 10)
+                let discountPct = quantity >= 10 ? 0.10 : 0;
                 const originalCost = basePricePerUnit * quantity;
-                if (discountPct > 0) {
-                    volumeDiscountAmount = originalCost * discountPct;
-                }
+                const volumeDiscountAmount = originalCost * discountPct;
                 const productCost = originalCost - volumeDiscountAmount;
 
-                // Delivery fees
                 const deliveryFee = deliverySelected ? 150 : 0;
                 const totalCost = productCost + deliveryFee;
-                const depositNeeded = totalCost * 0.50; // 50% deposit policy
+                const depositNeeded = totalCost * 0.50;
 
-                // Allergen annotations
+                // Set dietary labels
                 const dietCheckboxes = document.querySelectorAll('input[name="diet[]"]:checked');
                 let dietaryAlerts = [];
                 dietCheckboxes.forEach(cb => {
@@ -506,7 +467,7 @@ function initFormInteractions() {
                     if (cb.value === 'nut-allergy') dietaryAlerts.push("Strict Nut-Free Isolation Zone");
                 });
 
-                // Compute Availability indicator
+                // Estimate baker scheduling timeline
                 const daysDiff = Math.ceil((eventDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
                 let availabilityStatus = " Highly Available (Order slot fits schedule perfectly)";
                 if (category === 'cakes' && daysDiff < 5) {
@@ -515,7 +476,7 @@ function initFormInteractions() {
                     availabilityStatus = " High Production Demand (Pending head baker final authorization)";
                 }
 
-                // Render dynamic glassmorphic receipt card
+                // Inject dynamic local invoice receipt
                 responseContainer.innerHTML = `
                     <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--hover-shadow); padding: 50px 40px; border-left: 6px solid var(--brand-pink); animation: slideUp 0.5s ease; color: #2d251f;">
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; border-bottom: 2px solid var(--primary-bg); padding-bottom: 20px; margin-bottom: 30px;">
@@ -584,7 +545,6 @@ function initFormInteractions() {
                 responseContainer.scrollIntoView({ behavior: 'smooth' });
                 orderForm.reset();
 
-                // Clear validation outlines
                 const inputs = orderForm.querySelectorAll('.field-valid, .field-invalid');
                 inputs.forEach(input => {
                     input.classList.remove('field-valid', 'field-invalid');
@@ -593,12 +553,11 @@ function initFormInteractions() {
         });
     }
 
-    // Form 2: contact.html submission flows
+    // Handles simulated submit and mailto link launching on contact.html
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Client-Side validation check
             const nameEl = document.getElementById('contactName');
             const emailEl = document.getElementById('contactEmail');
             const phoneEl = document.getElementById('contactPhone');
@@ -635,7 +594,6 @@ function initFormInteractions() {
                 return;
             }
 
-            // AJAX simulated async submit (100% local and reliable offline)
             responseContainer.innerHTML = `
                 <div style="text-align: center; padding: 30px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow);">
                     <div style="width: 40px; height: 40px; border: 4px solid rgba(255, 192, 203, 0.3); border-top-color: var(--brand-pink); border-radius: 50%; display: inline-block; animation: spin 1s linear infinite; margin-bottom: 15px;"></div>
@@ -659,10 +617,8 @@ function initFormInteractions() {
 
                 const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-                // Launch default mail client immediately on successful simulated processing
                 window.location.href = mailtoUrl;
 
-                // Success feedback and email fallback indicators
                 responseContainer.innerHTML = `
                     <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--hover-shadow); padding: 40px 30px; border-left: 6px solid #2e7d32; animation: slideUp 0.5s ease; color: #2d251f;">
                         <h3 style="color: #2e7d32; font-size: 1.6rem; margin-top: 0; margin-bottom: 10px;">✔️ Message Successfully Verified & Compiled!</h3>

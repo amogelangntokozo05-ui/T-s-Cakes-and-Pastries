@@ -1,17 +1,11 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Global Scroll-Driven Reveal Animations ---
+    // Initialize animations, theme switcher, and scroll-to-top button
     initScrollReveal();
-
-    // --- 2. Sleek Dark/Light Mode Theme Switcher ---
     initThemeSwitcher();
-
-    // --- 3. Floating Scroll-to-Top Button ---
     initBackToTop();
 });
 
-
+// Manage scroll-driven reveal transitions
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
 
@@ -25,25 +19,19 @@ function initScrollReveal() {
             });
         }, {
             threshold: 0.12,
-            rootMargin: '0px 0px -50px 0px' // Trigger slightly before crossing
+            rootMargin: '0px 0px -50px 0px' // Offset trigger point
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
     } else {
-        // Fallback for older browsers
+        // Fallback for older browsers without observer support
         revealElements.forEach(el => el.classList.add('revealed'));
     }
 }
 
-/**
- * 2. Sleek Dark/Light Mode Theme Switcher
- * Handles active color scheme states, localStorage persistence,
- * and dynamic navbar icon transitions.
- */
+// Manage dark/light theme switching state
 function initThemeSwitcher() {
     const themeButtons = document.querySelectorAll('.theme-toggle-btn');
-
-    // Check local storage or fallback to system preference
     const savedTheme = localStorage.getItem('tscakes_theme');
     let currentTheme = 'light';
 
@@ -53,10 +41,9 @@ function initThemeSwitcher() {
         currentTheme = 'dark';
     }
 
-    // Set initial theme state
     applyTheme(currentTheme);
 
-    // Bind click events to all theme toggles on the page
+    // Toggle theme on button clicks
     themeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -65,7 +52,7 @@ function initThemeSwitcher() {
         });
     });
 
-    // Helper to toggle theme classes and icons
+    // Helper to toggle document attributes and toggle icons
     function applyTheme(theme) {
         if (theme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
@@ -83,12 +70,12 @@ function initThemeSwitcher() {
     }
 }
 
-
+// Manage back-to-top scroll actions
 function initBackToTop() {
     const backToTopBtn = document.getElementById('back-to-top-btn');
     if (!backToTopBtn) return;
 
-    // Show button when scrolled past 400px
+    // Toggle button visibility past 400px scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 400) {
             backToTopBtn.classList.add('show');
@@ -97,7 +84,7 @@ function initBackToTop() {
         }
     });
 
-    // Smooth scroll to top on click
+    // Smooth scroll back to body top
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,

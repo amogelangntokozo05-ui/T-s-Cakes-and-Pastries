@@ -1,11 +1,9 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Initialize Store Location Maps ---
+    // Init interactive Leaflet store map markers
     initStoreMaps();
 });
 
-
+// Configure Leaflet maps and marker popups
 function initStoreMaps() {
     const locations = {
         sandton: {

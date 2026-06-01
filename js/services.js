@@ -1,17 +1,15 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Initialize Product Engine (Search, Filter, Sort) ---
+    // Init product search, filter, and sorting engine
     initProductEngine();
 
-    // --- Initialize Quick View Modal Specs ---
+    // Init quick view modal specs
     initQuickViewModal();
 });
 
-// Render product dynamic search, category filters, and sorting engine
+// Manage search, category filtering, and sorting
 function initProductEngine() {
     const dynamicContainer = document.getElementById('products-dynamic-container');
-    if (!dynamicContainer) return; // Only execute on pages containing the dynamic list container
+    if (!dynamicContainer) return; // Exit if container doesn't exist
 
     const searchInput = document.getElementById('product-search');
     const sortSelect = document.getElementById('product-sort');
@@ -19,12 +17,12 @@ function initProductEngine() {
 
     let currentCategory = 'all';
     let searchQuery = '';
-    let currentSort = 'featured'; // default sort
+    let currentSort = 'featured';
 
-    // Render initial product cards catalog
+    // Render initial catalog
     renderProducts();
 
-    // Bind Category Tab Clicks
+    // Handle category selection tabs
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             tabs.forEach(t => {
@@ -39,7 +37,7 @@ function initProductEngine() {
         });
     });
 
-    // Bind Search Input Clicks
+    // Handle search input queries
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             searchQuery = e.target.value.toLowerCase().trim();
@@ -47,7 +45,7 @@ function initProductEngine() {
         });
     }
 
-    // Bind Sorting Selection Choices
+    // Handle sorting selections
     if (sortSelect) {
         sortSelect.addEventListener('change', (e) => {
             currentSort = e.target.value;
@@ -55,21 +53,21 @@ function initProductEngine() {
         });
     }
 
-    // Primary Logic Loop combining Dynamic Load, Filters, Search, and Sort algorithms
+    // Filter, sort, and render cards
     function renderProducts() {
         if (typeof PRODUCT_CATALOG === 'undefined') {
             console.error("PRODUCT_CATALOG array is not loaded!");
             return;
         }
 
-        // Step A: Apply dynamic filtering and query searches
+        // Apply filters
         let processedProducts = PRODUCT_CATALOG.filter(p => {
             const matchesCategory = currentCategory === 'all' || p.category === currentCategory;
             const matchesSearch = p.title.toLowerCase().includes(searchQuery) || p.desc.toLowerCase().includes(searchQuery);
             return matchesCategory && matchesSearch;
         });
 
-        // Step B: Apply dynamic sorting specifications
+        // Apply sorting
         if (currentSort === 'price-asc') {
             processedProducts.sort((a, b) => a.price - b.price);
         } else if (currentSort === 'price-desc') {
@@ -77,9 +75,8 @@ function initProductEngine() {
         } else if (currentSort === 'name-asc') {
             processedProducts.sort((a, b) => a.title.localeCompare(b.title));
         }
-        // If 'featured', maintains default schema declaration indices
 
-        // Step C: Render HTML dynamic elements template
+        // Handle empty state
         if (processedProducts.length === 0) {
             dynamicContainer.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
@@ -91,7 +88,7 @@ function initProductEngine() {
             return;
         }
 
-        // Programmatic string templating mapping catalog to dynamic DOM nodes
+        // Generate dynamic markup
         dynamicContainer.innerHTML = processedProducts.map((p, index) => `
             <article class="product-card" data-category="${p.category}" style="opacity: 0; transform: scale(0.94); transition: opacity 0.5s ease, transform 0.5s ease;">
                 <img src="${p.img}" alt="${p.alt || p.title}" ${index > 2 ? 'loading="lazy"' : ''}>
@@ -110,24 +107,24 @@ function initProductEngine() {
             </article>
         `).join('');
 
-        // Step D: Trigger sequential premium hardware-accelerated entrance transitions
+        // Apply entrance fade-in transition
         const newCards = Array.from(dynamicContainer.querySelectorAll('.product-card'));
         requestAnimationFrame(() => {
             newCards.forEach((card, index) => {
                 setTimeout(() => {
                     card.style.opacity = '1';
                     card.style.transform = 'scale(1)';
-                }, index * 40); // 40ms stagger offset
+                }, index * 40); // Stagger cards reveal
             });
         });
 
-        // Step E: Bind modal selectors to dynamic buttons
+        // Attach event listeners to card actions
         bindQuickViewButtons();
         bindAddToCartButtons();
     }
 }
 
-// Initialize product Quick View details specs modal
+// Set up specs details modal
 function initQuickViewModal() {
     const modal = document.getElementById('quick-view-modal');
     if (!modal) return;
@@ -156,7 +153,7 @@ function initQuickViewModal() {
     }
 }
 
-// Bind details specs modal actions to product cards
+// Bind specs modal triggers on product cards
 function bindQuickViewButtons() {
     const modal = document.getElementById('quick-view-modal');
     if (!modal) return;
@@ -178,32 +175,30 @@ function bindQuickViewButtons() {
 
             if (!product) return;
 
-            // Compute descriptive category badge
+            // Map category names to badge labels
             let badgeText = 'Signature Selection';
             if (product.category === 'cakes') badgeText = 'Premium Cakes';
             if (product.category === 'breads') badgeText = 'Artisanal Breads';
             if (product.category === 'pastries') badgeText = 'Morning Pastries';
             if (product.category === 'savory') badgeText = 'Gourmet Savory';
 
-            // Populate Modal Content directly from local script database
+            // Populate modal fields
             modalImg.src = product.img;
             modalImg.alt = product.title;
             modalBadge.textContent = badgeText;
             modalTitle.textContent = product.title;
             modalPrice.textContent = product.priceText;
             modalDesc.textContent = product.desc;
-
-            // Dynamic Bullet Injection
             modalBullets.innerHTML = product.bullets.map(b => `<li>${b}</li>`).join('');
 
-            // Scale-up modal view
+            // Open specs modal
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
         });
     });
 }
 
-// Bind add to bag click actions to catalog cards
+// Bind add-to-bag triggers on cards
 function bindAddToCartButtons() {
     const addButtons = document.querySelectorAll('.cart-add-btn');
     addButtons.forEach(btn => {

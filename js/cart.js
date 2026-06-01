@@ -1,11 +1,9 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Initialize Shopping Bag ---
+    // Init shopping bag
     initShoppingCart();
 });
 
-
+// Manage shopping cart bag and enquiry form synchronization
 function initShoppingCart() {
     const cartToggleBtn = document.getElementById('cart-toggle-btn');
     const cartSidebar = document.getElementById('cart-drawer-sidebar');
@@ -13,7 +11,7 @@ function initShoppingCart() {
     const cartOverlay = document.getElementById('cart-overlay-bg');
     const checkoutTrigger = document.getElementById('cart-checkout-trigger');
 
-    // --- State Population Path: enquiry.html Form Pre-filler ---
+    // Pre-fill enquiry form from checkout bag payload if exists
     const enquiryForm = document.getElementById('enquiry-form');
     if (enquiryForm) {
         const checkoutData = localStorage.getItem('tscakes_cart_checkout');
@@ -24,40 +22,30 @@ function initShoppingCart() {
                 const quantityInput = document.getElementById('quantity');
                 const messageTextarea = document.getElementById('enquiryMessage');
 
-                // 1. Pre-fill Product Category dropdown
                 if (productChoiceSelect && data.dominantCategory) {
                     productChoiceSelect.value = data.dominantCategory;
-                    // Trigger change event to load any conditional fieldsets (e.g. Custom Order assistant)
-                    productChoiceSelect.dispatchEvent(new Event('change'));
+                    productChoiceSelect.dispatchEvent(new Event('change')); // Trigger options updates
                 }
 
-                // 2. Pre-fill Quantity
                 if (quantityInput && data.totalQty) {
                     quantityInput.value = data.totalQty;
                 }
 
-                // 3. Pre-fill Additional Notes summary
                 if (messageTextarea && data.summary) {
                     messageTextarea.value = data.summary;
-                    // Trigger input event to update visual character counters
-                    messageTextarea.dispatchEvent(new Event('input'));
+                    messageTextarea.dispatchEvent(new Event('input')); // Trigger char counts updates
                 }
 
-                // Smoothly scroll to the form so the user sees it pre-filled
                 enquiryForm.scrollIntoView({ behavior: 'smooth' });
-
-                // Clear checkout data once consumed so it doesn't repeat on reload
-                localStorage.removeItem('tscakes_cart_checkout');
+                localStorage.removeItem('tscakes_cart_checkout'); // Consume data
             } catch (err) {
                 console.error("Error parsing pre-fill checkout data: ", err);
             }
         }
     }
 
-    // Return early if not on a page containing the cart elements (only services.html contains drawer DOM elements)
     if (!cartToggleBtn || !cartSidebar || !cartCloseBtn || !cartOverlay) return;
 
-    // Load existing cart from localStorage or default to empty
     let cart = [];
     try {
         const localData = localStorage.getItem('tscakes_cart');
@@ -69,19 +57,16 @@ function initShoppingCart() {
         cart = [];
     }
 
-    // Refresh display counts on initial load
     updateCartDisplay();
 
-    // --- Event Listeners ---
-
-    // Toggle drawer open
+    // Toggle shopping drawer open
     cartToggleBtn.addEventListener('click', () => {
         cartSidebar.classList.add('open');
         cartOverlay.classList.add('show');
-        document.body.style.overflow = 'hidden'; // Lock background scroll
+        document.body.style.overflow = 'hidden';
     });
 
-    // Close drawer close buttons
+    // Close shopping drawer
     const closeCartDrawer = () => {
         cartSidebar.classList.remove('open');
         cartOverlay.classList.remove('show');
@@ -91,7 +76,7 @@ function initShoppingCart() {
     cartCloseBtn.addEventListener('click', closeCartDrawer);
     cartOverlay.addEventListener('click', closeCartDrawer);
 
-    // Clear All Cart items callback
+    // Empty entire bag list
     const clearAllBtn = document.getElementById('cart-clear-all-btn');
     if (clearAllBtn) {
         clearAllBtn.addEventListener('click', () => {
@@ -104,28 +89,26 @@ function initShoppingCart() {
         });
     }
 
-    // Proceed to checkout callback
+    // Export bag items to enquiry form pre-filler
     checkoutTrigger.addEventListener('click', () => {
         if (cart.length === 0) {
             alert("Your sweet treats bag is empty! Please add some pastries first.");
             return;
         }
 
-        // Build structured cart summary text for enquiry.html pre-population
         let summaryText = "Hi T's Cakes! I am interested in placing an order for the following items from my shopping bag:\n\n";
         let totalItemsCount = 0;
-        let dominantCategory = "cakes"; // Default category fallback
+        let dominantCategory = "cakes";
 
         cart.forEach(item => {
             summaryText += `- ${item.qty}x ${item.title} (R${item.price} each)\n`;
             totalItemsCount += item.qty;
-            if (item.category) dominantCategory = item.category; // Uses last added item's category
+            if (item.category) dominantCategory = item.category;
         });
 
         summaryText += `\nEstimated Cart Subtotal: R${calculateCartSubtotal().toFixed(2)}\n`;
         summaryText += "Please let me know about baking availability, delivery slots, and booking confirmation details!";
 
-        // Save structured checkout payload in localStorage to be consumed by enquiry.html
         const checkoutPayload = {
             dominantCategory: dominantCategory,
             totalQty: totalItemsCount,
@@ -133,17 +116,12 @@ function initShoppingCart() {
         };
 
         localStorage.setItem('tscakes_cart_checkout', JSON.stringify(checkoutPayload));
-
-        // Close drawer and redirect smoothly
         closeCartDrawer();
         window.location.href = 'enquiry.html';
     });
 
-    // --- Cart Actions Functions ---
-
-    // Add to Cart callback
+    // Add item to bag list
     window.addToCart = function (productId) {
-        // Safe check for product catalog visibility
         if (typeof PRODUCT_CATALOG === 'undefined') {
             console.error("PRODUCT_CATALOG is not loaded!");
             return;
@@ -151,7 +129,6 @@ function initShoppingCart() {
         const product = PRODUCT_CATALOG.find(p => p.id === productId);
         if (!product) return;
 
-        // Check if item already exists in the cart
         const existingItem = cart.find(item => item.id === productId);
         if (existingItem) {
             existingItem.qty += 1;
@@ -166,17 +143,16 @@ function initShoppingCart() {
             });
         }
 
-        // Save and refresh
         saveCartState();
         updateCartDisplay();
 
-        // Slide open the drawer automatically to show responsive micro-action feedback
+        // Reveal drawer instantly
         cartSidebar.classList.add('open');
         cartOverlay.classList.add('show');
         document.body.style.overflow = 'hidden';
     };
 
-    // Increments Item Quantity
+    // Increase item quantity
     window.increaseQty = function (productId) {
         const item = cart.find(i => i.id === productId);
         if (item) {
@@ -186,13 +162,12 @@ function initShoppingCart() {
         }
     };
 
-    // Decrements Item Quantity
+    // Decrease item quantity
     window.decreaseQty = function (productId) {
         const item = cart.find(i => i.id === productId);
         if (item) {
             item.qty -= 1;
             if (item.qty <= 0) {
-                // Remove item completely if count hits zero
                 cart = cart.filter(i => i.id !== productId);
             }
             saveCartState();
@@ -200,24 +175,22 @@ function initShoppingCart() {
         }
     };
 
-    // Removes Item completely
+    // Remove item completely
     window.removeCartItem = function (productId) {
         cart = cart.filter(i => i.id !== productId);
         saveCartState();
         updateCartDisplay();
     };
 
-    // Calculate Cart Subtotal
     function calculateCartSubtotal() {
         return cart.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
     }
 
-    // Save cart state
     function saveCartState() {
         localStorage.setItem('tscakes_cart', JSON.stringify(cart));
     }
 
-    // Refresh dynamic Cart items, summary prices, and badges counts
+    // Refresh dynamic list and totals summary calculations
     function updateCartDisplay() {
         const itemsContainer = document.getElementById('cart-drawer-items-list');
         const badgeCount = document.getElementById('cart-badge-count');
@@ -228,13 +201,12 @@ function initShoppingCart() {
 
         if (!itemsContainer) return;
 
-        // 1. Calculate counts
         const totalItemsCount = cart.reduce((acc, curr) => acc + curr.qty, 0);
         if (badgeCount) {
             badgeCount.textContent = totalItemsCount;
         }
 
-        // 2. Render Cart Item Rows
+        // Render bag rows
         if (cart.length === 0) {
             itemsContainer.innerHTML = `
                 <div class="cart-empty-message">
@@ -263,15 +235,11 @@ function initShoppingCart() {
             `).join('');
         }
 
-        // 3. Render Totals Summary math
+        // Apply bulk discount (10% off for 10+ items)
         const subtotal = calculateCartSubtotal();
         subtotalEl.textContent = `R${subtotal.toFixed(2)}`;
 
-        // Bulk 10% discount applies if total quantity of items >= 10
-        let discountPct = 0;
-        if (totalItemsCount >= 10) {
-            discountPct = 0.10;
-        }
+        let discountPct = totalItemsCount >= 10 ? 0.10 : 0;
 
         if (discountPct > 0) {
             const discountVal = subtotal * discountPct;

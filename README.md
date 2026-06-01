@@ -76,7 +76,7 @@ This submission constitutes Part 1 of the Web Development assignment. It focuses
 6. **Contact (`contact.html`)**
 
 ## Changelog
-- **v1.0.0**: Initialized project and created foundational folder structure (`css/`, `js/`, `Images/`).
+- **v1.0.0**: Initialized project and created foundational folder structure (`css/`, `js/`, `images/`).
 - **v1.0.1**: Built foundational HTML files (`index.html`, `about.html`, `services.html`, `enquiry.html`, `contact.html`).
 - **v1.0.2**: Integrated project overview text, explicit semantic HTML5 layout tags (`<header>`, `<main>`, `<article>`), and theoretical code comments.
 - **v1.0.3**: Added `gallery.html` branch and mapped local imagery to product features.

@@ -210,7 +210,7 @@ function initShoppingCart() {
         if (cart.length === 0) {
             itemsContainer.innerHTML = `
                 <div class="cart-empty-message">
-                    <span class="cart-empty-icon">🛒</span>
+                    <span class="cart-empty-icon">--</span>
                     <p style="font-weight: 600; margin: 0; color: var(--brand-brown);">Your treats bag is empty</p>
                     <p style="font-size: 0.9rem; margin-top: 5px;">Add some sweet treats from our menu to begin!</p>
                 </div>
@@ -229,7 +229,7 @@ function initShoppingCart() {
                         <button class="cart-qty-btn" onclick="increaseQty('${item.id}')" type="button" aria-label="Increase quantity">+</button>
                     </div>
                     <button class="cart-item-remove" onclick="removeCartItem('${item.id}')" type="button" aria-label="Remove item">
-                        🗑️
+                        Remove
                     </button>
                 </div>
             `).join('');

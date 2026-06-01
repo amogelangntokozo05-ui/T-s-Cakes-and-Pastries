@@ -17,7 +17,7 @@ function initFormInteractions() {
             deliveryBlock.id = 'delivery-details-fieldset';
             deliveryBlock.className = 'conditional-fieldset';
             deliveryBlock.innerHTML = `
-                <legend style="font-size: 1.5rem; color: var(--brand-brown); font-weight: 700; margin-bottom: 20px; padding: 0 10px;">📦 Local Delivery Details</legend>
+                <legend style="font-size: 1.5rem; color: var(--brand-brown); font-weight: 700; margin-bottom: 20px; padding: 0 10px;">Local Delivery Details</legend>
                 <div>
                     <label for="deliveryAddr" style="font-weight: 600; color: var(--brand-brown); display: block; margin-bottom: 8px;">Physical Address <span style="color:red;">*</span></label>
                     <input type="text" id="deliveryAddr" name="deliveryAddr" placeholder="Street Address, Suburb, City, Postal Code">
@@ -73,7 +73,7 @@ function initFormInteractions() {
             customBlock.id = 'custom-order-fieldset';
             customBlock.className = 'conditional-fieldset';
             customBlock.innerHTML = `
-                <legend style="font-size: 1.5rem; color: var(--brand-brown); font-weight: 700; margin-bottom: 20px; padding: 0 10px;">🎨 Custom Order Assistant</legend>
+                <legend style="font-size: 1.5rem; color: var(--brand-brown); font-weight: 700; margin-bottom: 20px; padding: 0 10px;">Custom Order Assistant</legend>
                 <div class="cake-assistant-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; align-items: start;">
                     <div class="cake-controls-col" style="display: flex; flex-direction: column; gap: 20px;">
                         <div>
@@ -106,22 +106,22 @@ function initFormInteractions() {
                             <div style="display: flex; flex-direction: column; gap: 10px;">
                                 <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-primary); font-weight: 500;">
                                     <input type="checkbox" id="topSprinkles" name="toppings[]" value="sprinkles" style="width:18px; height:18px; accent-color:var(--brand-brown);">
-                                    🌈 Rainbow Sprinkles
+                                    Rainbow Sprinkles
                                 </label>
                                 <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-primary); font-weight: 500;">
                                     <input type="checkbox" id="topCherries" name="toppings[]" value="cherries" style="width:18px; height:18px; accent-color:var(--brand-brown);">
-                                    🍒 Sweet Glacé Cherries
+                                    Sweet Glacé Cherries
                                 </label>
                                 <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-primary); font-weight: 500;">
                                     <input type="checkbox" id="topDrizzle" name="toppings[]" value="drizzle" style="width:18px; height:18px; accent-color:var(--brand-brown);">
-                                    🍫 Rich Cocoa Drizzle
+                                    Rich Cocoa Drizzle
                                 </label>
                             </div>
                         </div>
                     </div>
 
                     <div class="cake-preview-col" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--primary-bg); border: 2px dashed rgba(92,58,33,0.15); border-radius: 20px; padding: 30px; min-height: 360px;">
-                        <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand-light-brown); font-weight: 800; margin-bottom: 25px;">🎂 Live Visual Bake Preview</span>
+                        <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand-light-brown); font-weight: 800; margin-bottom: 25px;">Live Visual Bake Preview</span>
                         <div class="cake-preview-wrapper" style="position: relative; width: 100%; height: 240px; display: flex; flex-direction: column-reverse; align-items: center; justify-content: flex-start; padding-bottom: 20px;">
                             <div class="cake-plate" style="width: 220px; height: 16px; background: linear-gradient(180deg, #e0e0e0 0%, #b3b3b3 100%); border-radius: 50%; box-shadow: 0 6px 15px rgba(0,0,0,0.1); margin-top: -8px; z-index: 1;"></div>
                             
@@ -402,7 +402,7 @@ function initFormInteractions() {
             if (errors.length > 0) {
                 responseContainer.innerHTML = `
                     <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 35px; color: #2d251f; animation: fadeIn 0.4s ease;">
-                        <h4 style="color: #c62828; font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; font-weight: 700;">⚠️ Form Submission Errors</h4>
+                        <h4 style="color: #c62828; font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; font-weight: 700;">Form Submission Errors</h4>
                         <p style="margin-bottom: 20px; font-weight: 600;">Please correct the following fields before proceeding:</p>
                         <ul style="padding-left: 20px; font-size: 1.05rem; line-height: 1.6;">
                             ${errors.map(err => `<li style="margin-bottom: 8px;">${err}</li>`).join('')}
@@ -537,7 +537,7 @@ function initFormInteractions() {
                         </div>
 
                         <div style="background: var(--primary-bg); padding: 25px 30px; border-radius: 12px; font-size: 0.95rem; color: #555; line-height: 1.6;">
-                            <p style="margin: 0; font-weight: 600; color: var(--brand-brown); margin-bottom: 5px;">ℹ What happens next?</p>
+                            <p style="margin: 0; font-weight: 600; color: var(--brand-brown); margin-bottom: 5px;">What happens next?</p>
                             We have logged this request on our local interface. A customer care representative will email you at <strong>${emailEl.value}</strong> or call you at <strong>${phoneEl.value}</strong> within 3 business hours to authorize the invoice and provide direct bank deposit info.
                         </div>
                     </div>
@@ -584,7 +584,7 @@ function initFormInteractions() {
             if (errors.length > 0) {
                 responseContainer.innerHTML = `
                     <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 25px; color: #c62828; animation: fadeIn 0.4s ease;">
-                        <h4 style="font-weight: 700; margin-top: 0; margin-bottom: 10px;">⚠️ Errors in Submission</h4>
+                        <h4 style="font-weight: 700; margin-top: 0; margin-bottom: 10px;">Errors in Submission</h4>
                         <ul style="padding-left: 20px; font-size: 1rem; line-height: 1.5; margin: 0;">
                             ${errors.map(err => `<li>${err}</li>`).join('')}
                         </ul>
@@ -621,14 +621,14 @@ function initFormInteractions() {
 
                 responseContainer.innerHTML = `
                     <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--hover-shadow); padding: 40px 30px; border-left: 6px solid #2e7d32; animation: slideUp 0.5s ease; color: #2d251f;">
-                        <h3 style="color: #2e7d32; font-size: 1.6rem; margin-top: 0; margin-bottom: 10px;">✔️ Message Successfully Verified & Compiled!</h3>
+                        <h3 style="color: #2e7d32; font-size: 1.6rem; margin-top: 0; margin-bottom: 10px;">Message Successfully Verified & Compiled!</h3>
                         <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px;">
                             Hello <strong>${nameEl.value}</strong>! Your contact message has been locally verified. 
                             We have automatically compiled these details and launched your default mail application to securely dispatch the enquiry.
                         </p>
                         <div style="background: rgba(46, 125, 50, 0.05); padding: 20px; border-radius: 8px; font-size: 0.95rem; color: #333; line-height: 1.5; text-align: left; border: 1px solid rgba(46, 125, 50, 0.1);">
-                            <strong>📧 Stated Recipient:</strong> <a href="mailto:${recipient}" style="color: #2e7d32; font-weight: 700;">${recipient}</a><br>
-                            <strong>📋 Compiled Subject:</strong> <code>${subject}</code><br><br>
+                            <strong>Stated Recipient:</strong> <a href="mailto:${recipient}" style="color: #2e7d32; font-weight: 700;">${recipient}</a><br>
+                            <strong>Compiled Subject:</strong> <code>${subject}</code><br><br>
                             <em>If your mail client didn't launch automatically, please manually send an email to the recipient above using your compiled form details.</em>
                         </div>
                     </div>

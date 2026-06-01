@@ -80,7 +80,7 @@ function initProductEngine() {
         if (processedProducts.length === 0) {
             dynamicContainer.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
-                    <span style="font-size: 3.5rem; display: block; margin-bottom: 20px;">🍪</span>
+                    <span style="font-size: 3.5rem; display: block; margin-bottom: 20px;">--</span>
                     <h3 style="font-size: 1.6rem; color: var(--brand-brown); margin-bottom: 10px;">No Matching Treats Found</h3>
                     <p style="font-size: 1.1rem; margin: 0;">Try typing another sweet keyword or adjusting your filter categories.</p>
                 </div>
@@ -100,8 +100,8 @@ function initProductEngine() {
                     </ul>
                     <p><em>${p.priceText}</em></p>
                     <div style="display: flex; gap: 10px; margin-top: 15px;">
-                        <button class="quick-view-btn" type="button" data-id="${p.id}" style="margin-top: 0; flex: 1;">✨ Specs</button>
-                        <button class="cart-add-btn" type="button" data-id="${p.id}" style="background: var(--brand-pink-gradient); color: var(--brand-brown); border: none; font-family: inherit; font-weight: 700; font-size: 0.95rem; padding: 12px 20px; border-radius: var(--radius-pill); cursor: pointer; flex: 1.2; text-align: center; transition: var(--transition);">🛒 Add to Bag</button>
+                        <button class="quick-view-btn" type="button" data-id="${p.id}" style="margin-top: 0; flex: 1;">View Specs</button>
+                        <button class="cart-add-btn" type="button" data-id="${p.id}" style="background: var(--brand-pink-gradient); color: var(--brand-brown); border: none; font-family: inherit; font-weight: 700; font-size: 0.95rem; padding: 12px 20px; border-radius: var(--radius-pill); cursor: pointer; flex: 1.2; text-align: center; transition: var(--transition);">Add to Bag</button>
                     </div>
                 </div>
             </article>

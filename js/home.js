@@ -141,7 +141,7 @@ function initReviewSubmitter() {
         submitBtn.disabled = true;
         submitBtn.style.background = '#2e7d32';
         submitBtn.style.color = '#fff';
-        submitBtn.textContent = '✔️ Published Live Instantly!';
+        submitBtn.textContent = 'Published Live Instantly!';
 
         setTimeout(() => {
             submitBtn.disabled = false;

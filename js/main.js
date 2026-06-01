@@ -58,13 +58,13 @@ function initThemeSwitcher() {
             document.documentElement.setAttribute('data-theme', 'dark');
             themeButtons.forEach(btn => {
                 const iconSpan = btn.querySelector('.theme-toggle-icon');
-                if (iconSpan) iconSpan.textContent = '☀️';
+                if (iconSpan) iconSpan.textContent = 'Light';
             });
         } else {
             document.documentElement.removeAttribute('data-theme');
             themeButtons.forEach(btn => {
                 const iconSpan = btn.querySelector('.theme-toggle-icon');
-                if (iconSpan) iconSpan.textContent = '🌙';
+                if (iconSpan) iconSpan.textContent = 'Dark';
             });
         }
     }

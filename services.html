@@ -69,10 +69,17 @@
                 <li><a href="about.html">About Us</a></li>
                 <li><strong><a href="services.html" aria-current="page">Products & Services</a></strong></li>
                 <li><a href="gallery.html">Gallery</a></li>
-
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" type="button">
+                        <span class="theme-toggle-icon">Mode</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Main content block for detailed product/service offerings -->
     <main>
         <h2>Our Products and Services</h2>
         <p>We serve families, students, working professionals, and anyone who enjoys freshly baked goods. We cater to
@@ -111,13 +118,10 @@
 
         <!-- Search and Category Filters controls -->
         <div class="services-controls reveal-on-scroll">
-            <div
-                style="display: flex; width: 100%; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: center; max-width: 900px;">
+            <div style="display: flex; width: 100%; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: center; max-width: 900px;">
                 <div class="search-bar-wrapper">
                     <span class="search-icon">&#128269;</span>
-                    <input type="text" id="product-search"
-                        placeholder="Search delicious treats... (e.g. chocolate, scone, croissant)"
-                        aria-label="Search bakery catalog">
+                    <input type="text" id="product-search" placeholder="Search delicious treats... (e.g. chocolate, scone, croissant)" aria-label="Search bakery catalog">
                 </div>
                 <div class="sort-bar-wrapper">
                     <label for="product-sort" class="sort-label">Sort By:</label>
@@ -130,16 +134,11 @@
                 </div>
             </div>
             <div class="category-tabs" role="tablist">
-                <button class="category-tab active" data-category="all" role="tab" aria-selected="true">✨ All
-                    Treats</button>
-                <button class="category-tab" data-category="cakes" role="tab" aria-selected="false">🎂 Cakes &
-                    Cupcakes</button>
-                <button class="category-tab" data-category="pastries" role="tab" aria-selected="false">🧁 Muffins &
-                    Pastries</button>
-                <button class="category-tab" data-category="breads" role="tab" aria-selected="false">🥖 Breads &
-                    Scones</button>
-                <button class="category-tab" data-category="savory" role="tab" aria-selected="false">🥧 Savory &
-                    Platters</button>
+                <button class="category-tab active" data-category="all" role="tab" aria-selected="true">All Treats</button>
+                <button class="category-tab" data-category="cakes" role="tab" aria-selected="false">Cakes & Cupcakes</button>
+                <button class="category-tab" data-category="pastries" role="tab" aria-selected="false">Muffins & Pastries</button>
+                <button class="category-tab" data-category="breads" role="tab" aria-selected="false">Breads & Scones</button>
+                <button class="category-tab" data-category="savory" role="tab" aria-selected="false">Savory & Platters</button>
             </div>
         </div>
 

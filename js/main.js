@@ -1,6 +1,4 @@
-/* =========================================================================
-   T's Cakes and Pastries - Core Page Operations & Transitions
-   ========================================================================= */
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- 1. Global Scroll-Driven Reveal Animations ---

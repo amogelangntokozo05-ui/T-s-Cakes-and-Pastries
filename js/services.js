@@ -1,6 +1,4 @@
-/* =========================================================================
-   T's Cakes and Pastries - Dynamic Services Catalog, Search & Sorting
-   ========================================================================= */
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Initialize Product Engine (Search, Filter, Sort) ---

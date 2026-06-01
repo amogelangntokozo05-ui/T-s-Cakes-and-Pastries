@@ -1,6 +1,4 @@
-/* =========================================================================
-   T's Cakes and Pastries - Form Validations, Conditional Fields & Calculations
-   ========================================================================= */
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Initialize Form Interactions ---

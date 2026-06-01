@@ -1,6 +1,4 @@
-/* =========================================================================
-   T's Cakes and Pastries - Leaflet Branch Location Maps
-   ========================================================================= */
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Initialize Store Location Maps ---

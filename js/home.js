@@ -1,6 +1,4 @@
-/* =========================================================================
-   T's Cakes and Pastries - Homepage FAQ & Testimonial Submitter
-   ========================================================================= */
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Initialize Homepage FAQ accordion ---

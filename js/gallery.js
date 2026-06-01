@@ -1,6 +1,4 @@
-/* =========================================================================
-   T's Cakes and Pastries - Gallery Photo Lightbox Modal
-   ========================================================================= */
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Initialize Gallery Lightbox ---

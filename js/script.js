@@ -810,7 +810,7 @@ function initFormInteractions() {
                 // Show errors dynamically
                 responseContainer.innerHTML = `
                     <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 35px; color: #2d251f; animation: fadeIn 0.4s ease;">
-                        <h4 style="color: #c62828; font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; font-weight: 700;">⚠️ Form Submission Errors</h4>
+                        <h4 style="color: #c62828; font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; font-weight: 700;">Form Submission Errors</h4>
                         <p style="margin-bottom: 20px; font-weight: 600;">Please correct the following fields before proceeding:</p>
                         <ul style="padding-left: 20px; font-size: 1.05rem; line-height: 1.6;">
                             ${errors.map(err => `<li style="margin-bottom: 8px;">${err}</li>`).join('')}
@@ -888,11 +888,11 @@ function initFormInteractions() {
 
                 // Compute Availability indicator
                 const daysDiff = Math.ceil((eventDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-                let availabilityStatus = "🟢 Highly Available (Order slot fits schedule perfectly)";
+                let availabilityStatus = " Highly Available (Order slot fits schedule perfectly)";
                 if (category === 'cakes' && daysDiff < 5) {
-                    availabilityStatus = "🟡 Tight Schedule (Requires urgent confirmation due to custom piping detail)";
+                    availabilityStatus = " Tight Schedule (Requires urgent confirmation due to custom piping detail)";
                 } else if (category === 'custom' && daysDiff < 10) {
-                    availabilityStatus = "🟡 High Production Demand (Pending head baker final authorization)";
+                    availabilityStatus = " High Production Demand (Pending head baker final authorization)";
                 }
 
                 // Render dynamic glassmorphic receipt card
@@ -945,18 +945,18 @@ function initFormInteractions() {
                                 <p style="font-size: 1.05rem; margin-top: 0; color: #555; line-height: 1.5; margin-bottom: 25px;">${availabilityStatus}</p>
                                 
                                 ${dietaryAlerts.length > 0 ? `
-                                    <p style="font-weight: 700; color: #c62828; margin-bottom: 10px;">⚠️ Dietary Allergy Directives:</p>
+                                    <p style="font-weight: 700; color: #c62828; margin-bottom: 10px;"> Dietary Allergy Directives:</p>
                                     <ul style="padding-left: 20px; font-weight: 600; color: #c62828; font-size: 0.95rem; margin: 0;">
                                         ${dietaryAlerts.map(alert => `<li style="margin-bottom: 5px;">${alert}</li>`).join('')}
                                     </ul>
                                 ` : `
-                                    <p style="font-weight: 600; color: #2e7d32; margin: 0;">🟢 Standard Allergen Guidelines Apply</p>
+                                    <p style="font-weight: 600; color: #2e7d32; margin: 0;">Standard Allergen Guidelines Apply</p>
                                 `}
                             </div>
                         </div>
 
                         <div style="background: var(--primary-bg); padding: 25px 30px; border-radius: 12px; font-size: 0.95rem; color: #555; line-height: 1.6;">
-                            <p style="margin: 0; font-weight: 600; color: var(--brand-brown); margin-bottom: 5px;">ℹ️ What happens next?</p>
+                            <p style="margin: 0; font-weight: 600; color: var(--brand-brown); margin-bottom: 5px;">ℹ What happens next?</p>
                             We have logged this request on our local interface. A customer care representative will email you at <strong>${emailEl.value}</strong> or call you at <strong>${phoneEl.value}</strong> within 3 business hours to authorize the invoice and provide direct bank deposit info.
                         </div>
                     </div>

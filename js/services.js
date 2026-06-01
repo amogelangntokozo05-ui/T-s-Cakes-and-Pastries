@@ -8,10 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initQuickViewModal();
 });
 
-/**
- * 4. Dynamic Content Rendering, Search & Sorting Engine
- * Incorporates dynamic loading, filters, real-time query matching, and price/alphabetic sorting.
- */
+// Render product dynamic search, category filters, and sorting engine
 function initProductEngine() {
     const dynamicContainer = document.getElementById('products-dynamic-container');
     if (!dynamicContainer) return; // Only execute on pages containing the dynamic list container
@@ -130,10 +127,7 @@ function initProductEngine() {
     }
 }
 
-/**
- * 5. Specialty Modal setup
- * Binds dynamically created Quick View trigger buttons directly to database entries
- */
+// Initialize product Quick View details specs modal
 function initQuickViewModal() {
     const modal = document.getElementById('quick-view-modal');
     if (!modal) return;
@@ -162,9 +156,7 @@ function initQuickViewModal() {
     }
 }
 
-/**
- * Helper to bind buttons dynamically generated on catalog sorting updates
- */
+// Bind details specs modal actions to product cards
 function bindQuickViewButtons() {
     const modal = document.getElementById('quick-view-modal');
     if (!modal) return;
@@ -211,9 +203,7 @@ function bindQuickViewButtons() {
     });
 }
 
-/**
- * Binds Add-to-cart clicks dynamically generated on catalog sorting updates
- */
+// Bind add to bag click actions to catalog cards
 function bindAddToCartButtons() {
     const addButtons = document.querySelectorAll('.cart-add-btn');
     addButtons.forEach(btn => {

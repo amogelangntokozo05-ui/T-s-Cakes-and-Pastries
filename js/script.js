@@ -821,26 +821,16 @@ function initFormInteractions() {
                 return;
             }
 
-            // AJAX async submit (fetch to httpbin)
+            // AJAX simulated async submit (100% local and reliable offline)
             responseContainer.innerHTML = `
                 <div style="text-align: center; padding: 40px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow);">
                     <div style="width: 50px; height: 50px; border: 4px solid rgba(255, 192, 203, 0.3); border-top-color: var(--brand-pink); border-radius: 50%; display: inline-block; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
-                    <h4 style="color: var(--brand-brown); font-size: 1.3rem; margin: 0;">Processing and Securely Submitting your Enquiry...</h4>
+                    <h4 style="color: var(--brand-brown); font-size: 1.3rem; margin: 0;">Processing and Validating your Enquiry Locally...</h4>
                 </div>
             `;
             responseContainer.scrollIntoView({ behavior: 'smooth' });
 
-            const formData = new FormData(orderForm);
-            
-            fetch(orderForm.action, {
-                method: 'POST',
-                body: formData
-            })
-            .then(res => {
-                if (!res.ok) throw new Error("Server responded with a submission error.");
-                return res.json();
-            })
-            .then(data => {
+            setTimeout(() => {
                 // Dynamic Cost Engine Calculations
                 const category = productEl.value;
                 const quantity = parseInt(document.getElementById('quantity').value) || 1;
@@ -910,9 +900,9 @@ function initFormInteractions() {
                     <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--hover-shadow); padding: 50px 40px; border-left: 6px solid var(--brand-pink); animation: slideUp 0.5s ease; color: #2d251f;">
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; border-bottom: 2px solid var(--primary-bg); padding-bottom: 20px; margin-bottom: 30px;">
                             <div>
-                                <span style="background: rgba(255, 192, 203, 0.2); color: var(--brand-brown); padding: 6px 14px; border-radius: var(--radius-pill); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">AJAX Receipt Confirmed</span>
+                                <span style="background: rgba(255, 192, 203, 0.2); color: var(--brand-brown); padding: 6px 14px; border-radius: var(--radius-pill); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Enquiry Confirmed Locally</span>
                                 <h3 style="font-size: 2.2rem; color: var(--brand-brown); margin: 10px 0 5px 0;">Estimate Cost Invoice</h3>
-                                <p style="margin: 0; color: var(--text-muted);">Thank you, <strong>${nameEl.value}</strong>! Your enquiry has been programmatically processed.</p>
+                                <p style="margin: 0; color: var(--text-muted);">Thank you, <strong>${nameEl.value}</strong>! Your enquiry has been locally verified and logged successfully.</p>
                             </div>
                             <div style="text-align: right;">
                                 <p style="margin: 0; font-weight: 700; color: var(--brand-brown); font-size: 1.1rem;">Date Selected:</p>
@@ -967,7 +957,7 @@ function initFormInteractions() {
 
                         <div style="background: var(--primary-bg); padding: 25px 30px; border-radius: 12px; font-size: 0.95rem; color: #555; line-height: 1.6;">
                             <p style="margin: 0; font-weight: 600; color: var(--brand-brown); margin-bottom: 5px;">ℹ️ What happens next?</p>
-                            We have logged this request on our servers. A customer care representative will email you at <strong>${emailEl.value}</strong> or call you at <strong>${phoneEl.value}</strong> within 3 business hours to authorize the invoice and provide direct bank deposit info.
+                            We have logged this request on our local interface. A customer care representative will email you at <strong>${emailEl.value}</strong> or call you at <strong>${phoneEl.value}</strong> within 3 business hours to authorize the invoice and provide direct bank deposit info.
                         </div>
                     </div>
                 `;
@@ -979,15 +969,7 @@ function initFormInteractions() {
                 inputs.forEach(input => {
                     input.classList.remove('field-valid', 'field-invalid');
                 });
-            })
-            .catch(err => {
-                responseContainer.innerHTML = `
-                    <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 30px; color: #c62828; text-align: center;">
-                        <h4 style="font-weight: 700; margin-top: 0; font-size: 1.3rem;">⚠️ Network Submission Error</h4>
-                        <p style="margin: 0; font-size: 1.1rem; color: #2d251f;">${err.message || 'The server could not be reached. Please check your internet connection and try again.'}</p>
-                    </div>
-                `;
-            });
+            }, 1000);
         });
     }
 
@@ -1033,33 +1015,23 @@ function initFormInteractions() {
                 return;
             }
 
-            // AJAX Submission (post to httpbin)
+            // AJAX simulated async submit (100% local and reliable offline)
             responseContainer.innerHTML = `
                 <div style="text-align: center; padding: 30px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow);">
                     <div style="width: 40px; height: 40px; border: 4px solid rgba(255, 192, 203, 0.3); border-top-color: var(--brand-pink); border-radius: 50%; display: inline-block; animation: spin 1s linear infinite; margin-bottom: 15px;"></div>
-                    <h4 style="color: var(--brand-brown); font-size: 1.1rem; margin: 0;">Preparing Asynchronous General Message Transmission...</h4>
+                    <h4 style="color: var(--brand-brown); font-size: 1.1rem; margin: 0;">Preparing and Validating Message Locally...</h4>
                 </div>
             `;
             responseContainer.scrollIntoView({ behavior: 'smooth' });
 
-            const formData = new FormData(contactForm);
-
-            fetch(contactForm.action, {
-                method: 'POST',
-                body: formData
-            })
-            .then(res => {
-                if (!res.ok) throw new Error("Could not log general message on our servers.");
-                return res.json();
-            })
-            .then(data => {
+            setTimeout(() => {
                 // Success feedback and email compilation
                 responseContainer.innerHTML = `
                     <div style="background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--hover-shadow); padding: 40px 30px; border-left: 6px solid #2e7d32; animation: slideUp 0.5s ease; color: #2d251f;">
-                        <h3 style="color: #2e7d32; font-size: 1.6rem; margin-top: 0; margin-bottom: 10px;">✔️ Message Successfully Logged!</h3>
+                        <h3 style="color: #2e7d32; font-size: 1.6rem; margin-top: 0; margin-bottom: 10px;">✔️ Message Successfully Logged Locally!</h3>
                         <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px;">
-                            Hello <strong>${nameEl.value}</strong>! Your message is securely cached on our backend systems. 
-                            We are now compiling these details into a local email block. <strong>Please click the button below to authorize sending it to our email team.</strong>
+                            Hello <strong>${nameEl.value}</strong>! Your message has been locally verified. 
+                            We have compiled these details into a local email block. <strong>Please click the button below to authorize sending it to our email team.</strong>
                         </p>
                         
                         <div style="text-align: center;">
@@ -1094,15 +1066,7 @@ function initFormInteractions() {
                 inputs.forEach(input => {
                     input.classList.remove('field-valid', 'field-invalid');
                 });
-            })
-            .catch(err => {
-                responseContainer.innerHTML = `
-                    <div style="background: rgba(198, 40, 40, 0.08); border: 2px solid #c62828; border-radius: var(--radius-lg); padding: 25px; color: #c62828; text-align: center;">
-                        <h4 style="font-weight: 700; margin-top: 0;">⚠️ Submission Pipeline Error</h4>
-                        <p style="margin: 0; color: #2d251f;">${err.message || 'Unable to complete network operations.'}</p>
-                    </div>
-                `;
-            });
+            }, 1000);
         });
     }
 }

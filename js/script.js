@@ -1,10 +1,4 @@
-/* =========================================================================
-   T's Cakes and Pastries - Core Interaction Script
-   Author: Antigravity
-   Module: WEDE5020 Part 2.1 & 2.2 Rubric Enhancements
-   ========================================================================= */
 
-// --- Centralized Product Database (Part 2.2 Dynamic Content) ---
 const PRODUCT_CATALOG = [
     {
         id: "cake-signature",
@@ -1544,7 +1538,7 @@ function initShoppingCart() {
     // --- Cart Actions Functions ---
 
     // Add to Cart callback
-    window.addToCart = function(productId) {
+    window.addToCart = function (productId) {
         const product = PRODUCT_CATALOG.find(p => p.id === productId);
         if (!product) return;
 
@@ -1574,7 +1568,7 @@ function initShoppingCart() {
     };
 
     // Increments Item Quantity
-    window.increaseQty = function(productId) {
+    window.increaseQty = function (productId) {
         const item = cart.find(i => i.id === productId);
         if (item) {
             item.qty += 1;
@@ -1584,7 +1578,7 @@ function initShoppingCart() {
     };
 
     // Decrements Item Quantity
-    window.decreaseQty = function(productId) {
+    window.decreaseQty = function (productId) {
         const item = cart.find(i => i.id === productId);
         if (item) {
             item.qty -= 1;
@@ -1598,7 +1592,7 @@ function initShoppingCart() {
     };
 
     // Removes Item completely
-    window.removeCartItem = function(productId) {
+    window.removeCartItem = function (productId) {
         cart = cart.filter(i => i.id !== productId);
         saveCartState();
         updateCartDisplay();
@@ -1705,7 +1699,7 @@ function bindAddToCartButtons() {
  */
 function initThemeSwitcher() {
     const themeButtons = document.querySelectorAll('.theme-toggle-btn');
-    
+
     // Check local storage or fallback to system preference
     const savedTheme = localStorage.getItem('tscakes_theme');
     let currentTheme = 'light';
